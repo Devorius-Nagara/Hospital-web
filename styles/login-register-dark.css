@@ -1,0 +1,510 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+*,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block}
+html,body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea,select,textarea,p,h1,h2,h3,h4,h5,h6 {font-family: Bahnschrift; margin: 0px;
+    color: #212529;}
+input::-ms-clear{display: none;}
+button {cursor: pointer;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img {vertical-align: top;}
+
+body {
+    background-color: #212121;
+    height: 100%;
+}
+header {
+    background-color: #2b2b2b;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.page {
+    min-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+.mainPage {
+    background-color: #2B2B2B;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:1 1 auto;
+    overflow: hidden;
+}
+.emblem {
+    padding-left: 0px;
+    padding-top: 0px;
+}
+.tHead{
+    margin-bottom: 0px;
+    color: #D8D8D8;
+}
+.btnHead1 {
+    float: right;
+    display: block;
+    background-color: #1C1C1C;
+}
+.btnHead2 {
+    float: right;
+    display: block;
+    background-color: #1C1C1C;
+}
+.btnHead1:hover,.btnHead2:hover{
+    background-color: #161616;
+}
+
+@media (max-width: 500px) {
+    header{
+        height: 50px;
+        border-radius: 0px 0px 30px 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+    }
+    .emblem {
+        width: 50px;
+        height: 100%;
+    }
+    footer{
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 18pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 90%;
+    }
+    .btnHead1, .btnHead2{
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+    }
+    .btnHead1{
+        padding-left: 1px;
+        margin-right: 5px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 10px;
+        height: 12px;
+    }
+    .profile {
+        width: 10px;
+        height: 13px;
+    }
+    .regBlank {
+        width: 100%;
+        height: 100%;
+    }
+    .txtInform{
+        color: #4C4C4C;
+        margin-bottom: 10px;
+        font-size: 20pt;
+    }
+    .inptxt{
+        font-size: 11pt;
+        width: 260px;
+        height: 20px;
+    }
+    .sumbBtn {
+        width: 200px;
+        height: 25px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    .loginForm{
+        width: 300px;
+    }
+    .registerForm{
+        width: 300px;
+    }
+    .inpRd {
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 5px;
+        width: 260px;
+    }
+    .cbForm{
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    .inpCb{
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .cbBox{
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .rdTxt {
+        margin-bottom: 0px;
+        font-size: 8pt;
+    }
+    .inpShow{
+        width: 100%;
+    }
+}
+@media (min-width: 501px) and (max-width: 1300px){
+    header{
+        height: 80px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+    .emblem {
+        width: 80px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 30pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 100%;
+    }
+    .btnHead1, .btnHead2{
+        width: 48px;
+        height: 48px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 17px;
+        height: 20px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+    .regBlank {
+        width: 400px;
+        min-height: 600px;
+        border-radius: 50px;
+    }
+    .txtInform{
+        color: #4C4C4C;
+        margin-bottom: 10px;
+        font-size: 20pt;
+    }
+    .inptxt{
+        font-size: 13pt;
+        width: 340px;
+        height: 20px;
+    }
+    .sumbBtn {
+        width: 200px;
+        height: 25px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    .loginForm{
+        width: 380px;
+    }
+    .registerForm{
+        width: 300px;
+    }
+    .inpRd {
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 5px;
+        width: 340px;
+    }
+    .cbForm{
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    .inpCb{
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .cbBox{
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .rdTxt {
+        margin-bottom: 0px;
+        font-size: 10pt;
+    }
+    .inpShow{
+        width: 100%;
+    }
+}
+@media (min-width: 1301px){
+    .page {
+        width: 1280px;
+    }
+    header{
+        height: 60px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+
+    }
+    .emblem {
+        width: 55px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 28pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 145%;
+    }
+    .btnHead1, .btnHead2{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 7px;
+    }
+    .theme {
+        width: 17px;
+        height: 19px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+    .regBlank {
+        width: 400px;
+        min-height: 600px;
+        border-radius: 50px;
+    }
+    .txtInform{
+        color: #4C4C4C;
+        margin-bottom: 10px;
+        font-size: 20pt;
+    }
+    .inptxt{
+        font-size: 13pt;
+        width: 340px;
+        height: 25px;
+    }
+    .sumbBtn {
+        width: 240px;
+        height: 25px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    .loginForm{
+        width: 380px;
+    }
+    .registerForm{
+        width: 300px;
+    }
+    .inpRd {
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 5px;
+        width: 340px;
+    }
+    .cbForm{
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    .inpCb{
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .cbBox{
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .rdTxt {
+        margin-bottom: 0px;
+        font-size: 11pt;
+    }
+    .inpShow{
+        width: 100%;
+    }
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+}
+.regBlank {
+    background-color: #1C1C1C;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.txtInform{
+    color: #D8D8D8;
+    margin-bottom: 10px;
+}
+.inptxt {
+    border-radius: 15px 15px 15px 15px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin-top: 15px;
+    color: #4C4C4C;
+    height: 100%;
+}
+.inpTel{
+    display: none;
+}
+.sumbBtn {
+    border-radius: 15px 15px 15px 15px;
+    color: #4C4C4C;
+    margin-top: 30px;
+}
+.sumbBtn:hover{
+    background-color: #d2d2d2;
+}
+.loginForm{
+    flex-wrap: nowrap;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.registerForm{
+    flex-wrap: nowrap;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.inpRdForm{
+    display: flex;
+}
+.radio-group{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+label{
+    display: flex;
+    align-items: center;
+}
+.cbBox{
+    display: flex;
+    justify-content: right;
+}
+.rdTxt {
+    color: #D8D8D8;
+    margin-bottom: 0px;
+}
+.inpHide{
+    display: none;
+}
+.inpShow{
+    display: block;
+}
+
+.regBlank{
+    padding-top: 10px;
+}
