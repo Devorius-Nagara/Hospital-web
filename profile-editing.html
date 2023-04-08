@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" id="pageContent">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" id="cssTheme" href="styles/profile-editing-white.css">
+    <link href="styles/bahnschrift.ttf">
+    </head>
+<body>
+<div class="page">
+
+
+    <header>
+        <div class="embdiv">
+            <img class="emblem" id="emblem" src="images/emb-black.png">
+        </div>
+        <div>
+            <p class="tHead">МІЙ ЛІКАР</p>
+        </div>
+        <div>
+            <button class="btnHead2">
+                <img class="profile" id="profile" src="images/Profile black.png">
+            </button>
+            <button onclick="changeTheme()" class="btnHead1">
+                <img class="theme" id="themeEmb" src="images/sun.png">
+            </button>
+        </div>
+    </header>
+
+    <div class="mainPage">
+        <div class="closeBtnCase">
+            <button class="closeBtn">Відмінити</button>
+        </div>
+
+        <div class="blockOfContents">
+            <div>
+            <div class="contentBlock">
+                <div class="profileBlock txtConteiner">
+                    <div class="icoContainer">
+                        <img class="profileIco" id="profileIco" src="images/profile black.png">
+                    </div>
+                    <div class="discription">
+                        <button class="pfpBtn">Змінити світлину</button>
+                        <button class="pfpBtn">Вихід з обл.запису</button>
+                    </div>
+                </div>
+                <form class="underBlocks">
+                    <input type="text" class="inputText" placeholder="Ім'я" required>
+                    <input type="text" class="inputText" placeholder="Фамілія" required>
+                    <input type="text" class="inputText" placeholder="По батькові" required>
+                    <input type="text" class="inputText" placeholder="Пошта" required>
+                    <input type="text" class="inputText" placeholder="Телефон" required>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="gender" value="male" class="inpRd" required>
+                            <p class="rdTxt">Чоловік</p>
+                        </label>
+                        <label class="rdTxt">
+                            <input type="radio" name="gender" value="female" class="inpRd" required>
+                            <p class="rdTxt">Жінка</p>
+                        </label>
+                    </div>
+                    <div class="txtConteiner">
+                        <button class="sumbBtn" type="submit">Зберегти</button>
+                    </div>
+
+                </form>
+                <form class="underBlocks">
+                    <input type="password" class="inputText" placeholder="Старий пароль" required>
+                    <input type="password" class="inputText" placeholder="Новий пароль" required>
+                    <input type="password" class="inputText" placeholder="Повторіть пароль" required>
+                    <div class="txtConteiner">
+                        <button class="sumbBtn" type="submit">Зберегти</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="contentBlock">
+                <div class="modelWin"></div>
+                <form class="underBlocks">
+                    <h1 class="explainHdr">Ваше самопочуття
+                        та здоров’я</h1>
+                    <p class="explainTxt">Вкажіть ваші поточні показники
+                    незалежно від того чи знаходитесь
+                    ви в хворому, чи в здоровому стані</p>
+                    <input type="text" class="inputText" placeholder="Ріст" required>
+                    <input type="text" class="inputText" placeholder="Вага" required>
+                    <input type="text" class="inputText" placeholder="Тиск" required>
+                    <input type="text" class="inputText" placeholder="Пульс" required>
+                    <input type="text" class="inputText" placeholder="Глюкоза" required>
+                    <input type="text" class="inputText" placeholder="Температура тіла" required>
+                    <textarea class="message" maxlength="1000" placeholder="Додаткова інформація яку ви б хотіли зазначити"></textarea>
+                    <div class="txtConteiner">
+                        <button class="sumbBtn" type="submit">Зберегти</button>
+                    </div>
+                </form>
+            </div>
+            <div class="contentBlock">
+                    <form class="underBlocks">
+                        <p class="explainTxt">Вкажіть речовини та лікарства які
+                            можуть викликати алергічну реакцію</p>
+                        <input type="text" class="inputText" placeholder="Протипоказані речовини" required>
+                        <div class="txtConteiner">
+                            <button class="sumbBtn" type="submit">Зберегти</button>
+                        </div>
+                    </form>
+
+                    <form class="underBlocks">
+                    <p class="explainTxt">Вкажіть ваше місце проживанння</p>
+                    <input type="text" class="inputText" placeholder="Область" required>
+                    <input type="text" class="inputText" placeholder="Місто/Населений пункт" required>
+                    <div class="txtConteiner">
+                        <button class="sumbBtn" type="submit">Зберегти</button>
+                    </div>
+                </form>
+
+                    <form class="underBlocks">
+                    <p class="explainTxt">Подання заявки на роботу</p>
+                    <input type="text" class="inputText" placeholder="Ваша спеціальність" required>
+                    <input type="text" class="inputText" placeholder="Ваш диплом спеціаліста" required>
+                    <div class="txtConteiner">
+                        <button class="sumbBtn" type="submit">Відправити</button>
+                    </div>
+                </form>
+
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<noscript><h1>You will turn on your JavaScript on browser!</h1></noscript>
+</body>
+</html>
