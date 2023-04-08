@@ -198,6 +198,8 @@ header {
         padding-right: 10px;
     }
     .mainPage{
+        flex-direction: row;
+        align-items: stretch;
         margin-top: 20px;
         margin-bottom: 20px;
         border-radius: 40px;
@@ -244,8 +246,8 @@ header {
 
     .regBlank {
         width: 400px;
-        min-height: 600px;
-        border-radius: 50px;
+        min-height: 100%;
+        border-radius: 0px;
     }
     .txtInform{
         color: #4C4C4C;
@@ -314,6 +316,8 @@ header {
         padding-right: 10px;
     }
     .mainPage{
+        flex-direction: row;
+        align-items: stretch;
         margin-top: 20px;
         margin-bottom: 20px;
         border-radius: 40px;
@@ -362,9 +366,9 @@ header {
 
 
     .regBlank {
-        width: 400px;
-        min-height: 600px;
-        border-radius: 50px;
+        width: 500px;
+        min-height: 100%;
+        border-radius: 0px;
     }
     .txtInform{
         color: #4C4C4C;

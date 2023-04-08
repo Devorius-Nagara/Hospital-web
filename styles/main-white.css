@@ -91,7 +91,6 @@ footer{
         padding-right: 10px;
     }
     .mainPage{
-        padding: 20px;
         margin-top: 20px;
         margin-bottom: 20px;
         border-radius: 30px;
@@ -113,10 +112,7 @@ footer{
         font-size: 18pt;
     }
     h1, h2, h3, h4, h5, h6{
-        font-size: 90%;
-    }
-    .footerblock {
-        margin-top: 10px;
+        font-size: 130%;
     }
     .btnHead1, .btnHead2{
         width: 30px;
@@ -285,6 +281,10 @@ footer{
     }
     .txtOfBtn{
         font-size: 30pt;
+    }
+
+    .footerblock{
+        width:50%;
     }
 }
 

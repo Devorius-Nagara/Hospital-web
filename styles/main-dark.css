@@ -271,6 +271,9 @@ footer{
     .txtOfBtn{
         font-size: 30pt;
     }
+    .footerblock{
+        width:50%;
+    }
 }
 
 .embdiv {
