@@ -4,28 +4,7 @@ const emblem = document.getElementById('emblem');
 const themeEmb = document.getElementById('themeEmb');
 const profile = document.getElementById('profile');
 const profileIco = document.getElementById('profileIco');
-
-document.addEventListener('DOMContentLoaded', function() {
-    const themedataString = localStorage.getItem('themedata-prof');
-    const themedata = JSON.parse(themedataString);
-
-
-    css.href = 'styles/' + themedata.theme;
-    emblem.src = 'images/' + themedata.emblem;
-    themeEmb.src = 'images/' + themedata.themeEmb;
-    profile.src = 'images/' + themedata.profile;
-    profileIco.src = 'images/' + themedata.profileIco;
-
-});
-
 function changeTheme() {
-    var themedata = {
-        theme: 0,
-        emblem: 0,
-        themeEmb: 0,
-        profile: 0,
-        profileIco: 0,
-    }
     if (css.href.match('styles/profile-white.css')) {
         css.href = 'styles/profile-dark.css';
         emblem.src = 'images/emb-white.png';
@@ -33,11 +12,11 @@ function changeTheme() {
         profile.src = 'images/profile.png';
         profileIco.src = 'images/profile.png';
 
-        themedata.theme = 'profile-dark.css';
-        themedata.emblem ='emb-white.png';
-        themedata.themeEmb = 'moon.png';
-        themedata.profile = 'profile.png';
-        themedata.profileIco = 'profile.png';
+        localStorage.setItem('theme', 'profile-dark');
+        localStorage.setItem('emblem', 'emb-white');
+        localStorage.setItem('themeEmb', 'moon');
+        localStorage.setItem('profile', 'profile');
+        localStorage.setItem('profileIco', 'profile');
     } else {
         css.href = 'styles/profile-white.css';
         emblem.src = 'images/emb-black.png';
@@ -45,14 +24,21 @@ function changeTheme() {
         profile.src = 'images/profile black.png';
         profileIco.src = 'images/profile black.png';
 
-        themedata.theme = 'profile-white.css';
-        themedata.emblem = 'emb-black.png';
-        themedata.themeEmb = 'sun.png';
-        themedata.profile = 'profile black.png';
-        themedata.profileIco = 'profile black.png';
+        localStorage.setItem('theme', 'profile-white');
+        localStorage.setItem('emblem', 'emb-black');
+        localStorage.setItem('themeEmb', 'sun');
+        localStorage.setItem('profile', 'profile black');
+        localStorage.setItem('profileIco', 'profile black');
     }
 
-    localStorage.setItem('themedata-prof', JSON.stringify(themedata));
+    var themedata = {
+        theme: localStorage.getItem('theme'),
+        emblem: localStorage.getItem('emblem'),
+        themeEmb: localStorage.getItem('themeEmb'),
+        profile: localStorage.getItem('profile'),
+        profileIco: localStorage.getItem('profileIco')
+    }
+    return themedata;
 }
 
 

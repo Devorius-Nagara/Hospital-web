@@ -49,7 +49,6 @@ header {
 }
 .mainPage {
     background-color: #2B2B2B;
-    flex:1 1 auto;
     overflow: hidden;
     position: relative;
 }
@@ -77,6 +76,11 @@ header {
 p, h1, h2, h3, h4, h5, h6{
     color: #C9CBC0;
 }
+label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 @media (max-width: 500px) {
     header{
@@ -86,11 +90,14 @@ p, h1, h2, h3, h4, h5, h6{
         padding-right: 10px;
     }
     .mainPage{
-        display: flex;
-        justify-content: flex-start;
         margin-top: 20px;
         margin-bottom: 20px;
         border-radius: 30px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding-bottom: 20px;
     }
     .emblem {
         width: 50px;
@@ -132,6 +139,158 @@ p, h1, h2, h3, h4, h5, h6{
         height: 13px;
     }
 
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .blockOfContents{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .contentBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .contentBlock:first-child{
+        margin-top: 35px;
+    }
+    .contentCentralBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .profileBlock{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 20px;
+    }
+    .icoContainer{
+        width: 90px;
+        height: 90px;
+        border-radius: 22px 22px 22px 22px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .profileIco{
+        width: 53px;
+        height: 68px;
+    }
+    .pfpBtn{
+        width: 170px;
+        height: 25px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 11pt;
+    }
+    .discription{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .underBlocks{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .inputText{
+        font-size: 13pt;
+
+        width: 280px;
+        height: 25px;
+        border-radius: 50px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    .inpRd {
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 2px;
+        display: flex;
+        flex-direction: column;
+        width: 290px;
+    }
+    .sumbBtn{
+        width: 190px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 10px;
+    }
+    .txtConteiner{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .message{
+        width: 280px;
+        height: 200px;
+        padding: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+    }
+    .explainHdr{
+        text-align: center;
+        font-size: 18pt;
+    }
+    .explainTxt{
+        text-align: center;
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+    .pinnedFile{
+        width: 190px;
+        height: 25px;
+        border-radius: 20px 0px 0px 20px;
+        padding-left: 10px;
+        font-size: 11pt;
+    }
+    .file{
+        width: 90px;
+        height: 25px;
+        border-radius: 0px 20px 20px 0px;
+        padding-left: 5px;
+    }
+    .centralBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 330px){
+    .contentBlock, .contentCentralBlock{
+        width: 330px;
+    }
 }
 @media (min-width: 501px) and (max-width: 1300px){
     header{
@@ -185,6 +344,605 @@ p, h1, h2, h3, h4, h5, h6{
         height: 18px;
     }
 
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .blockOfContents{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .contentBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .contentBlock:first-child{
+        margin-top: 35px;
+    }
+    .contentCentralBlock{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        margin-top: 35px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .profileBlock{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 20px;
+    }
+    .icoContainer{
+        width: 90px;
+        height: 90px;
+        border-radius: 22px 22px 22px 22px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .profileIco{
+        width: 53px;
+        height: 68px;
+    }
+    .pfpBtn{
+        width: 170px;
+        height: 25px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 11pt;
+    }
+    .discription{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .underBlocks{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .inputText{
+        font-size: 13pt;
+
+        width: 280px;
+        height: 25px;
+        border-radius: 50px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    .inpRd {
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 2px;
+        display: flex;
+        flex-direction: column;
+        width: 290px;
+    }
+    .sumbBtn{
+        width: 190px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 10px;
+    }
+    .txtConteiner{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .message{
+        width: 280px;
+        height: 200px;
+        padding: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+    }
+    .explainHdr{
+        text-align: center;
+        font-size: 18pt;
+    }
+    .explainTxt{
+        text-align: center;
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+    .pinnedFile{
+        width: 190px;
+        height: 25px;
+        border-radius: 20px 0px 0px 20px;
+        padding-left: 10px;
+        font-size: 11pt;
+    }
+    .file{
+        width: 90px;
+        height: 25px;
+        border-radius: 0px 20px 20px 0px;
+        padding-left: 5px;
+    }
+    .centralBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 500px) {
+    header{
+        height: 50px;
+        border-radius: 0px 0px 30px 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding-bottom: 20px;
+    }
+    .emblem {
+        width: 50px;
+        height: 100%;
+    }
+    footer{
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 18pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 130%;
+    }
+    .btnHead1, .btnHead2{
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+    }
+    .btnHead1{
+        padding-left: 1px;
+        margin-right: 5px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 10px;
+        height: 12px;
+    }
+    .profile {
+        width: 10px;
+        height: 13px;
+    }
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .blockOfContents{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .contentBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .contentBlock:first-child{
+        margin-top: 35px;
+    }
+    .contentCentralBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .profileBlock{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 20px;
+    }
+    .icoContainer{
+        width: 90px;
+        height: 90px;
+        border-radius: 22px 22px 22px 22px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .profileIco{
+        width: 53px;
+        height: 68px;
+    }
+    .pfpBtn{
+        width: 170px;
+        height: 25px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 11pt;
+    }
+    .discription{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .underBlocks{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .inputText{
+        font-size: 13pt;
+
+        width: 280px;
+        height: 25px;
+        border-radius: 50px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    .inpRd {
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 2px;
+        display: flex;
+        flex-direction: column;
+        width: 290px;
+    }
+    .sumbBtn{
+        width: 190px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 10px;
+    }
+    .txtConteiner{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .message{
+        width: 280px;
+        height: 200px;
+        padding: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+    }
+    .explainHdr{
+        text-align: center;
+        font-size: 18pt;
+    }
+    .explainTxt{
+        text-align: center;
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+    .pinnedFile{
+        width: 190px;
+        height: 25px;
+        border-radius: 20px 0px 0px 20px;
+        padding-left: 10px;
+        font-size: 11pt;
+    }
+    .file{
+        width: 90px;
+        height: 25px;
+        border-radius: 0px 20px 20px 0px;
+        padding-left: 5px;
+    }
+    .centralBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 330px){
+    .contentBlock, .contentCentralBlock{
+        width: 330px;
+    }
+}
+@media (min-width: 501px) and (max-width: 1300px){
+    header{
+        height: 80px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+    .emblem {
+        width: 80px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 30pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 110%;
+    }
+    .btnHead1, .btnHead2{
+        width: 48px;
+        height: 48px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 17px;
+        height: 20px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .blockOfContents{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .contentBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .contentBlock:first-child{
+        margin-top: 35px;
+    }
+    .contentCentralBlock{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        margin-top: 35px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .profileBlock{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 20px;
+    }
+    .icoContainer{
+        width: 90px;
+        height: 90px;
+        border-radius: 22px 22px 22px 22px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .profileIco{
+        width: 53px;
+        height: 68px;
+    }
+    .pfpBtn{
+        width: 170px;
+        height: 25px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 11pt;
+    }
+    .discription{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .underBlocks{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .inputText{
+        font-size: 13pt;
+
+        width: 280px;
+        height: 25px;
+        border-radius: 50px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    .inpRd {
+        width: 18px;
+        height: 18px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 2px;
+        display: flex;
+        flex-direction: column;
+        width: 290px;
+    }
+    .sumbBtn{
+        width: 190px;
+        height: 25px;
+        border-radius: 50px;
+        margin-top: 10px;
+    }
+    .txtConteiner{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .message{
+        width: 280px;
+        height: 200px;
+        padding: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+    }
+    .explainHdr{
+        text-align: center;
+        font-size: 18pt;
+    }
+    .explainTxt{
+        text-align: center;
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+    .pinnedFile{
+        width: 190px;
+        height: 25px;
+        border-radius: 20px 0px 0px 20px;
+        padding-left: 10px;
+        font-size: 11pt;
+    }
+    .file{
+        width: 90px;
+        height: 25px;
+        border-radius: 0px 20px 20px 0px;
+        padding-left: 5px;
+    }
+    .centralBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 700px){
+    .rowing{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+    }
+}
+@media (min-width: 1050px){
+    .centralBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0px;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        margin-bottom: 0px;
+        justify-content: center;
+    }
+    .contentCentralBlock{
+        margin-top: 0px;
+    }
+}
+@media (min-width: 1100px){
+    .mainPage{
+        flex: none;
+    }
 }
 @media (min-width: 1301px){
     .page {
@@ -241,4 +999,181 @@ p, h1, h2, h3, h4, h5, h6{
         width: 15px;
         height: 18px;
     }
+
+
+
+
+
+
+    .contentBlock, .contentCentralBlock {
+        width: 400px;
+    }
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .blockOfContents{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .contentBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 50px;
+    }
+    .contentCentralBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        margin-top: 0px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .profileBlock{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 20px;
+    }
+    .icoContainer{
+        width: 110px;
+        height: 110px;
+        border-radius: 22px 22px 22px 22px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .profileIco{
+        width: 61px;
+        height: 76px;
+    }
+    .pfpBtn{
+        width: 210px;
+        height: 30px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+    }
+    .discription{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .underBlocks{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .inputText{
+        font-size: 14pt;
+
+        width: 350px;
+        height: 30px;
+        border-radius: 50px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    .inpRd {
+        width: 23px;
+        height: 23px;
+        margin: 5px;
+    }
+    .radio-group{
+        margin-top: 2px;
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+    }
+    .sumbBtn{
+        width: 210px;
+        height: 30px;
+        border-radius: 50px;
+        margin-top: 10px;
+        font-size: 14pt;
+    }
+    .txtConteiner{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .message{
+        width: 350px;
+        height: 250px;
+        padding: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+    }
+    .explainHdr{
+        text-align: center;
+        font-size: 20pt;
+    }
+    .explainTxt{
+        text-align: center;
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+    .pinnedFile{
+        width: 220px;
+        height: 30px;
+        border-radius: 20px 0px 0px 20px;
+        padding-left: 10px;
+        font-size: 13pt;
+    }
+    .file{
+        width: 130px;
+        height: 30px;
+        border-radius: 0px 20px 20px 0px;
+        padding-left: 15px;
+        font-size: 12pt;
+    }
+    .centralBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+    }
+    .rdTxt{
+        font-size: 13pt;
+    }
+}
+
+
+.closeBtnCase{
+    position: absolute;
+}
+
+.underBlocks, .centralBlock {
+    background-color: #1C1C1C;
+}
+.icoContainer{
+    background-color: #1C1C1C;
+}
+.pfpBtn{
+    background-color: #C9CBC0;
+}
+.closeBtn{
+    background-color: #C9CBC0;
 }

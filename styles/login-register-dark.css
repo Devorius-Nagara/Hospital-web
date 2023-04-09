@@ -382,10 +382,11 @@ header {
     }
     .sumbBtn {
         width: 240px;
-        height: 25px;
+        height: 30px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 20px;
+        font-size: 15pt;
     }
     .loginForm{
         width: 380px;

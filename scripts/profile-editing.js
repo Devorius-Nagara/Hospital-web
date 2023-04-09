@@ -26,26 +26,26 @@ function changeTheme() {
         profile: 0,
         profileIco: 0,
     }
-    if (css.href.match('styles/profile-white.css')) {
-        css.href = 'styles/profile-dark.css';
+    if (css.href.match('styles/profile-editing-white.css')) {
+        css.href = 'styles/profile-editing-dark.css';
         emblem.src = 'images/emb-white.png';
         themeEmb.src = 'images/moon.png';
         profile.src = 'images/profile.png';
         profileIco.src = 'images/profile.png';
 
-        themedata.theme = 'profile-dark.css';
+        themedata.theme = 'profile-editing-dark.css';
         themedata.emblem ='emb-white.png';
         themedata.themeEmb = 'moon.png';
         themedata.profile = 'profile.png';
         themedata.profileIco = 'profile.png';
     } else {
-        css.href = 'styles/profile-white.css';
+        css.href = 'styles/profile-editing-white.css';
         emblem.src = 'images/emb-black.png';
         themeEmb.src = 'images/sun.png';
         profile.src = 'images/profile black.png';
         profileIco.src = 'images/profile black.png';
 
-        themedata.theme = 'profile-white.css';
+        themedata.theme = 'profile-editing-white.css';
         themedata.emblem = 'emb-black.png';
         themedata.themeEmb = 'sun.png';
         themedata.profile = 'profile black.png';
@@ -54,76 +54,3 @@ function changeTheme() {
 
     localStorage.setItem('themedata-prof', JSON.stringify(themedata));
 }
-
-
-
-/**Логіка роботи лівої панелі**/
-    const btnCloser = document.getElementById('btnCloser');
-    const btnOpener = document.getElementById('btnOpener');
-    const datatable = document.getElementById('datatable');
-    window.addEventListener('resize', updateWindowSize);
-    var windowWidth = window.innerWidth;
-    function updateWindowSize() {
-        windowWidth = window.innerWidth;
-        if (!btnCloser.classList.contains("hiden") && window.innerWidth <= 500){
-            $("#leftPanel").animate({left: '-300'}, 0);
-            datatable.classList.remove("blur");
-        }
-        else if (!btnCloser.classList.contains("hiden") && windowWidth > 500 && windowWidth <= 1300){
-            $("#leftPanel").animate({left: '-350'}, 0);
-            datatable.classList.remove("blur");
-        }
-        else if(!btnCloser.classList.contains("hiden") && windowWidth > 1300){
-            $("#leftPanel").animate({left: '-400'}, 0);
-            datatable.classList.remove("blur");
-        }
-    }
-
-    if (!btnCloser.classList.contains("hiden") && windowWidth <= 500){
-        $("#leftPanel").animate({left: '0'}, 800);
-        datatable.classList.add("blur");
-        btnCloser.classList.remove("hiden");
-        btnOpener.classList.add("hiden");
-    }
-    else if (!btnCloser.classList.contains("hiden") && windowWidth > 500 && windowWidth <= 1300){
-        $("#leftPanel").animate({left: '0'}, 800);
-        datatable.classList.add("blur");
-        btnCloser.classList.remove("hiden");
-        btnOpener.classList.add("hiden");
-    }
-    else if (!btnCloser.classList.contains("hiden") && windowWidth > 1300){
-        $("#leftPanel").animate({left: '0'}, 800);
-        datatable.classList.add("blur");
-        btnCloser.classList.remove("hiden");
-        btnOpener.classList.add("hiden");
-    }
-    function leftPanelActionClose(){
-        windowWidth = window.innerWidth;
-        if (!btnCloser.classList.contains("hiden") && windowWidth <= 500){
-            $("#leftPanel").animate({left: '-300'}, 300);
-            datatable.classList.remove("blur");
-            btnCloser.classList.add("hiden");
-            btnOpener.classList.remove("hiden");
-        }
-        else if (!btnCloser.classList.contains("hiden") && windowWidth > 500 && windowWidth <= 1300){
-            $("#leftPanel").animate({left: '-350'}, 300);
-            datatable.classList.remove("blur");
-            btnCloser.classList.add("hiden");
-            btnOpener.classList.remove("hiden");
-        }
-        else if (!btnCloser.classList.contains("hiden") && windowWidth > 1300){
-            $("#leftPanel").animate({left: '-400'}, 300);
-            datatable.classList.remove("blur");
-            btnCloser.classList.add("hiden");
-            btnOpener.classList.remove("hiden");
-        }
-    }
-    function leftPanelActionOpen(){
-        windowWidth = window.innerWidth;
-        if (btnCloser.classList.contains("hiden")){
-            $("#leftPanel").animate({left: '0'}, 300);
-            datatable.classList.add("blur");
-            btnCloser.classList.remove("hiden");
-            btnOpener.classList.add("hiden");
-        }
-    }

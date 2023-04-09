@@ -387,10 +387,11 @@ footer{
     }
     .sumbBtn {
         width: 240px;
-        height: 25px;
+        height: 30px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 20px;
+        font-size: 13pt;
     }
     .loginForm{
         width: 380px;
