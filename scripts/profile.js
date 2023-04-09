@@ -51,17 +51,26 @@ function changeTheme() {
     var windowWidth = window.innerWidth;
     function updateWindowSize() {
         windowWidth = window.innerWidth;
-        if (!btnCloser.classList.contains("hiden") && window.innerWidth <= 500){
+        if (window.innerWidth <= 500){
             $("#leftPanel").animate({left: '-300'}, 0);
             datatable.classList.remove("blur");
+            btnCloser.classList.add("hiden");
+            btnOpener.classList.remove("hiden");
+            console.log("1");
         }
-        else if (!btnCloser.classList.contains("hiden") && windowWidth > 500 && windowWidth <= 1300){
+        else if (windowWidth > 500 && windowWidth <= 1300){
             $("#leftPanel").animate({left: '-350'}, 0);
             datatable.classList.remove("blur");
+            btnCloser.classList.add("hiden");
+            btnOpener.classList.remove("hiden");
+            console.log("2");
         }
-        else if(!btnCloser.classList.contains("hiden") && windowWidth > 1300){
+        else if(windowWidth > 1300){
             $("#leftPanel").animate({left: '-400'}, 0);
             datatable.classList.remove("blur");
+            btnCloser.classList.add("hiden");
+            btnOpener.classList.remove("hiden");
+            console.log("3");
         }
     }
 
