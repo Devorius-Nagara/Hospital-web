@@ -329,3 +329,8 @@ footer{
     color: #D8D8D8;
     text-decoration: underline;
 }
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

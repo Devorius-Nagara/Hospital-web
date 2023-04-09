@@ -317,4 +317,9 @@ footer{
     color: #212529;
     text-decoration: underline;
 }
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
