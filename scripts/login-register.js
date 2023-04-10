@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         changeTheme()
     }
 });
-
 function changeTheme() {
     let themedata;
     if (css.href.match('styles/login-register-white.css')) {

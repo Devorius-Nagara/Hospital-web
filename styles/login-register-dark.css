@@ -123,8 +123,8 @@ header {
         margin-right: 5px;
     }
     .theme {
-        width: 10px;
-        height: 12px;
+        width: 12px;
+        height: 14px;
     }
     .profile {
         width: 10px;
@@ -376,7 +376,7 @@ header {
         font-size: 20pt;
     }
     .inptxt{
-        font-size: 13pt;
+        font-size: 14pt;
         width: 340px;
         height: 25px;
     }
@@ -386,7 +386,7 @@ header {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 20px;
-        font-size: 15pt;
+        font-size: 13pt;
     }
     .loginForm{
         width: 380px;
@@ -445,7 +445,7 @@ header {
     text-align: center;
 }
 .txtInform{
-    color: #D8D8D8;
+    color: #C9CBC0;
     margin-bottom: 10px;
 }
 .inptxt {
@@ -454,7 +454,6 @@ header {
     padding-right: 10px;
     margin-top: 15px;
     color: #4C4C4C;
-    height: 100%;
 }
 .inpTel{
     display: none;
@@ -500,7 +499,7 @@ label{
     justify-content: right;
 }
 .rdTxt {
-    color: #D8D8D8;
+    color: #C9CBC0;
     margin-bottom: 0px;
 }
 .inpHide{
@@ -509,7 +508,6 @@ label{
 .inpShow{
     display: block;
 }
-
 .regBlank{
     padding-top: 10px;
 }
