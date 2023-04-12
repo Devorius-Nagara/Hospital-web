@@ -55,21 +55,22 @@ loginForm.addEventListener("submit", function(event) {
         "mail": mail,
         "password": password
     };
+    console.log(data);
     // Відправляємо запит на сервер
     fetch('https://localhost:44391/Auth/login', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
-            'Content-Type': 'application/json',
-            //'Authorization': 'Bearer ${token}'
+            'Content-Type': 'application/json'
         }
     })
         .then(response => response.text())
         .then(data => {
-            localStorage.setItem('auth_token', JSON.stringify(data));
+            alert(data);
+            localStorage.setItem('auth_token', JSON.stringify(response.text));
         })
         .catch(error => {
-            console.error(error)
+            alert(error);
         });
 });
 
@@ -92,6 +93,7 @@ registrationForm.addEventListener("submit", function(event) {
     const phoneNumber = document.getElementById("phoneNumber").value;
     const settlementName = "Коломия";
     const data = { surname, name, middleName, password, mail, gender, birthDate, phoneNumber, settlementName };
+    console.log(data);
 
     fetch('https://localhost:44391/Auth/register', {
         method: 'POST',
@@ -100,11 +102,12 @@ registrationForm.addEventListener("submit", function(event) {
             'Content-Type': 'application/json'
         }
     })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-            localStorage.setItem('auth_token', JSON.stringify(data));
+            alert(data);
         })
         .catch(error => {
+            alert(error);
             console.log(error);
         });
 });
