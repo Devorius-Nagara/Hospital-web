@@ -168,7 +168,7 @@ header {
     }
     .cbForm{
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         flex-wrap: nowrap;
         flex-direction: column;
     }
@@ -188,6 +188,21 @@ header {
     }
     .inpShow{
         width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 @media (min-width: 501px) and (max-width: 1300px){
@@ -283,7 +298,7 @@ header {
     }
     .cbForm{
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         flex-wrap: nowrap;
         flex-direction: column;
     }
@@ -303,6 +318,21 @@ header {
     }
     .inpShow{
         width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 @media (min-width: 1301px){
@@ -405,7 +435,7 @@ header {
     }
     .cbForm{
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         flex-wrap: nowrap;
         flex-direction: column;
     }
@@ -425,6 +455,21 @@ header {
     }
     .inpShow{
         width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -510,4 +555,18 @@ label{
 }
 .regBlank{
     padding-top: 10px;
+}
+.errorWin{
+    background-color: #4C4C4C;
+}
+.errorText{
+    color: #C9CBC0;
+    text-align: center;
+}
+datalist{
+    background-color: #4C4C4C;
+    width: 100px;
+}
+option {
+    height: 20px;
 }

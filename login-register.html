@@ -9,6 +9,9 @@
     <link href="styles/bahnschrift.ttf">
     </head>
 <body>
+<div class="errorWin" id="errorWin">
+    <p class="errorText"></p>
+</div>
 <div class="page">
 
 
@@ -34,7 +37,7 @@
             <div class="loginForm">
                 <form class="login" id="login">
                     <h1 class="txtInform">ВХІД</h1>
-                    <input type="email" class="inptxt required" id="email-login" id="exampleInputEmail1" placeholder="Пошта" required>
+                    <input type="email" class="inptxt required" id="email-login" placeholder="Пошта" required>
                     <input type="password" id="password-login" class="inptxt required" placeholder="Пароль" required>
                     <button class="sumbBtn" type="submit">Вхід</button>
                 </form>
@@ -45,10 +48,11 @@
                     <input type="text" size="20" class="inptxt" placeholder="Ім'я" id="name" required>
                     <input type="text" size="20" class="inptxt" placeholder="Фамілія" id="surname" required>
                     <input type="text" size="20" class="inptxt" placeholder="По батькові" id="middleName" required>
-                    <input type="email" class="inptxt" id="email-registration" id="exampleInputEmail1" placeholder="Пошта" required>
-                    <input type="password" class="inptxt" id="password-registration" id="inputPassword6" aria-describedby="passwordHelpInline" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" placeholder="Пароль від 8 до 20" required>
-                    <input type="tel" size="10" class="inptxt" placeholder="Тел.: 091 111 11 11" id="phoneNumber">
+                    <input type="email" class="inptxt" id="email-registration" placeholder="Пошта" required>
+                    <input type="password" class="inptxt" id="password-registration" placeholder="Пароль від 8 до 20" required>
+                    <input type="tel" size="10" class="inptxt form-control" placeholder="Тел.: 091 111 11 11" id="phoneNumber">
                     <input type="date" class="inptxt" id="birthDate" required>
+                    <input type="text" id="searchCity" class="inptxt" placeholder="Місто або населений пункт">
 
                     <div class="radio-group">
                         <div>
@@ -62,10 +66,6 @@
                             </label>
                         </div>
                         <div class="cbForm">
-                            <label style="display: flex; justify-content: flex-end">
-                                <p class="rdTxt">Я лікар</p>
-                                <input type="checkbox" name="spec" value="doctor" class="inpCb">
-                            </label>
                             <label>
                                 <p class="rdTxt">Я згоден з умовами сайту</p>
                                 <input type="checkbox" name="spec" value="doctor" class="inpCb" required>
@@ -73,7 +73,7 @@
                         </div>
 
                     </div>
-                    <button class="sumbBtn" type="submit">Реєстрація</button>
+                    <button class="sumbBtn" type="submit" id="regBtn">Реєстрація</button>
                 </form>
             </div>
         </div>
