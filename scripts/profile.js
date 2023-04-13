@@ -4,6 +4,7 @@ const themeEmb = document.getElementById('themeEmb');
 const profile = document.getElementById('profile');
 const profileIco = document.getElementById('profileIco');
 
+/** Зміна теми **/
 document.addEventListener('DOMContentLoaded', function() {
     const themedataString = localStorage.getItem('MyDoctorThemeData');
     const themedata = JSON.parse(themedataString);
@@ -12,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         changeTheme()
     }
 });
-
 function changeTheme() {
     let themedata;
     if (css.href.match('styles/profile-white.css')) {
@@ -115,3 +115,56 @@ function changeTheme() {
             btnOpener.classList.add("hiden");
         }
     }
+
+
+
+/** Запити на сервер **/
+
+const nsm = document.querySelector('#nsm');
+const gender = document.querySelector('#gender');
+const dataB = document.querySelector('#dataB');
+const status = document.querySelector('#status');
+let token = localStorage.getItem('auth_token');
+$.ajax({
+    url: 'https://localhost:44391/Profile',
+    type: 'GET',
+    dataType: 'json',
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+    },
+    success: function (data) {
+        let shortName = data.name[0];
+        let shortMiddleName = data.middleName[0];
+        nsm.textContent = 'ПІБ: ' + data.surName + '.' + shortName + '.' + shortMiddleName;
+        gender.textContent = 'Стать: ' + data.gender;
+        dataB.textContent = 'Вік: ' + data.age + ' років';
+    },
+    error: function (error) {
+        window.location = "main.html";
+    }
+});
+$.ajax({
+    url: 'https://localhost:44391/Profile/isDoctor',
+    type: 'GET',
+    dataType: 'json',
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+    },
+    success: function (data) {
+        if (data){
+            status.textContent = 'Статус: Лікар'
+        }else{
+            status.textContent = 'Статус: Клієнт'
+        }
+    },
+    error: function (error) {
+        console.error(error);
+    }
+});
+
+/** LOGOUT **/
+const btnLogOut = document.getElementById('btnLogOut')
+btnLogOut.addEventListener('click', function logOut() {
+    localStorage.removeItem('auth_token')
+    window.location.href = "main.html"
+})

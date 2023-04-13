@@ -146,6 +146,15 @@ footer{
     .txtOfBtn{
         font-size: 18pt;
     }
+    .logOnProf {
+        margin-top: 15px;
+        height: 40px;
+        width: 45%;
+        border-radius: 50px;
+    }
+    .logOnProfText {
+        font-size: 15pt;
+    }
 }
 @media (min-width: 501px) and (max-width: 1300px){
     header{
@@ -213,6 +222,15 @@ footer{
     }
     .txtOfBtn{
         font-size: 18pt;
+    }
+    .logOnProf {
+        margin-top: 15px;
+        height: 40px;
+        width: 35%;
+        border-radius: 50px;
+    }
+    .logOnProfText {
+        font-size: 15pt;
     }
 }
 @media (min-width: 1301px){
@@ -286,6 +304,15 @@ footer{
     .footerblock{
         width:50%;
     }
+    .logOnProf {
+        margin-top: 15px;
+        height: 40px;
+        width: 30%;
+        border-radius: 50px;
+    }
+    .logOnProfText {
+        font-size: 20pt;
+    }
 }
 
 
@@ -293,15 +320,15 @@ footer{
     margin-bottom: 0px;
     text-align: center;
 }
-.logOrReg {
+.logOrReg, .logOnProf {
     background-color: #1C1C1C;
     margin-left: auto;
     margin-right: auto;
 }
-.logOrReg:hover {
+.logOrReg:hover, .logOnProf:hover{
     background-color: #111111;
 }
-.txtOfBtn{
+.txtOfBtn, .logOnProfText{
     margin: 0px;
     color: #E0DECD;
     max-font-size: 35px;
@@ -317,9 +344,7 @@ footer{
     color: #212529;
     text-decoration: underline;
 }
-a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hiding {
+    display: none;
 }
 

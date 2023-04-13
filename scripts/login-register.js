@@ -15,6 +15,32 @@ passwordInput.addEventListener('input', validatePassword);
 const surnameD = document.getElementById("surname");
 const nameD = document.getElementById("name");
 const middleNameD = document.getElementById("middleName");
+let logged;
+
+/** Перехід на профіль **/
+let token = localStorage.getItem('auth_token');
+$.ajax({
+    url: 'https://localhost:44391/Profile',
+    type: 'GET',
+    dataType: 'json',
+    beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+    },
+    success: function (data) {
+        window.location = "profile.html";
+    },
+    error: function (error) {
+        logged = false;
+    }
+});
+profile.addEventListener("click", function logRegOrRecord(event) {
+    if (logged) {
+        window.location.href = "profile.html";
+    }else {
+        window.location.href = "login-register.html";
+    }
+});
+
 
 /** ЗМІНА ТЕМИ **/
 document.addEventListener('DOMContentLoaded', function() {
@@ -51,20 +77,23 @@ function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 surnameD.addEventListener('input', function() {
-    let name = surnameD.value.trim(); // Отримання введеного тексту та видалення пробілів з початку та кінця
-    name = capitalizeFirstLetter(name); // Перетворення першої букви на велику літеру
-    surnameD.value = name; // Запис відформатованого тексту до поля вводу
+    let name = surnameD.value.trim();
+    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    surnameD.value = name;
 });
+
 nameD.addEventListener('input', function() {
     let name = nameD.value.trim();
-    name = capitalizeFirstLetter(name);
+    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     nameD.value = name;
 });
+
 middleNameD.addEventListener('input', function() {
     let name = middleNameD.value.trim();
-    name = capitalizeFirstLetter(name);
+    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     middleNameD.value = name;
 });
+
 
 
 /** ЛОГІН **/
@@ -152,7 +181,7 @@ registrationForm.addEventListener("submit", function(event) {
                 $("#errorWin").animate({top: '-100'}, 400);
             }, 5000);
         });
-});
+    });
 
 /** ВАЛІДАЦІЯ **/
 /** НОМЕР **/
@@ -187,7 +216,7 @@ function validateEmail() {
 
 /** Пароль **/
 function validatePassword() {
-    let regex = /^[a-zA-Z0-9]{8,}$/;
+    let regex = /^[a-zA-Z0-9_.,]{8,}$/;
 
     if (!regex.test(passwordInput.value)) {
         errorText.textContent = 'Введіть пароль який буде складатись що найменше з 8-ми символів та лише з цифр або алфавіту.';
