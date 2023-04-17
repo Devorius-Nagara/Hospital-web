@@ -17,6 +17,11 @@ const nameD = document.getElementById("name");
 const middleNameD = document.getElementById("middleName");
 let logged;
 
+
+$(document).ready(function() {
+    $('.select2').select2();
+});
+
 /** Перехід на профіль **/
 let token = localStorage.getItem('auth_token');
 $.ajax({

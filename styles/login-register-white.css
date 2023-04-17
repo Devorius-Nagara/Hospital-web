@@ -209,6 +209,16 @@ footer{
         margin-left: auto;
         margin-right: auto;
     }
+    .select2-container--default .select2-selection--single {
+        height: 20px;
+    }
+    .select2{
+        margin-top: 15px;
+        width: 260px !important;
+    }
+    .select2-container--default .select2-selection--single {
+        font-size: 11pt;
+    }
 }
 @media (min-width: 501px) and (max-width: 1300px){
     header{
@@ -338,6 +348,16 @@ footer{
         top: -100px;
         margin-left: auto;
         margin-right: auto;
+    }
+    .select2-container--default .select2-selection--single {
+        height: 20px;
+    }
+    .select2{
+        margin-top: 15px;
+        width: 340px !important;
+    }
+    .select2-container--default .select2-selection--single {
+        font-size: 13pt;
     }
 }
 @media (min-width: 1301px){
@@ -476,6 +496,16 @@ footer{
         margin-left: auto;
         margin-right: auto;
     }
+    .select2-container--default .select2-selection--single {
+        height: 25px;
+    }
+    .select2{
+        margin-top: 15px;
+        width: 340px !important;
+    }
+    .select2-container--default .select2-selection--single {
+        font-size: 14pt;
+    }
 }
 
 .login{
@@ -567,4 +597,52 @@ label{
 .errorText{
     color: #4C4C4C;
     text-align: center;
+}
+
+
+
+
+
+
+
+.select2-container--default .select2-selection--single {
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #1C1C1C;
+    border-radius: 15px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: auto;
+}
+.select2-dropdown{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.select2-dropdown {
+    background-color: #ffffff;
+    border: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #b2b2b2;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #d7d7d7;
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-results {
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 20px;
 }

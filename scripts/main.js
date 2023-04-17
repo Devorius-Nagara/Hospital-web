@@ -62,6 +62,7 @@ $.ajax({
     },
     error: function (error) {
         logOnProf.classList.add("hiding");
+        localStorage.removeItem('auth_token');
         txtOfBtn.textContent = "Увійдіть або зареєструйтесь";
         logged = false;
     }

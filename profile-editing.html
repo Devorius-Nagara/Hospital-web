@@ -9,6 +9,9 @@
     <link href="styles/bahnschrift.ttf">
     </head>
 <body>
+<div class="errorWin" id="errorWin">
+    <p class="errorText"></p>
+</div>
 <div class="page">
 
 
@@ -47,11 +50,12 @@
                     </div>
                 </div>
                 <form class="underBlocks">
-                    <input type="text" class="inputText" placeholder="Ім'я" required>
-                    <input type="text" class="inputText" placeholder="Фамілія" required>
-                    <input type="text" class="inputText" placeholder="По батькові" required>
-                    <input type="text" class="inputText" placeholder="Пошта" required>
-                    <input type="text" class="inputText" placeholder="Телефон" required>
+                    <input type="text" class="inputText" id="name" placeholder="Ім'я" required>
+                    <input type="text" class="inputText" id="sureName" placeholder="Фамілія" required>
+                    <input type="text" class="inputText" id="middleName" placeholder="По батькові" required>
+                    <input type="text" class="inputText" id="mail" placeholder="Пошта" required>
+                    <input type="text" class="inputText" id="phoneNumber" placeholder="Телефон" required>
+                    <input type="date" class="inputText" id="birthDate" required>
                     <div class="radio-group">
                         <label>
                             <input type="radio" name="gender" value="male" class="inpRd" required>
@@ -63,16 +67,16 @@
                         </label>
                     </div>
                     <div class="txtConteiner">
-                        <button class="sumbBtn" type="submit">Зберегти</button>
+                        <button class="sumbBtn" type="submit" id="updateProfBtn">Зберегти</button>
                     </div>
 
                 </form>
                 <form class="underBlocks">
-                    <input type="password" class="inputText" placeholder="Старий пароль" required>
-                    <input type="password" class="inputText" placeholder="Новий пароль" required>
-                    <input type="password" class="inputText" placeholder="Повторіть пароль" required>
+                    <input type="password" class="inputText" id="oldPassword" placeholder="Старий пароль" required>
+                    <input type="password" class="inputText" id="newPassword" placeholder="Новий пароль" required>
+                    <input type="password" class="inputText" id="repeatPassword" placeholder="Повторіть пароль" required>
                     <div class="txtConteiner">
-                        <button class="sumbBtn" type="submit">Зберегти</button>
+                        <button class="sumbBtn" id="updatePswdBtn" type="submit">Зберегти</button>
                     </div>
 
                 </form>

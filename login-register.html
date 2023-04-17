@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" id="cssTheme" href="styles/login-register-white.css">
     <link href="styles/bahnschrift.ttf">
     </head>
@@ -52,7 +53,9 @@
                     <input type="password" class="inptxt" id="password-registration" placeholder="Пароль від 8 до 20" required>
                     <input type="tel" size="10" class="inptxt form-control" placeholder="Тел.: 091 111 11 11" id="phoneNumber">
                     <input type="date" class="inptxt" id="birthDate" required>
-                    <input type="text" id="searchCity" class="inptxt" placeholder="Місто або населений пункт">
+                    <select class="select2" id="searchCity">
+                        <option value="Не вказано">Місто/Населений пункт</option>
+                    </select>
 
                     <div class="radio-group">
                         <div>
@@ -82,6 +85,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script type="text/javascript" src="scripts/login-register.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <noscript><h1>You will turn on your JavaScript on browser!</h1></noscript>

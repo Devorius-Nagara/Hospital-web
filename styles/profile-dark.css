@@ -109,7 +109,7 @@ p, h1, h2, h3, h4, h5, h6{
     .tHead{
         font-size: 18pt;
     }
-    h1, h2, h3, h4, h5, h6{
+    .navbtns, h1, h2, h3, h4, h5, h6{
         font-size: 130%;
     }
     .btnHead1, .btnHead2{
@@ -271,6 +271,7 @@ p, h1, h2, h3, h4, h5, h6{
     .navPanelContent{
         position: absolute;
         padding: 20px;
+        width: 100%;
     }
     .datatable{
         width: 100%;
@@ -319,7 +320,7 @@ p, h1, h2, h3, h4, h5, h6{
     .tHead{
         font-size: 30pt;
     }
-    h1, h2, h3, h4, h5, h6{
+    .navbtns, h1, h2, h3, h4, h5, h6{
         font-size: 110%;
     }
     .btnHead1, .btnHead2{
@@ -479,6 +480,7 @@ p, h1, h2, h3, h4, h5, h6{
     .navPanelContent{
         position: absolute;
         padding: 20px;
+        width: 100%;
     }
     .datatable{
         width: 100%;
@@ -532,7 +534,7 @@ p, h1, h2, h3, h4, h5, h6{
     .tHead{
         font-size: 28pt;
     }
-    h1, h2, h3, h4, h5, h6{
+    .navbtns, h1, h2, h3, h4, h5, h6{
         font-size: 145%;
     }
     .btnHead1, .btnHead2{
@@ -691,7 +693,9 @@ p, h1, h2, h3, h4, h5, h6{
     }
     .navPanelContent{
         position: absolute;
-        padding: 20px;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .datatable{
         width: 100%;
@@ -754,4 +758,50 @@ a{
     justify-content: center;
     align-items: center;
     font-family: Bahnschrift;
+}
+
+
+
+
+
+.navbtns{
+    background-color: rgba(0, 0, 0, 0);
+    color: #C9CBC0;
+    position: relative;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.navbtns::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #bbbbbb;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+.headerTxtOfNav{
+    display: flex;
+    justify-content: center;
+    width:100%;
+}
+.navbtns:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+.navBlocks{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navBlocks > :first-child {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
 }
