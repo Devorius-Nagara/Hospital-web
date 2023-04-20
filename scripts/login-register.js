@@ -15,7 +15,7 @@ passwordInput.addEventListener('input', validatePassword);
 const surnameD = document.getElementById("surname");
 const nameD = document.getElementById("name");
 const middleNameD = document.getElementById("middleName");
-let logged;
+var selectElement = document.getElementById("searchCity");
 
 
 $(document).ready(function() {
@@ -45,6 +45,38 @@ profile.addEventListener("click", function logRegOrRecord(event) {
         window.location.href = "login-register.html";
     }
 });
+
+/** ПОЛУЧЕННЯ ДАННИХ ПРО НАСЕЛЕНИЙ ПУНКТ **/
+$.ajax({
+    url: 'https://localhost:44391/Auth',
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+        console.log(data);
+        for (var settlementNum = 0; settlementNum < data.settlements.length; settlementNum++) {
+            for (var districtNum = 0; districtNum < data.districts.length; districtNum++){
+                if(data.districts.id === data.settlements.districtId){
+                    for(var regionNum = 0; regionNum < data.regions.length; regionNum++){
+                        if (data.regions.id === data.districts.regionId){
+                            var option = document.createElement("option");
+                            // Встановлюємо значення атрибута value
+                            option.value = data.settlements[settlementNum].name;
+                            // Встановлюємо текст опції
+                            option.text = data.settlements[settlementNum].name + ", " + data.districts[districtNum].name + ", " + data.regions[regionNum].name;
+                            // Додаємо опцію до вибору
+                            selectElement.add(option);
+                        }
+                    }
+                }
+            }
+
+        }
+    },
+    error: function (error) {
+        console.error(error);
+    }
+});
+
 
 
 /** ЗМІНА ТЕМИ **/
@@ -159,6 +191,17 @@ registrationForm.addEventListener("submit", function(event) {
     const phoneNumber = document.getElementById("phoneNumber").value;
     const settlementName = document.getElementById("searchCity").value;
     const data = { surname, name, middleName, password, mail, gender, birthDate, phoneNumber, settlementName };
+
+    var selectedOption = selectElement.options[selectElement.selectedIndex];
+    if (selectedOption.value === "Не вказано") {
+        console.log("Не вибрано");
+        errorText.textContent = 'Виберіть місце проживання';
+        $("#errorWin").animate({top: '70'}, 400);
+        setTimeout(function() {
+            $("#errorWin").animate({top: '-100'}, 400);
+        }, 5000);
+        return;
+    }
 
     fetch('https://localhost:44391/Auth/register', {
         method: 'POST',

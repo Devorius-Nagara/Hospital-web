@@ -49,7 +49,7 @@
                         <button class="pfpBtn">Вихід з обл.запису</button>
                     </div>
                 </div>
-                <form class="underBlocks">
+                <form class="underBlocks" id="updateProf">
                     <input type="text" class="inputText" id="name" placeholder="Ім'я" required>
                     <input type="text" class="inputText" id="sureName" placeholder="Фамілія" required>
                     <input type="text" class="inputText" id="middleName" placeholder="По батькові" required>
@@ -58,11 +58,11 @@
                     <input type="date" class="inputText" id="birthDate" required>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="gender" value="male" class="inpRd" required>
+                            <input type="radio" name="gender" value="Чоловік" class="inpRd" required>
                             <p class="rdTxt">Чоловік</p>
                         </label>
                         <label class="rdTxt">
-                            <input type="radio" name="gender" value="female" class="inpRd" required>
+                            <input type="radio" name="gender" value="Жінка" class="inpRd" required>
                             <p class="rdTxt">Жінка</p>
                         </label>
                     </div>
@@ -71,31 +71,31 @@
                     </div>
 
                 </form>
-                <form class="underBlocks">
+                <form class="underBlocks" id="updatePswd">
                     <input type="password" class="inputText" id="oldPassword" placeholder="Старий пароль" required>
                     <input type="password" class="inputText" id="newPassword" placeholder="Новий пароль" required>
                     <input type="password" class="inputText" id="repeatPassword" placeholder="Повторіть пароль" required>
                     <div class="txtConteiner">
-                        <button class="sumbBtn" id="updatePswdBtn" type="submit">Зберегти</button>
+                        <button class="sumbBtn" type="submit">Зберегти</button>
                     </div>
 
                 </form>
             </div>
             <div class="contentCentralBlock">
                 <div class="modelWin"></div>
-                <form class="centralBlock">
+                <form class="centralBlock" id="healthForm">
                     <h1 class="explainHdr">Ваше самопочуття
                         та здоров’я</h1>
                     <p class="explainTxt">Вкажіть ваші поточні показники
                     незалежно від того чи знаходитесь
                     ви в хворому, чи в здоровому стані</p>
-                    <input type="text" class="inputText" placeholder="Ріст" required>
-                    <input type="text" class="inputText" placeholder="Вага" required>
-                    <input type="text" class="inputText" placeholder="Тиск" required>
-                    <input type="text" class="inputText" placeholder="Пульс" required>
-                    <input type="text" class="inputText" placeholder="Глюкоза" required>
-                    <input type="text" class="inputText" placeholder="Температура тіла" required>
-                    <textarea class="message" maxlength="1000" placeholder="Додаткова інформація яку ви б хотіли зазначити"></textarea>
+                    <input type="number" class="inputText" placeholder="Ріст (см)" id="height">
+                    <input type="number" class="inputText" placeholder="Вага (кг)" id="weight">
+                    <input type="text" class="inputText" placeholder="Тиск" id="bloodPressure">
+                    <input type="number" class="inputText" placeholder="Пульс (уд/хв)" id="pulse">
+                    <input type="text" class="inputText" placeholder="Глюкоза" id="bloodSugar">
+                    <input type="text" class="inputText" placeholder="Температура тіла" id="bodyTemperature">
+                    <textarea class="message" maxlength="1000" placeholder="Додаткова інформація яку ви б хотіли зазначити" id="additionalInformation" ></textarea>
                     <div class="txtConteiner">
                         <button class="sumbBtn" type="submit">Зберегти</button>
                     </div>
