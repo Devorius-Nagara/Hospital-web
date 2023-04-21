@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" id="cssTheme" href="styles/profile-editing-white.css">
     <link href="styles/bahnschrift.ttf">
     </head>
@@ -93,8 +94,8 @@
                     <input type="number" class="inputText" placeholder="Вага (кг)" id="weight">
                     <input type="text" class="inputText" placeholder="Тиск" id="bloodPressure">
                     <input type="number" class="inputText" placeholder="Пульс (уд/хв)" id="pulse">
-                    <input type="text" class="inputText" placeholder="Глюкоза" id="bloodSugar">
-                    <input type="text" class="inputText" placeholder="Температура тіла" id="bodyTemperature">
+                    <input type="number" class="inputText" placeholder="Глюкоза" id="bloodSugar">
+                    <input type="number" class="inputText" placeholder="Температура тіла" id="bodyTemperature">
                     <textarea class="message" maxlength="1000" placeholder="Додаткова інформація яку ви б хотіли зазначити" id="additionalInformation" ></textarea>
                     <div class="txtConteiner">
                         <button class="sumbBtn" type="submit">Зберегти</button>
@@ -105,9 +106,11 @@
                     <form class="underBlocks">
                         <p class="explainTxt">Вкажіть речовини та лікарства які
                             можуть викликати алергічну реакцію</p>
-                        <input type="text" class="inputText" placeholder="Протипоказані речовини" required>
+                        <select id="selectedPils" class="select2">
+                            <option value="Не вказано">Не вказано</option>
+                        </select>
                         <div class="txtConteiner">
-                            <button class="sumbBtn" type="submit">Зберегти</button>
+                            <button class="sumbBtn" id="substanceBtn" type="submit">Зберегти</button>
                         </div>
                     </form>
 
@@ -141,6 +144,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="scripts/profile-editing.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <noscript><h1>You will turn on your JavaScript on browser!</h1></noscript>

@@ -16,12 +16,21 @@ emailInput.addEventListener('input', validateEmail);
 const phoneInput = document.getElementById('phoneNumber');
 phoneInput.addEventListener('input', validatePhone);
 const birthDate = document.getElementById('birthDate');
-let newPassword = document.getElementById('newPassword');
-let repeatPassword = document.getElementById('repeatPassword');
+const newPassword = document.getElementById('newPassword');
+const repeatPassword = document.getElementById('repeatPassword');
 newPassword.addEventListener('input', validatePassword);
 repeatPassword.addEventListener('input', validateRPassword);
-let maleRadio = document.querySelector('input[name="gender"][value="Чоловік"]');
-let femaleRadio = document.querySelector('input[name="gender"][value="Жінка"]');
+const maleRadio = document.querySelector('input[name="gender"][value="Чоловік"]');
+const femaleRadio = document.querySelector('input[name="gender"][value="Жінка"]');
+const height = document.getElementById('height');
+const weight = document.getElementById('weight');
+const bloodPressure = document.getElementById('bloodPressure');
+const pulse = document.getElementById('pulse');
+const bloodSugar = document.getElementById('bloodSugar');
+const bodyTemperature = document.getElementById('bodyTemperature');
+const additionalInformation = document.getElementById('additionalInformation');
+const selectedSubstance = document.getElementById("selectedPils");
+const substanceBtn = document.getElementById("substanceBtn");
 let logged;
 
 let token = localStorage.getItem('auth_token');
@@ -55,11 +64,54 @@ $.ajax({
             femaleRadio.checked = true;
         }
 
+
+
+
+        height.value = data.indexes.height;
+        weight.value = data.indexes.weight;
+        bloodPressure.value = data.indexes.bloodPressure;
+        pulse.value = data.indexes.pulse;
+        bloodSugar.value = data.indexes.bloodSugar;
+        bodyTemperature.value = data.indexes.bodyTemperature;
+        additionalInformation.value = data.indexes.additionalInformation;
+
+
+        for (var substance = 0; substance < data.noAllergySubstance.length; substance++) {
+            var option = document.createElement("option");
+            // Встановлюємо значення атрибута value
+            option.value = data.noAllergySubstance[substance].id;
+            // Встановлюємо текст опції
+            option.text = data.noAllergySubstance[substance].substanceName;
+            // Додаємо опцію до вибору
+            selectedSubstance.add(option);
+        }
+
+        /**
+         * for (var alergSubstance = 0; alergSubstance < data.allergySubstance.length; alergSubstance++) {
+         *             var id = allergySubstance[alergSubstance].id;
+         *             var alergOption = selectedSubstance.querySelector('option[value="' + id + '"]');
+         *             if (alergOption) {
+         *                 alergOption.selected = true;
+         *             }
+         *         }
+         */
+
     },
     error: function (error) {
         console.error(error);
         //window.location = "main.html";
     }
+});
+
+
+$('#selectedPils').select2({
+    multiple: true,
+    placeholder: "Виберіть речовини",
+    allowClear: true
+});
+
+$('#selectedPils').one('select2:open', function(e) {
+    $(this).val(null).trigger('change');
 });
 
 
@@ -283,7 +335,7 @@ healthForm.addEventListener("submit", function(event) {
     let bloodSugar = document.getElementById('bloodSugar').value || null;
     let bodyTemperature = document.getElementById('bodyTemperature').value || null;
     let additionalInformation = document.getElementById('additionalInformation').value || null;
-    const data = { id, patientId, height, weight, bloodPressure, pulse, bloodSugar, bodyTemperature, additionalInformation };
+    const data = { height, weight, bloodPressure, pulse, bloodSugar, bodyTemperature, additionalInformation };
 
     console.log(data);
 
@@ -294,6 +346,46 @@ healthForm.addEventListener("submit", function(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
+    })
+        .then(response => {
+            if (response.ok) {
+                errorText.textContent = 'Ваші данні успішно оновлено.';
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                }, 5000);
+            } else {
+                errorText.textContent = "Виникла помилка";
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                }, 5000);
+            }
+        })
+});
+
+
+
+
+substanceBtn.addEventListener("click", function() {
+    event.preventDefault();
+    var selectedOptions = selectedSubstance.selectedOptions;
+    var allergySubstance = [];
+    for (var i = 0; i < selectedOptions.length; i++) {
+        var option = selectedOptions[i];
+        var substance = {
+            id: option.value,
+            substanceName: option.text
+        };
+        allergySubstance.push(substance);
+    }
+    fetch('https://localhost:44391/updateAllergies', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + [token],
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(allergySubstance),
     })
         .then(response => {
             if (response.ok) {

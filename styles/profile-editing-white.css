@@ -308,6 +308,9 @@ label{
         margin-left: auto;
         margin-right: auto;
     }
+    .select2{
+        width: 280px !important;
+    }
 }
 @media (min-width: 330px){
     .contentBlock, .contentCentralBlock{
@@ -535,7 +538,9 @@ label{
          margin-left: auto;
          margin-right: auto;
      }
-
+    .select2{
+        width: 280px !important;
+    }
 }
 @media (min-width: 700px){
  .rowing{
@@ -799,6 +804,9 @@ label{
         margin-left: auto;
         margin-right: auto;
     }
+    .select2{
+        width: 350px !important;
+    }
 }
 
 
@@ -824,4 +832,66 @@ label{
 }
 .closeBtn{
     background-color: #B5B3A3;
+}
+
+
+
+
+
+
+.select2-selection__rendered{
+    padding-bottom: 5px !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #c5c5c5;
+    border: 0;
+    border-radius: 6px;
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0 5px;
+    height: 18px;
+}
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    cursor: text;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__clear{
+    margin-left: 5px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+    border: 0;
+}
+.select2-dropdown{
+    border-radius: 15px;
+    overflow: hidden;
+}
+.select2-dropdown {
+    background-color: #ffffff;
+    border: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #252525;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #d5d5d5;
+    color: #313131; ;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #a9a9a9;
+    color: #4C4C4C;
+}
+.select2-selection__choice{
+    color: #4C4C4C;
+}
+.select2-container--default .select2-search--inline .select2-search__field {
+    font-size: 19px !important;
+    color: #4C4C4C;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    font-size: 16px;
 }
