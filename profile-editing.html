@@ -103,32 +103,34 @@
                 </form>
             </div>
             <div class="contentBlock">
-                    <form class="underBlocks">
+                    <form class="underBlocks" id="substanceForm">
                         <p class="explainTxt">Вкажіть речовини та лікарства які
                             можуть викликати алергічну реакцію</p>
-                        <select id="selectedPils" class="select2">
-                            <option value="Не вказано">Не вказано</option>
+                        <select class="js-example-basic-multiple" name="states[]" multiple="multiple" id="selectedPils">
                         </select>
                         <div class="txtConteiner">
-                            <button class="sumbBtn" id="substanceBtn" type="submit">Зберегти</button>
+                            <button class="sumbBtn" type="submit">Зберегти</button>
                         </div>
                     </form>
 
-                    <form class="underBlocks">
+                    <form class="underBlocks" id="searchCityForm">
                     <p class="explainTxt">Вкажіть ваше місце проживанння</p>
-                    <input type="text" class="inputText" placeholder="Область" required>
-                    <input type="text" class="inputText" placeholder="Місто/Населений пункт" required>
+                        <select class="selectCity" id="searchCity">
+                        </select>
                     <div class="txtConteiner">
                         <button class="sumbBtn" type="submit">Зберегти</button>
                     </div>
                 </form>
 
-                    <form class="underBlocks">
+                    <form class="underBlocks" id="doctorRequest">
                     <p class="explainTxt">Подання заявки на роботу</p>
-                    <input type="text" class="inputText" placeholder="Ваша спеціальність" required>
-                        <div class="txtConteiner">
-                            <input type="text" class="pinnedFile" placeholder="Ваш диплом спеціаліста" required>
-                            <input type="text" class="file" placeholder="прикріпити" required>
+                        <input type="text" class="inputText" placeholder="Ваша спеціальність" id="doctorName" required>
+                        <div class="input__wrapper">
+                            <input name="file" type="file" id="input__file" class="input input__file" required>
+                            <label for="input__file" class="input__file-button">
+                                <span class="input__file-button-text">Ваш диплом (PDF)</span>
+                                <span class="input__file-icon-wrapper">Вибрати</span>
+                            </label>
                         </div>
                     <div class="txtConteiner">
                         <button class="sumbBtn" type="submit">Відправити</button>

@@ -55,9 +55,9 @@ $.ajax({
         console.log(data);
         for (var settlementNum = 0; settlementNum < data.settlements.length; settlementNum++) {
             for (var districtNum = 0; districtNum < data.districts.length; districtNum++){
-                if(data.districts.id === data.settlements.districtId){
+                if(data.districts[districtNum].id === data.settlements[settlementNum].districtId){
                     for(var regionNum = 0; regionNum < data.regions.length; regionNum++){
-                        if (data.regions.id === data.districts.regionId){
+                        if (data.regions[regionNum].id === data.districts[districtNum].regionId){
                             var option = document.createElement("option");
                             // Встановлюємо значення атрибута value
                             option.value = data.settlements[settlementNum].name;

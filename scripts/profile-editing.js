@@ -30,9 +30,10 @@ const bloodSugar = document.getElementById('bloodSugar');
 const bodyTemperature = document.getElementById('bodyTemperature');
 const additionalInformation = document.getElementById('additionalInformation');
 const selectedSubstance = document.getElementById("selectedPils");
-const substanceBtn = document.getElementById("substanceBtn");
+const searchCity = document.getElementById("searchCity");
 let logged;
 
+/** ЗАПИТ ДАННИХ **/
 let token = localStorage.getItem('auth_token');
 $.ajax({
     url: 'https://localhost:44391/EditProfile',
@@ -65,8 +66,6 @@ $.ajax({
         }
 
 
-
-
         height.value = data.indexes.height;
         weight.value = data.indexes.weight;
         bloodPressure.value = data.indexes.bloodPressure;
@@ -86,16 +85,38 @@ $.ajax({
             selectedSubstance.add(option);
         }
 
-        /**
-         * for (var alergSubstance = 0; alergSubstance < data.allergySubstance.length; alergSubstance++) {
-         *             var id = allergySubstance[alergSubstance].id;
-         *             var alergOption = selectedSubstance.querySelector('option[value="' + id + '"]');
-         *             if (alergOption) {
-         *                 alergOption.selected = true;
-         *             }
-         *         }
-         */
+        for (var alergNum = 0; alergNum < data.allergySubstance.length; alergNum++) {
+            option = document.createElement("option");
+            option.value = data.allergySubstance[alergNum].id;
+            option.text = data.allergySubstance[alergNum].substanceName;
+            option.selected = true;
+            selectedSubstance.add(option);
+        }
 
+
+
+        let currentSettlement = data.registrationModel.settlementName;
+        for (var settlementNum = 0; settlementNum < data.settlements.length; settlementNum++) {
+            for (var districtNum = 0; districtNum < data.districts.length; districtNum++){
+                if(data.districts[districtNum].id === data.settlements[settlementNum].districtId){
+                    for(var regionNum = 0; regionNum < data.regions.length; regionNum++){
+                        if (data.regions[regionNum].id === data.districts[districtNum].regionId){
+                            let optionСity = document.createElement("option");
+                            // Встановлюємо значення атрибута value
+                            optionСity.value = data.settlements[settlementNum].name;
+                            // Встановлюємо текст опції
+                            optionСity.text = data.settlements[settlementNum].name + ", " + data.districts[districtNum].name + ", " + data.regions[regionNum].name;
+                            // Додаємо опцію до вибору
+                            searchCity.add(optionСity);
+                            if (currentSettlement === data.settlements[settlementNum].name){
+                                optionСity.selected = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
     },
     error: function (error) {
         console.error(error);
@@ -103,17 +124,30 @@ $.ajax({
     }
 });
 
-
-$('#selectedPils').select2({
-    multiple: true,
-    placeholder: "Виберіть речовини",
-    allowClear: true
+/** Селекти **/
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+    $(".js-example-templating").select2();
+    $('.selectCity').select2();
 });
 
-$('#selectedPils').one('select2:open', function(e) {
-    $(this).val(null).trigger('change');
-});
+/** Відображення файлу **/
+let inputs = document.querySelectorAll('.input__file');
+Array.prototype.forEach.call(inputs, function (input) {
+    let label = input.nextElementSibling,
+        labelVal = label.querySelector('.input__file-button-text').innerText;
 
+    input.addEventListener('change', function (e) {
+        let countFiles = '';
+        if (this.files && this.files.length >= 1)
+            countFiles = this.files.length;
+
+        if (countFiles)
+            label.querySelector('.input__file-button-text').innerText = 'Файл вибрано';
+        else
+            label.querySelector('.input__file-button-text').innerText = labelVal;
+    });
+});
 
 
 /** Перехід на профіль **/
@@ -366,8 +400,8 @@ healthForm.addEventListener("submit", function(event) {
 
 
 
-
-substanceBtn.addEventListener("click", function() {
+/** Протипоказані речовини **/
+document.getElementById("substanceForm").addEventListener("submit", function() {
     event.preventDefault();
     var selectedOptions = selectedSubstance.selectedOptions;
     var allergySubstance = [];
@@ -390,6 +424,85 @@ substanceBtn.addEventListener("click", function() {
         .then(response => {
             if (response.ok) {
                 errorText.textContent = 'Ваші данні успішно оновлено.';
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                }, 5000);
+            } else {
+                errorText.textContent = "Виникла помилка";
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                }, 5000);
+            }
+        })
+});
+
+/** Вибір міста проживання **/
+document.getElementById("searchCityForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Забороняємо перезавантаження сторінки
+    const surname = null;
+    const name = null;
+    const middleName = null;
+    const password = null;
+    const mail = null;
+    let gender = null;
+    const birthDate = null;
+    const phoneNumber = null;
+    const settlementName = searchCity.value;
+    console.log(settlementName)
+    const data = { surname, name, middleName, password, mail, gender, birthDate, phoneNumber, settlementName };
+
+    fetch('https://localhost:44391/updateLocation', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Authorization': 'Bearer ' + [token],
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                errorText.textContent = 'Ваші данні успішно оновлено.';
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                }, 5000);
+            } else {
+                errorText.textContent = "Виникла помилка";
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                }, 5000);
+            }
+        })
+});
+
+
+
+
+/** Запит на лікара **/
+document.getElementById("doctorRequest").addEventListener("submit", function(event) {
+    event.preventDefault(); // Забороняємо перезавантаження сторінки
+    const specialityName = document.getElementById('doctorName').value;
+    let inputfile = document.getElementById('input__file');
+    let file = new FormData();
+    file.append('file', inputfile);
+
+    const data = {specialityName, file};
+    console.log(data)
+
+    fetch('https://localhost:44391/sendRequest', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Authorization': 'Bearer ' + [token],
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                errorText.textContent = 'Заявка успішно відправлена.';
                 $("#errorWin").animate({top: '70'}, 400);
                 setTimeout(function() {
                     $("#errorWin").animate({top: '-100'}, 400);
