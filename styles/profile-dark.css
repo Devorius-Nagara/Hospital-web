@@ -270,8 +270,9 @@ p, h1, h2, h3, h4, h5, h6{
     }
     .navPanelContent{
         position: absolute;
-        padding: 20px;
         width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .datatable{
         width: 100%;
@@ -289,6 +290,10 @@ p, h1, h2, h3, h4, h5, h6{
         width: 100%;
         height: 70px;
         border-radius: 20px;
+    }
+    .backroundImg{
+        height: 250px;
+        width: 350px;
     }
 }
 @media (min-width: 501px) and (max-width: 1300px){
@@ -479,8 +484,9 @@ p, h1, h2, h3, h4, h5, h6{
     }
     .navPanelContent{
         position: absolute;
-        padding: 20px;
         width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .datatable{
         width: 100%;
@@ -499,7 +505,10 @@ p, h1, h2, h3, h4, h5, h6{
         height: 70px;
         border-radius: 20px;
     }
-
+    .backroundImg{
+        height: 350px;
+        width: 490px;
+    }
 }
 @media (min-width: 1301px){
     .page {
@@ -714,6 +723,10 @@ p, h1, h2, h3, h4, h5, h6{
         height: 90px;
         border-radius: 20px;
     }
+    .backroundImg{
+        height: 450px;
+        width: 590px;
+    }
 }
 
 #leftPanel{
@@ -793,7 +806,7 @@ a{
     transform: scaleX(1);
 }
 .navBlocks{
-    display: flex;
+    display: none;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
@@ -801,7 +814,17 @@ a{
     padding-bottom: 10px;
 }
 .navBlocks > :first-child {
-    display: flex;
     justify-content: center;
     padding-bottom: 10px;
+}
+.backgroundOfTable{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: all 0.1s ease;
+    filter: blur(4px);
+    pointer-events: none;
 }

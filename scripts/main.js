@@ -8,7 +8,7 @@ const txtOfBtn = document.querySelector('.txtOfBtn');
 let logged;
 
 /** Перехід на профіль **/
-profile.addEventListener("click", function logRegOrRecord(event) {
+document.getElementById('profileCase').addEventListener("click", function logRegOrRecord(event) {
     if (logged) {
         window.location.href = "profile.html";
     }else {

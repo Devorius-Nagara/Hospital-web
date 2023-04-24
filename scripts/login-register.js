@@ -38,7 +38,7 @@ $.ajax({
         logged = false;
     }
 });
-profile.addEventListener("click", function logRegOrRecord(event) {
+document.getElementById('profileCase').addEventListener("click", function logRegOrRecord(event) {
     if (logged) {
         window.location.href = "profile.html";
     }else {

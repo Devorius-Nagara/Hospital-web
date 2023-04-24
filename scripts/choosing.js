@@ -22,14 +22,14 @@ $.ajax({
 });
 
 /** Перехід на профіль **/
-profile.addEventListener("click", function logRegOrRecord(event) {
+document.getElementById('profileCase').addEventListener("click", function logRegOrRecord(event) {
     if (logged) {
         window.location.href = "profile.html";
     }else {
         window.location.href = "login-register.html";
     }
 });
-closeBtn.addEventListener("click", function logRegOrRecord(event) {
+document.getElementById('btnCancel').addEventListener("click", function logRegOrRecord(event) {
     if (logged) {
         window.location.href = "city.html";
     }else {

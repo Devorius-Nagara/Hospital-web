@@ -120,7 +120,7 @@ $.ajax({
     },
     error: function (error) {
         console.error(error);
-        //window.location = "main.html";
+        window.location = "main.html";
     }
 });
 
@@ -151,7 +151,7 @@ Array.prototype.forEach.call(inputs, function (input) {
 
 
 /** Перехід на профіль **/
-profile.addEventListener("click", function logRegOrRecord(event) {
+document.getElementById('profileCase').addEventListener("click", function logRegOrRecord(event) {
     if (logged) {
         window.location.href = "profile.html";
     }else {
@@ -199,7 +199,12 @@ function changeTheme() {
 
 
 
-
+/** LOGOUT **/
+const btnLogOut = document.getElementById('btnLogOut')
+btnLogOut.addEventListener('click', function logOut() {
+    localStorage.removeItem('auth_token')
+    window.location.href = "main.html"
+})
 
 
 
@@ -273,9 +278,6 @@ middleNameD.addEventListener('input', function() {
     middleNameD.value = name;
 });
 
-
-
-
 /** Відправлення профільних данних **/
 updateProf.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -321,8 +323,6 @@ updateProf.addEventListener("submit", function(event) {
         })
 });
 
-
-
 /** Зміна паролю **/
 updatePswd.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -357,7 +357,6 @@ updatePswd.addEventListener("submit", function(event) {
             }
         })
 });
-
 
 /** Здоров'я та самопочуття **/
 healthForm.addEventListener("submit", function(event) {
@@ -397,8 +396,6 @@ healthForm.addEventListener("submit", function(event) {
             }
         })
 });
-
-
 
 /** Протипоказані речовини **/
 document.getElementById("substanceForm").addEventListener("submit", function() {
@@ -477,9 +474,6 @@ document.getElementById("searchCityForm").addEventListener("submit", function(ev
             }
         })
 });
-
-
-
 
 /** Запит на лікара **/
 document.getElementById("doctorRequest").addEventListener("submit", function(event) {

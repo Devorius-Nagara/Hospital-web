@@ -3,6 +3,11 @@ const emblem = document.getElementById('emblem');
 const themeEmb = document.getElementById('themeEmb');
 const profile = document.getElementById('profile');
 const profileIco = document.getElementById('profileIco');
+const backroundImg = document.querySelector('.backroundImg');
+const btnCloser = document.getElementById('btnCloser');
+const btnOpener = document.getElementById('btnOpener');
+const datatable = document.getElementById('datatable');
+const blur = document.querySelector('.blur')
 
 /** Зміна теми **/
 document.addEventListener('DOMContentLoaded', function() {
@@ -21,6 +26,7 @@ function changeTheme() {
         themeEmb.src = 'images/moon.png';
         profile.src = 'images/profile.png';
         profileIco.src = 'images/profile.png';
+        backroundImg.src ='images/backround-white.png';
         themedata = "dark";
     } else {
         css.href = 'styles/profile-white.css';
@@ -28,6 +34,7 @@ function changeTheme() {
         themeEmb.src = 'images/sun.png';
         profile.src = 'images/profile black.png';
         profileIco.src = 'images/profile black.png';
+        backroundImg.src ='images/backround-dark.png'
         themedata = "white";
     }
     localStorage.removeItem('MyDoctorThemeData');
@@ -37,9 +44,6 @@ function changeTheme() {
 
 
 /**Логіка роботи лівої панелі**/
-    const btnCloser = document.getElementById('btnCloser');
-    const btnOpener = document.getElementById('btnOpener');
-    const datatable = document.getElementById('datatable');
     window.addEventListener('resize', updateWindowSize);
     var windowWidth = window.innerWidth;
     function updateWindowSize() {
@@ -143,24 +147,93 @@ $.ajax({
         window.location = "main.html";
     }
 });
-$.ajax({
-    url: 'https://localhost:44391/Profile/isDoctor',
-    type: 'GET',
-    dataType: 'json',
-    beforeSend: function(xhr) {
-        xhr.setRequestHeader("Authorization", "Bearer " + [token]);
-    },
-    success: function (data) {
-        if (data){
-            status.textContent = 'Статус: Лікар'
-        }else{
-            status.textContent = 'Статус: Клієнт'
-        }
-    },
-    error: function (error) {
-        console.error(error);
-    }
-});
+
+document.getElementById('client').style.display = 'flex';
+switch (status.textContent === "Статус:"){
+    case (status.textContent === "Статус:"):
+        $.ajax({
+            url: 'https://localhost:44391/Profile/isDoctor',
+            type: 'GET',
+            dataType: 'json',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+            },
+            success: function (data) {
+                if (data){
+                    status.textContent = 'Статус: Лікар'
+                    document.getElementById('docPanel').style.display = 'flex';
+                }
+                console.log(data);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    case (status.textContent !== "Статус: Лікар"):
+        $.ajax({
+            url: 'https://localhost:44391/Profile/isAdminInHospital',
+            type: 'GET',
+            dataType: 'json',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+            },
+            success: function (data) {
+                if (data){
+                    status.textContent = 'Статус: Головний лікар'
+                    document.getElementById('headDocPanel').style.display = 'flex';
+                }
+                console.log(data);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    case (status.textContent !== "Статус: Зав.Відділення"):
+        $.ajax({
+            url: 'https://localhost:44391/Profile/isAdminInDepartament',
+            type: 'GET',
+            dataType: 'json',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+            },
+            success: function (data) {
+                if (data){
+                    status.textContent = 'Статус: Зав.Відділення'
+                    document.getElementById('headDocInDepPanel').style.display = 'flex';
+                }
+                console.log(data);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    case (status.textContent !== "Статус: Головний лікар"):
+        $.ajax({
+            url: 'https://localhost:44391/Profile/isAdminInSystem',
+            type: 'GET',
+            dataType: 'json',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+            },
+            success: function (data) {
+                if (data){
+                    status.textContent = 'Статус: Адміністратор'
+                    document.getElementById('admPanel').style.display = 'flex';
+                }
+                console.log(data);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    case (status.textContent !== "Статус: Адміністратор"):
+        status.textContent = 'Статус: Клієнт';
+
+}
+
+
+
+
 
 /** LOGOUT **/
 const btnLogOut = document.getElementById('btnLogOut')
