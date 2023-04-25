@@ -122,6 +122,26 @@ function changeTheme() {
 
 
 
+
+    /** ІНФО ПАНЕЛЬ **/
+    $(document).ready(function (){
+        $('.infoTitle').click(function (event){
+            var isActive = $(this).hasClass('active');
+            $(this).toggleClass('active');
+            $(this).css('border-radius', '20px 20px 0px 0px');
+            $(this).find('.rightInfoTitle').html(isActive ? '<p>Розгорнути</p>' : '<p>Згорнути</p>');
+            $(this).next().slideToggle(300, function() {
+                if (isActive) {
+                    $(this).prev('.infoTitle').css('border-radius', '20px');
+                    $(this).prev('.infoTitle').find('.rightInfoTitle').html('<p>Розгорнути</p>');
+                }
+            });
+        });
+    });
+$(document).ready(function() {
+    $('.select2').select2();
+});
+
 /** Запити на сервер **/
 
 const nsm = document.querySelector('#nsm');
