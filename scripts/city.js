@@ -325,7 +325,7 @@ formSumbitDoc.addEventListener('submit', function (){
     for (var HospitalNum = 0; HospitalNum < hospitals.length; HospitalNum++){
             for (let selectedHospitalNum = 0; selectedHospitalNum < selectedHospital.length; selectedHospitalNum++){
 
-                if (selectedHospital[selectedHospitalNum] === hospitals[HospitalNum].id){
+                if (selectedHospital[selectedHospitalNum] === hospitals[HospitalNum].id || selectedHospital === hospitals[HospitalNum].id && dataTable.innerHTML === ""){
                     var infoTitleDiv = $("<div>", {"class": "infoTitle"});
                     var leftInfoTitleDiv = $("<div>", {"class": "leftInfoTitle"});
                     var leftInfoTitleP = $("<p>").text("тут мають бути дані з hospitals[HospitalNum].name");
