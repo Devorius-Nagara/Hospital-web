@@ -8,6 +8,7 @@ const selectDistrict = document.getElementById('searchDistrict');
 const selectSettlement = document.getElementById('searchSettlment');
 const selectHospital = document.getElementById('searchHospital');
 const dataTable = document.getElementById('table');
+const errorText = document.querySelector('.errorText');
 let logged;
 
 $(document).ready(function() {
@@ -233,7 +234,7 @@ searchDistrictQ.change(function(){
         }
         for (var HospitalNum = 0; HospitalNum < hospitals.length; HospitalNum++) {
             var optionForHospital = document.createElement("option");
-            optionForHospital.value = hospitals[HospitalNum].settlementDesc;
+            optionForHospital.value = hospitals[HospitalNum].id;
             optionForHospital.text = hospitals[HospitalNum].name;
             selectHospital.add(optionForHospital);
         }
@@ -393,7 +394,7 @@ formSumbitDoc.addEventListener('submit', function (){
 
                     var centerSpoilerTitle = document.createElement('form');
                     $(centerSpoilerTitle).addClass('centerSpoilerTitle');
-                    $(centerSpoilerTitle).append('<button class="infoBtns" id="GoToDoc">Перейти до запису</button>');
+                    $(centerSpoilerTitle).append('<button class="infoBtns" id="GoToDoc" data-hospital-num="' + HospitalNum + '">Перейти до запису</button>');
                     $(infoSpoilerCase).append(centerSpoilerTitle);
 
                     var rightSpoilerTitle = document.createElement('form');
@@ -423,12 +424,23 @@ formSumbitDoc.addEventListener('submit', function (){
             });
         });
     });
+    if (dataTable.innerHTML === ""){
+        errorText.textContent = 'Данних не знайдено';
+        $("#errorWin").animate({top: '70'}, 400);
+        setTimeout(function() {
+            $("#errorWin").animate({top: '-100'}, 400);
+        }, 5000);
+    }
 })
 
 
-/**
+$(document).on('click', '#GoToDoc', function() {
+    event.preventDefault();
+    var hospitalNum = $(this).data('hospital-num');
+    localStorage.setItem('hospitalId', JSON.stringify(hospitals[hospitalNum].id));
+    window.location.href = "choosing.html";
+});
 
-**/
 
 
 
