@@ -114,19 +114,19 @@ function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 surnameD.addEventListener('input', function() {
-    let name = surnameD.value.trim();
+    let name = surnameD.value;
     name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     surnameD.value = name;
 });
 
 nameD.addEventListener('input', function() {
-    let name = nameD.value.trim();
+    let name = nameD.value;
     name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     nameD.value = name;
 });
 
 middleNameD.addEventListener('input', function() {
-    let name = middleNameD.value.trim();
+    let name = middleNameD.value;
     name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     middleNameD.value = name;
 });
@@ -234,11 +234,11 @@ registrationForm.addEventListener("submit", function(event) {
 /** ВАЛІДАЦІЯ **/
 /** НОМЕР **/
 function validatePhone() {
-    let regex = /^(0[1-9][0-9]{8})$/;
+    let regex = /^\+380\s\d{2}\s\d{4}\s\d{3}$/;
 
     // Перевірка, чи введено дійсний номер телефону
     if (!regex.test(phoneInput.value)) {
-        errorText.textContent = 'Введіть ваш номер за прикладом:\n095 ХХХХ ХХХ';
+        errorText.textContent = 'Введіть ваш номер за прикладом:\n+380 95 ХХХХ ХХХ';
         $("#errorWin").animate({top: '70'}, 400);
         regBtn.disabled = true;
     } else {
@@ -246,6 +246,56 @@ function validatePhone() {
         regBtn.disabled = false;
     }
 }
+
+
+phoneInput.addEventListener('input', function() {
+
+    const originalValue = this.value;
+    let numericValue = originalValue.replace(/\D/g, '');
+
+    if (event.inputType === 'deleteContentBackward') {
+        const lastChar = originalValue.charAt(originalValue.length - 1);
+        if (lastChar === ' ') {
+            numericValue = numericValue.slice(0, -1);
+        }
+        formattedValue = '';
+    }
+
+    if (numericValue.length > 10) {
+        numericValue = numericValue.slice(0, 12);
+    }
+
+    let formattedValue = '';
+
+    if (numericValue.length > 2) {
+        formattedValue += `+${numericValue.slice(0, 3)} `;
+        numericValue = numericValue.slice(3);
+    }
+
+    if (numericValue.length > 4) {
+        formattedValue += `${numericValue.slice(0, 2)} `;
+        numericValue = numericValue.slice(2);
+    }
+
+    if (numericValue.length > 0) {
+        formattedValue += `${numericValue.slice(0, 4)} `;
+        numericValue = numericValue.slice(4);
+    }
+
+    if (numericValue.length > 0) {
+        formattedValue += `${numericValue}`;
+    }
+
+    this.value = formattedValue;
+});
+
+
+
+
+
+
+
+
 
 /** ПОШТА **/
 function validateEmail() {

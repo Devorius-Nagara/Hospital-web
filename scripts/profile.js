@@ -169,87 +169,80 @@ $.ajax({
 });
 
 document.getElementById('client').style.display = 'flex';
-switch (status.textContent === "Статус:"){
-    case (status.textContent === "Статус:"):
-        $.ajax({
-            url: 'https://localhost:44391/Profile/isDoctor',
-            type: 'GET',
-            dataType: 'json',
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
-            },
-            success: function (data) {
-                if (data){
-                    status.textContent = 'Статус: Лікар'
-                    document.getElementById('docPanel').style.display = 'flex';
-                }
-                console.log(data);
-            },
-            error: function (error) {
-                console.error(error);
-            }
-        });
-    case (status.textContent !== "Статус: Лікар"):
-        $.ajax({
-            url: 'https://localhost:44391/Profile/isAdminInHospital',
-            type: 'GET',
-            dataType: 'json',
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
-            },
-            success: function (data) {
-                if (data){
-                    status.textContent = 'Статус: Головний лікар'
-                    document.getElementById('headDocPanel').style.display = 'flex';
-                }
-                console.log(data);
-            },
-            error: function (error) {
-                console.error(error);
-            }
-        });
-    case (status.textContent !== "Статус: Зав.Відділення"):
-        $.ajax({
-            url: 'https://localhost:44391/Profile/isAdminInDepartament',
-            type: 'GET',
-            dataType: 'json',
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
-            },
-            success: function (data) {
-                if (data){
-                    status.textContent = 'Статус: Зав.Відділення'
-                    document.getElementById('headDocInDepPanel').style.display = 'flex';
-                }
-                console.log(data);
-            },
-            error: function (error) {
-                console.error(error);
-            }
-        });
-    case (status.textContent !== "Статус: Головний лікар"):
-        $.ajax({
-            url: 'https://localhost:44391/Profile/isAdminInSystem',
-            type: 'GET',
-            dataType: 'json',
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer " + [token]);
-            },
-            success: function (data) {
-                if (data){
-                    status.textContent = 'Статус: Адміністратор'
-                    document.getElementById('admPanel').style.display = 'flex';
-                }
-                console.log(data);
-            },
-            error: function (error) {
-                console.error(error);
-            }
-        });
-    case (status.textContent !== "Статус: Адміністратор"):
-        status.textContent = 'Статус: Клієнт';
+$.ajax({
+    url: "https://localhost:44391/Profile/isDoctor",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + token);
+    }
+})
+    .then(function(data) {
+        if (data) {
+            status.textContent = "Статус: Лікар";
+            document.getElementById("docPanel").style.display = "flex";
+        }
+        console.log(data);
 
-}
+        return $.ajax({
+            url: "https://localhost:44391/Profile/isAdminInHospital",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            }
+        });
+    })
+    .then(function(data) {
+        if (data) {
+            status.textContent = "Статус: Головний лікар";
+            document.getElementById("headDocPanel").style.display = "flex";
+        }
+        console.log(data);
+
+        return $.ajax({
+            url: "https://localhost:44391/Profile/isAdminInDepartament",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            }
+        });
+    })
+    .then(function(data) {
+        if (data) {
+            status.textContent = "Статус: Зав.Відділення";
+            document.getElementById("headDocInDepPanel").style.display = "flex";
+        }
+        console.log(data);
+
+        return $.ajax({
+            url: "https://localhost:44391/Profile/isAdminInSystem",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            }
+        });
+    })
+    .then(function(data) {
+        if (data) {
+            status.textContent = "Статус: Адміністратор";
+            document.getElementById("admPanel").style.display = "flex";
+        }else {
+            if (status.textContent === "Статус:"){
+                status.textContent = 'Статус: Клієнт';
+            }
+        }
+        console.log(data);
+    })
+    .catch(function(error) {
+        console.error(error);
+    });
+
+
+
+
 
 
 

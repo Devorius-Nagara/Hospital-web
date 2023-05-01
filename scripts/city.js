@@ -169,7 +169,7 @@ selectRegionQ.change(function() {
         }
         for (var HospitalNum = 0; HospitalNum < hospitals.length; HospitalNum++) {
             var optionForHospital = document.createElement("option");
-            optionForHospital.value = hospitals[HospitalNum].settlementDesc;
+            optionForHospital.value = hospitals[HospitalNum].id;
             optionForHospital.text = hospitals[HospitalNum].name;
             selectHospital.add(optionForHospital);
         }
@@ -329,13 +329,13 @@ formSumbitDoc.addEventListener('submit', function (){
                 if (selectedHospital[selectedHospitalNum] === hospitals[HospitalNum].id || selectedHospital === hospitals[HospitalNum].id && dataTable.innerHTML === ""){
                     var infoTitleDiv = $("<div>", {"class": "infoTitle"});
                     var leftInfoTitleDiv = $("<div>", {"class": "leftInfoTitle"});
-                    var leftInfoTitleP = $("<p>").text("тут мають бути дані з hospitals[HospitalNum].name");
+                    var leftInfoTitleP = $("<p>").text();
                     var centerInfoTitleDiv = $("<div>", {"class": "centerInfoTitle"});
                     var infoTitleTextP = $("<p>", {"class": "infoTitleText"}).text("Заявка");
-                    var regionDescP = $("<p>").text("Область: тут мають бути дані з hospitals[HospitalNum].regionDesc");
-                    var settlementDescP = $("<p>").text("Місто/СМТ: тут мають бути дані з hospitals[HospitalNum].settlementDesc");
+                    var regionDescP = $("<p>").text();
+                    var settlementDescP = $("<p>").text();
                     var rightInfoTitleDiv = $("<div>", {"class": "rightInfoTitle"});
-                    var rightInfoTitleP = $("<p>").text("Розгорнути");
+                    var rightInfoTitleP = $("<p>").text();
 
 // Додавання дочірніх елементів до елементу з класом "infoTitle"
                     leftInfoTitleDiv.append(leftInfoTitleP);
@@ -357,7 +357,7 @@ formSumbitDoc.addEventListener('submit', function (){
 
                     var centerInfoTitle = document.createElement('div');
                     $(centerInfoTitle).addClass('centerInfoTitle');
-                    $(centerInfoTitle).append('<p class="infoTitleText">Заявка</p>');
+                    $(centerInfoTitle).append('<p class="infoTitleText">Місто/Нас.пункт</p>');
                     $(centerInfoTitle).append('<p>' + hospitals[HospitalNum].regionDesc + '</p>');
                     $(centerInfoTitle).append('<p>' + hospitals[HospitalNum].settlementDesc + '</p>');
                     $(infoTitle).append(centerInfoTitle);
@@ -437,7 +437,8 @@ formSumbitDoc.addEventListener('submit', function (){
 $(document).on('click', '#GoToDoc', function() {
     event.preventDefault();
     var hospitalNum = $(this).data('hospital-num');
-    localStorage.setItem('hospitalId', JSON.stringify(hospitals[hospitalNum].id));
+
+    localStorage.setItem('hospitalId', hospitals[hospitalNum].id);
     window.location.href = "choosing.html";
 });
 
