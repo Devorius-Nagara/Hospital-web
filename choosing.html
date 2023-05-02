@@ -72,10 +72,13 @@
                 <button class="modalCancel" id="modalCancel"><p class="cancelTxt">Відмінити</p></button>
                 <div class="infoBlockInModal">
 
-                    <div>
+                    <div class="PCBlock">
                         <div class="dataSpace">
-                            <p class="explainTxtDataBig">Коли ви бажаєте відвідати лікаря?</p>
-                            <input type="date" class="dataInput">
+                            <p class="explainTxtDataBig">Коли ви бажаєте відвідати лікаря та в який офіс?</p>
+                                <select class="select2" id="searchOffice">
+                                    <option value="">Офіс не вказаний</option>
+                                </select>
+                            <input type="date" class="dataInput" id="dataInput">
                         </div>
                         <div class="scrollCase">
                             <div class="dataScroll" data-simplebar>
@@ -126,7 +129,7 @@
                         <p class="explainTxtDataSmall">Просимо звернути увагу що лікар вам може подзвонити не дивлячись на вашу відмітку
                             в тому випадку якщо ви допустили помилку у виборі необхідного спеціаліста, або
                             лікар не має можливості провести сеанс о вибраній годині.</p>
-                        <div class="btnCase"><button class="btnSending">Відправити</button></div>
+                        <div class="btnCase" ><button class="btnSending" id="submitDocRequest">Відправити</button></div>
                     </div>
                 </div>
             </form>

@@ -9,9 +9,11 @@ phoneInput.addEventListener('input', validatePhone);
 const surnameD = document.getElementById("surname");
 const nameD = document.getElementById("name");
 const middleNameD = document.getElementById("middleName");
-selectSpec = document.getElementById('searchSpec');
+const selectSpec = document.getElementById('searchSpec');
+const searchOffice = document.getElementById('searchOffice')
 const errorWin = document.getElementById('errorWin')
 const errorText = document.getElementById('errorText')
+const submitDocRequest = document.getElementById('submitDocRequest');
 let logged;
 
 let token = localStorage.getItem('auth_token');
@@ -474,10 +476,14 @@ const modal = document.getElementById('modal')
 $(document).on('click', '#GoToDoc', function() {
     event.preventDefault();
     let DoctorNum = $(this).data('doc-num');
-
+    submitDocRequest.setAttribute("data-doctor-id", DoctorNum);
+    let officesData = {
+        doctorId: doctors[DoctorNum].doctor.id,
+        hospitalId: hospitalId
+    }
     fetch(host + '/Doctor/Offices', {
         method: 'POST',
-        body: doctors[DoctorNum].doctor.id,
+        body: JSON.stringify(officesData),
         headers: {
             'Authorization': 'Bearer ' + [token],
             'Content-Type': 'application/json'
@@ -487,7 +493,16 @@ $(document).on('click', '#GoToDoc', function() {
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            var officeRemove = $("#searchOffice option:not(:first)");
+            officeRemove.remove();
+            $("#searchOffice").trigger("change");
+
+            for (let officeNum = 0; officeNum < data.length; officeNum++){
+                var optionForOffice = document.createElement("option");
+                optionForOffice.value = data[officeNum].id;
+                optionForOffice.text = data[officeNum].name;
+                searchOffice.add(optionForOffice);
+            }
         })
         .catch(error => {
             console.error('Помилка:', error);
@@ -505,3 +520,60 @@ $(document).on('click', '#modalCancel', function() {
     event.preventDefault();
     modal.style.display = "none";
 });
+
+function timeRequest(){
+    let selectedOffice = $(searchOfficeQ).find(':selected').val() || null;
+    let selectedData = document.getElementById('dataInput').value || null;
+    let DoctorNum = $('#submitDocRequest').data('doctor-id');
+    let dataToServer = {
+        doctorId: doctors[DoctorNum].doctor.id,
+        officeId: selectedOffice,
+        date: selectedData
+    }
+
+
+
+    fetch(host + '/Doctor/Time', {
+        method: 'POST',
+        body: dataToServer,
+        headers: {
+            'Authorization': 'Bearer ' + [token],
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => {
+            console.error('Помилка:', error);
+            errorText.textContent = "Виникла помилка";
+            $("#errorWin").animate({top: '70'}, 400);
+            setTimeout(function() {
+                $("#errorWin").animate({top: '-100'}, 400);
+            }, 5000);
+        });
+
+    console.log(dataToServer)
+}
+
+const searchOfficeQ = $('#searchOffice');
+const searchDataQ = $('#dataInput');
+
+searchDataQ.change(function(){
+    let selectedOffice = $(searchOfficeQ).find(':selected').val() || null;
+    let selectedData = document.getElementById('dataInput').value || null;
+    if (selectedOffice !== null && selectedData !== null){
+        timeRequest();
+    }
+})
+
+searchOfficeQ.change(function(){
+    let selectedOffice = $(searchOfficeQ).find(':selected').val() || null;
+    let selectedData = document.getElementById('dataInput').value || null;
+    if (selectedOffice !== null && selectedData !== null){
+        timeRequest();
+    }
+})
