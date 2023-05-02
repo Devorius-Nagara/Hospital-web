@@ -7,6 +7,7 @@ const logOnProf = document.getElementById('logOnProf');
 const txtOfBtn = document.querySelector('.txtOfBtn');
 let logged;
 
+
 /** Перехід на профіль **/
 document.getElementById('profileCase').addEventListener("click", function logRegOrRecord(event) {
     if (logged) {
@@ -49,7 +50,7 @@ function changeTheme() {
 let token = localStorage.getItem('auth_token');
 
 $.ajax({
-    url: 'https://localhost:44391/Profile',
+    url: host + '/Profile',
     type: 'GET',
     dataType: 'json',
     beforeSend: function (xhr) {

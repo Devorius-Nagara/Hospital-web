@@ -36,7 +36,7 @@ let logged;
 /** ЗАПИТ ДАННИХ **/
 let token = localStorage.getItem('auth_token');
 $.ajax({
-    url: 'https://localhost:44391/EditProfile',
+    url: host + '/EditProfile',
     type: 'GET',
     dataType: 'json',
     beforeSend: function (xhr) {
@@ -344,7 +344,7 @@ updateProf.addEventListener("submit", function(event) {
     const phoneNumber = document.getElementById("phoneNumber").value;
     const data = { surname, name, middleName, mail, gender, birthDate, phoneNumber};
 
-    fetch('https://localhost:44391/updateUserData', {
+    fetch(host + '/updateUserData', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + [token],
@@ -379,7 +379,7 @@ updatePswd.addEventListener("submit", function(event) {
     const data = { oldPassword, newPassword };
     console.log(data);
 
-    fetch('https://localhost:44391/updatePassword', {
+    fetch(host + '/updatePassword', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + [token],
@@ -420,7 +420,7 @@ healthForm.addEventListener("submit", function(event) {
 
     console.log(data);
 
-    fetch('https://localhost:44391/updateIndexes', {
+    fetch(host + '/updateIndexes', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + [token],
@@ -458,7 +458,7 @@ document.getElementById("substanceForm").addEventListener("submit", function() {
         };
         allergySubstance.push(substance);
     }
-    fetch('https://localhost:44391/updateAllergies', {
+    fetch(host + '/updateAllergies', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + [token],
@@ -498,7 +498,7 @@ document.getElementById("searchCityForm").addEventListener("submit", function(ev
     console.log(settlementName)
     const data = { surname, name, middleName, password, mail, gender, birthDate, phoneNumber, settlementName };
 
-    fetch('https://localhost:44391/updateLocation', {
+    fetch(host + '/updateLocation', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -534,7 +534,7 @@ document.getElementById("doctorRequest").addEventListener("submit", function(eve
     const data = {specialityName, file};
     console.log(data)
 
-    fetch('https://localhost:44391/sendRequest', {
+    fetch(host + '/sendRequest', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

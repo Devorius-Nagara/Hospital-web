@@ -70,7 +70,7 @@ let token = localStorage.getItem('auth_token');
 let locations;
 let hospitals;
 $.ajax({
-    url: 'https://localhost:44391/Locations',
+    url: host + '/Locations',
     type: 'GET',
     dataType: 'json',
     beforeSend: function (xhr) {
@@ -104,7 +104,7 @@ $.ajax({
     }
 });
 $.ajax({
-    url: 'https://localhost:44391/Hospitals',
+    url: host + '/Hospitals',
     type: 'GET',
     dataType: 'json',
     beforeSend: function (xhr) {

@@ -18,7 +18,7 @@ let token = localStorage.getItem('auth_token');
 let hospitalId = localStorage.getItem('hospitalId');
 console.log(hospitalId)
 $.ajax({
-    url: 'https://localhost:44391/Profile',
+    url: host + '/Profile',
     type: 'GET',
     dataType: 'json',
     beforeSend: function (xhr) {
@@ -163,7 +163,7 @@ middleNameD.addEventListener('input', function() {
 
 /** Запити **/
 let doctors;
-fetch('https://localhost:44391/Doctors', {
+fetch(host + '/Doctors', {
     method: 'POST',
     body: JSON.stringify(hospitalId),
     headers: {
@@ -293,7 +293,7 @@ fetch('https://localhost:44391/Doctors', {
     });
 
 $.ajax({
-    url: 'https://localhost:44391/Specialities',
+    url: host + '/Specialities',
     type: 'GET',
     dataType: 'json',
     beforeSend: function (xhr) {
@@ -475,7 +475,7 @@ $(document).on('click', '#GoToDoc', function() {
     event.preventDefault();
     let DoctorNum = $(this).data('doc-num');
 
-    fetch('https://localhost:44391/Doctor/Offices', {
+    fetch(host + '/Doctor/Offices', {
         method: 'POST',
         body: doctors[DoctorNum].doctor.id,
         headers: {

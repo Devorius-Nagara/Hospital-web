@@ -150,7 +150,7 @@ const dataB = document.querySelector('#dataB');
 const status = document.querySelector('#status');
 let token = localStorage.getItem('auth_token');
 $.ajax({
-    url: 'https://localhost:44391/Profile',
+    url: host + '/Profile',
     type: 'GET',
     dataType: 'json',
     beforeSend: function(xhr) {
@@ -170,7 +170,7 @@ $.ajax({
 
 document.getElementById('client').style.display = 'flex';
 $.ajax({
-    url: "https://localhost:44391/Profile/isDoctor",
+    url: host + "/Profile/isDoctor",
     type: "GET",
     dataType: "json",
     beforeSend: function(xhr) {
@@ -185,7 +185,7 @@ $.ajax({
         console.log(data);
 
         return $.ajax({
-            url: "https://localhost:44391/Profile/isAdminInHospital",
+            url: host + "/Profile/isAdminInHospital",
             type: "GET",
             dataType: "json",
             beforeSend: function(xhr) {
@@ -201,7 +201,7 @@ $.ajax({
         console.log(data);
 
         return $.ajax({
-            url: "https://localhost:44391/Profile/isAdminInDepartament",
+            url: host + "/Profile/isAdminInDepartament",
             type: "GET",
             dataType: "json",
             beforeSend: function(xhr) {
@@ -217,7 +217,7 @@ $.ajax({
         console.log(data);
 
         return $.ajax({
-            url: "https://localhost:44391/Profile/isAdminInSystem",
+            url: host + "/Profile/isAdminInSystem",
             type: "GET",
             dataType: "json",
             beforeSend: function(xhr) {

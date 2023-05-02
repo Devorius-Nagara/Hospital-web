@@ -315,7 +315,7 @@ p, h1, h2, h3, h4, h5, h6{
     .datatable{
         width: 100%;
         height: 100%;
-        position: absolute;
+        position: relative;
         z-index: 1;
         padding: 20px;
     }
@@ -406,7 +406,10 @@ p, h1, h2, h3, h4, h5, h6{
         z-index: 2000;
     }
 
-
+    .leftSpoilerTitle:first-child{
+        display: flex;
+        align-items: center;
+    }
 
 
     .select2-container--default .select2-selection--single {
@@ -664,7 +667,7 @@ p, h1, h2, h3, h4, h5, h6{
     .datatable{
         width: 100%;
         height: 100%;
-        position: absolute;
+        position: relative;
         z-index: 1;
         padding: 20px;
     }
@@ -753,7 +756,10 @@ p, h1, h2, h3, h4, h5, h6{
         margin-right: auto;
         z-index: 2000;
     }
-
+    .leftSpoilerTitle:first-child{
+        display: flex;
+        align-items: center;
+    }
 
 
     .select2-container--default .select2-selection--single {
@@ -1117,7 +1123,10 @@ p, h1, h2, h3, h4, h5, h6{
         margin-right: auto;
         z-index: 2000;
     }
-
+    .leftSpoilerTitle:first-child{
+        display: flex;
+        align-items: flex-start;
+    }
 
 
     .select2-container--default .select2-selection--single {
@@ -1186,10 +1195,6 @@ p, h1, h2, h3, h4, h5, h6{
 .leftSpoilerTitle_LeftCase{
     text-align: left;
     margin-bottom: 5px;
-}
-.leftSpoilerTitle:first-child{
-    display: flex;
-    align-items: flex-start;
 }
 .errorWin{
     background-color: #4C4C4C;

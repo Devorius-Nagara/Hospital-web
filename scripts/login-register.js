@@ -25,7 +25,7 @@ $(document).ready(function() {
 /** Перехід на профіль **/
 let token = localStorage.getItem('auth_token');
 $.ajax({
-    url: 'https://localhost:44391/Profile',
+    url: host + '/Profile',
     type: 'GET',
     dataType: 'json',
     beforeSend: function (xhr) {
@@ -48,7 +48,7 @@ document.getElementById('profileCase').addEventListener("click", function logReg
 
 /** ПОЛУЧЕННЯ ДАННИХ ПРО НАСЕЛЕНИЙ ПУНКТ **/
 $.ajax({
-    url: 'https://localhost:44391/Auth',
+    url: host + '/Auth',
     type: 'GET',
     dataType: 'json',
     success: function (data) {
@@ -143,7 +143,7 @@ loginForm.addEventListener("submit", function logRequest(event) {
         "password": password
     };
     // Відправляємо запит на сервер
-    fetch('https://localhost:44391/Auth/login', {
+    fetch(host + '/Auth/login', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -203,7 +203,7 @@ registrationForm.addEventListener("submit", function(event) {
         return;
     }
 
-    fetch('https://localhost:44391/Auth/register', {
+    fetch(host + '/Auth/register', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
