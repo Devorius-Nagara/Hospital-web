@@ -173,8 +173,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const themedataString = localStorage.getItem('MyDoctorThemeData');
     const themedata = JSON.parse(themedataString);
 
-    if (themedata === "dark") {
-        changeTheme()
+    if (themedata !== "dark" && themedata !== "white"){
+        let themedata;
+        css.href = 'styles/profile-editing-white.css';
+        emblem.src = 'images/emb-black.png';
+        themeEmb.src = 'images/sun.png';
+        profile.src = 'images/profile black.png';
+        profileIco.src = 'images/profile black.png';
+        themedata = "white";
+        localStorage.setItem('MyDoctorThemeData', JSON.stringify(themedata));
+    }else if (themedata === "white"){
+        css.href = 'styles/profile-editing-white.css';
+        emblem.src = 'images/emb-black.png';
+        themeEmb.src = 'images/sun.png';
+        profile.src = 'images/profile black.png';
+        profileIco.src = 'images/profile black.png';
+    }else if(themedata === "dark") {
+        let themedata;
+        css.href = 'styles/profile-editing-dark.css';
+        emblem.src = 'images/emb-white.png';
+        themeEmb.src = 'images/moon.png';
+        profile.src = 'images/profile.png';
+        profileIco.src = 'images/profile.png';
+        themedata = "dark";
+        localStorage.setItem('MyDoctorThemeData', JSON.stringify(themedata));
     }
 });
 function changeTheme() {

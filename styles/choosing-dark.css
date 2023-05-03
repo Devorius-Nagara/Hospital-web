@@ -428,6 +428,15 @@ p, h1, h2, h3, h4, h5, h6{
     .select2-container .select2-selection--single{
         height: 32px;
     }
+
+    .dataText{
+        font-size: 30pt;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media (min-width: 501px) and (max-width: 1300px){
     header{
@@ -777,6 +786,14 @@ p, h1, h2, h3, h4, h5, h6{
     }
     .select2-container .select2-selection--single{
         height: 32px;
+    }
+    .dataText{
+        font-size: 30pt;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
     }
 }
 @media (min-width: 1301px){
@@ -1143,6 +1160,14 @@ p, h1, h2, h3, h4, h5, h6{
     .PCBlock{
         width: 340px;
     }
+    .dataText{
+        font-size: 30pt;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .mainPage {
@@ -1255,4 +1280,7 @@ p, h1, h2, h3, h4, h5, h6{
 }
 .select2-container .select2-selection--single .select2-selection__rendered{
     padding-left: 10px;
+}
+.selected {
+    background-color: #090909; /* червоний фон для обраних блоків */
 }
