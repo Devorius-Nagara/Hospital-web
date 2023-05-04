@@ -20,19 +20,10 @@ let hospitalId = localStorage.getItem('hospitalId');
 let logged;
 
 let finalRequest = {
-    id: null,
-    patientId: null,
-    doctorId: 0,
-    appoimentTimeId: 0,
-    officeId: 0,
-    office:{
-        id: null,
-        name: null,
-        numberInHospital: null,
-        additionalInformation: null
-    },
-    dateTime: null,
-    date: 0,
+    doctorId: null,
+    appoimentTimeId: null,
+    officeId: null,
+    date: null,
     additionalInformation: null
 }
 
@@ -563,29 +554,54 @@ document.getElementById('submitDocRequest').addEventListener('click', function(e
     finalRequest.additionalInformation = document.getElementById('addInfForDoc').value || null;
     console.log(finalRequest)
 
-    fetch(host + '/SendAppoiment', {
-        method: 'POST',
-        body: JSON.stringify(finalRequest),
-        headers: {
-            'Authorization': 'Bearer ' + [token],
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data)
 
-        })
-        .catch(error => {
-            console.error('Помилка:', error);
-            errorText.textContent = "Виникла помилка";
-            $("#errorWin").animate({top: '70'}, 400);
-            setTimeout(function() {
-                $("#errorWin").animate({top: '-100'}, 400);
-            }, 5000);
-        });
+            fetch(host + '/SendAppoiment', { // повторна спроба відправки запиту на сервер
+                method: 'POST',
+                body: JSON.stringify(finalRequest),
+                headers: {
+                    'Authorization': 'Bearer ' + [token],
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        errorText.textContent = "Ви успішно записались до лікара";
+                        $("#errorWin").animate({top: '70'}, 400);
+                        setTimeout(function() {
+                            $("#errorWin").animate({top: '-100'}, 400);
+                        }, 5000);
+                        document.getElementById('timeTable').innerHTML = '';
+                        modal.style.display = "none";
+                        return response.text();
+                    } else {
+                        return response.text().then(text => {
+                            throw new Error(text);
+                        });
+                    }
+                })
+                .then(responseText => {
+                    console.log("Відповідь сервера: " + responseText);
+                })
+                .catch(error => {
+                    console.error(error);
+                    if (error.message.length > 100){
+                        errorText.textContent = "Виникла помилка: перейдіть в консоль";
+                        $("#errorWin").animate({top: '70'}, 400);
+                        setTimeout(function() {
+                            $("#errorWin").animate({top: '-100'}, 400);
+                        }, 5000);
+                    }else {
+                        errorText.textContent = "Виникла помилка: " + error.message;
+                        $("#errorWin").animate({top: '70'}, 400);
+                        setTimeout(function() {
+                            $("#errorWin").animate({top: '-100'}, 400);
+                        }, 5000);
+                    }
+
+                });
+
+
+
 });
 
 
