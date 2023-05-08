@@ -1,0 +1,863 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+*,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block}
+html,body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea,select,textarea,p,h1,h2,h3,h4,h5,h6 {font-family: Bahnschrift; margin: 0px;
+    color: #212529;}
+input::-ms-clear{display: none;}
+button {cursor: pointer;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img {vertical-align: top;}
+
+body {
+    background-color: white;
+    height: 100%;
+}
+header {
+    background-color: #E0DECD;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.page {
+    min-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+.mainPage {
+    background-color: #E0DECD;
+    overflow: hidden;
+    position: relative;
+}
+footer{
+    background-color: #E0DECD;
+    display: flex;
+    justify-content: space-evenly;
+}
+.emblem {
+    padding-left: 0px;
+    padding-top: 0px;
+}
+.tHead{
+    margin-bottom: 0px;
+    color: #4C4C4C;
+}
+.btnHead1 {
+    float: right;
+    display: block;
+    background-color: #B5B3A3;
+}
+.btnHead2 {
+    float: right;
+    display: block;
+    background-color: #B5B3A3;
+}
+.btnHead1:hover,.btnHead2:hover{
+    background-color: #999788;
+}
+
+p, h1, h2, h3, h4, h5, h6{
+    color: #2B2B2BFF;
+}
+label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    header{
+        height: 50px;
+        border-radius: 0px 0px 30px 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding-bottom: 20px;
+    }
+    .emblem {
+        width: 50px;
+        height: 100%;
+    }
+    footer{
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 18pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 130%;
+    }
+    .btnHead1, .btnHead2{
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+    }
+    .btnHead1{
+        padding-left: 1px;
+        margin-right: 5px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 15px;
+        height: 15px;
+    }
+    .profile {
+        width: 10px;
+        height: 13px;
+    }
+
+
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+
+
+
+
+
+    .rowing{}
+    .firstGeneralBlock{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .secondGeneralBlock{}
+    .caseOfDocAndPacInfo, .caseOfGeneralInfo, .caseWithFirstButtons{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .firstInfoBlock, .secondInfoBlock{
+        width: 350px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+    .firstBtns{
+        width: 350px;
+        height: 25px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+
+
+    .instruction, .ills{
+        width: 350px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+    .secondBtns{
+        width: 350px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        height: 25px;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText, .textGuid{
+        font-size: 12pt;
+    }
+    .firstBtns, .secondBtns{
+        font-size: 12pt;
+    }
+
+
+
+
+    .select2{
+        width: 300px !important;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .diseases{
+        width: 300px !important;
+    }
+
+    .input__file-button, .input__file-icon-wrapper{
+        height: 30px;
+    }
+    .input__file-icon-wrapper{
+        width: 80px;
+    }
+    .input__file-button, .input__wrapper{
+        width: 300px;
+    }
+
+
+    .btns1{
+        display: none;
+    }
+    .btns2{
+        display: flex;
+    }
+}
+@media (min-width: 501px) and (max-width: 1300px){
+    header{
+        height: 80px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+    .emblem {
+        width: 80px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 30pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 110%;
+    }
+    .btnHead1, .btnHead2{
+        width: 48px;
+        height: 48px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 23px;
+        height: 23px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+
+
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+
+
+
+
+    .rowing{}
+    .firstGeneralBlock{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .secondGeneralBlock{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .caseOfDocAndPacInfo, .caseOfGeneralInfo, .caseWithFirstButtons{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .firstInfoBlock, .secondInfoBlock{
+        width: 350px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+    .firstBtns{
+        width: 350px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        height: 25px;
+    }
+
+
+
+    .instruction, .ills{
+        width: 350px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+    .secondBtns{
+        width: 350px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        height: 25px;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText, .textGuid{
+        font-size: 12pt;
+    }
+    .firstBtns, .secondBtns{
+        font-size: 13pt;
+    }
+
+
+
+
+
+    .select2{
+        width: 300px !important;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .diseases{
+        width: 300px !important;
+    }
+
+    .input__file-button, .input__file-icon-wrapper{
+        height: 30px;
+    }
+    .input__file-icon-wrapper{
+        width: 80px;
+    }
+    .input__file-button, .input__wrapper{
+        width: 300px;
+    }
+
+
+
+    .btns1{
+        display: none;
+    }
+    .btns2{
+        display: flex;
+    }
+}
+@media (min-width: 750px){
+    .rowing{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+    }
+    .firstGeneralBlock{
+        margin-right: 10px;
+    }
+    .secondGeneralBlock{
+        margin-left: 10px;
+    }
+}
+@media (min-width: 1000px){
+    .firstInfoBlock, .secondInfoBlock, .firstBtns, .instruction, .ills,  .secondBtns{
+        width: 450px;
+    }
+    .firstGeneralBlock{
+        margin-right: 15px;
+    }
+    .secondGeneralBlock{
+        margin-left: 15px;
+    }
+}
+@media (min-width: 1301px){
+    .page {
+        width: 1280px;
+    }
+    header{
+        height: 60px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+
+    }
+    .emblem {
+        width: 55px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 28pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 145%;
+    }
+    .btnHead1, .btnHead2{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 7px;
+    }
+    .theme {
+        width: 20px;
+        height: 20px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+    .rowing{}
+    .firstGeneralBlock{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-right: 10px;
+        width: 720px;
+    }
+    .secondGeneralBlock{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 10px;
+    }
+    .caseOfDocAndPacInfo, .caseOfGeneralInfo, .caseWithFirstButtons{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: row;
+        margin-bottom: 10px;
+    }
+    .firstInfoBlock, .secondInfoBlock{
+        width: 350px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    }
+    .firstInfoBlock{
+
+    }
+    .secondInfoBlock{
+        height: 320px;
+    }
+    .firstBtns{
+        width: 350px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        height: 25px;
+    }
+    .firstInfoBlock:first-child, .secondInfoBlock:first-child, .firstBtns:first-child{
+        margin-right: 20px;
+    }
+
+
+    .instruction, .ills{
+        width: 350px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+    .instruction{
+        height: 180px;
+    }
+    .ills{
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .secondBtns{
+        width: 350px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        height: 25px;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText, .textGuid{
+        font-size: 12pt;
+    }
+    .firstBtns, .secondBtns{
+        font-size: 13pt;
+    }
+
+
+    .select2{
+        width: 300px !important;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .diseases{
+        width: 300px !important;
+    }
+
+    .input__file-button, .input__file-icon-wrapper{
+        height: 30px;
+    }
+    .input__file-icon-wrapper{
+        width: 80px;
+    }
+    .input__file-button, .input__wrapper{
+        width: 300px;
+    }
+
+    .btns1{
+        display: flex;
+    }
+    .btns2{
+        display: none;
+    }
+}
+
+
+.errorWin{
+    background-color: #E0DECD;
+}
+.errorText{
+    color: #4C4C4C;
+    text-align: center;
+}
+.closeBtnCase{
+    position: absolute;
+}
+.closeBtnCase{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondInfoBlock, .firstInfoBlock,.instruction, .ills {
+    background-color: #B5B3A3;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.titleText1{
+    margin-bottom: 5px;
+    text-align: center;
+}
+.titleText2{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.simpleInfoText{
+    margin-bottom: 3px;
+}
+.textGuid{
+    text-align: center;
+}
+.closeBtn, .dataInfo{
+    background-color: #B5B3A3;
+}
+.firstBtns, .secondBtns{
+    background-color: #B5B3A3;
+}
+.dataInfoTxt{
+     color: #1C1C1C;
+     margin-top: 2px;
+ }
+
+
+
+
+
+
+
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #c5c5c5;
+    border: 0;
+    border-radius: 6px;
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0 5px;
+    height: 18px;
+}
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    cursor: text;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__clear{
+    margin-left: 5px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+    border: 0;
+}
+.select2-dropdown{
+    border-radius: 15px;
+    overflow: hidden;
+}
+.select2-dropdown {
+    background-color: #ffffff;
+    border: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #252525;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #d5d5d5;
+    color: #313131; ;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #a9a9a9;
+    color: #4C4C4C;
+}
+.select2-selection__choice{
+    color: #4C4C4C;
+}
+.select2-container--default .select2-search--inline .select2-search__field {
+    font-size: 19px !important;
+    color: #4C4C4C;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    font-size: 16px;
+}
+
+
+
+
+
+
+.select2-container--default .select2-selection--single {
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #1C1C1C;
+    border-radius: 15px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: auto;
+}
+.select2-dropdown{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.select2-dropdown {
+    background-color: #ffffff;
+    border: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #b2b2b2;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #d7d7d7;
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-results {
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 20px;
+}

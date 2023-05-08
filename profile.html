@@ -64,42 +64,38 @@
                     <div class="navPanelContent">
                         <div class="navBlocks" id="admPanel">
                             <h1 class="headerTxtOfNav">Адміністративна панель</h1>
-                            <button class="navbtns">Список лікарень</button>
-                            <button class="navbtns">Список працівників</button>
-                            <button class="navbtns">Список клієнтів</button>
-                            <button class="navbtns">Заявки</button>
+                            <button class="navbtns" onclick="">Список лікарень</button>
+                            <button class="navbtns" onclick="">Список працівників</button>
+                            <button class="navbtns" onclick="">Список клієнтів</button>
+                            <button class="navbtns" onclick="">Заявки</button>
                         </div>
                         <div class="navBlocks" id="headDocPanel">
                             <h1 class="headerTxtOfNav">Панель голвного лікара</h1>
-                            <button class="navbtns">Мої лікарні</button>
-                            <button class="navbtns">Мої працівники</button>
-                            <button class="navbtns">Всі записи</button>
-                            <button class="navbtns">Нові записи</button>
-                            <button class="navbtns">Активні записи</button>
-                            <button class="navbtns">Закриті записи</button>
+                            <button class="navbtns" onclick="">Мої лікарні</button>
+                            <button class="navbtns" onclick="">Мої працівники</button>
+                            <button class="navbtns" onclick="">Всі записи</button>
+                            <button class="navbtns" onclick="">Нові записи</button>
+                            <button class="navbtns" onclick="">Активні записи</button>
                         </div>
                         <div class="navBlocks" id="headDocInDepPanel">
                             <h1 class="headerTxtOfNav">Панель Зав.Відділення</h1>
-                            <button class="navbtns">Мої лікарні</button>
-                            <button class="navbtns">Мої працівники</button>
-                            <button class="navbtns">Всі записи</button>
-                            <button class="navbtns">Нові записи</button>
-                            <button class="navbtns">Активні записи</button>
-                            <button class="navbtns">Закриті записи</button>
+                            <button class="navbtns" onclick="">Мої лікарні</button>
+                            <button class="navbtns" onclick="">Мої працівники</button>
+                            <button class="navbtns" onclick="">Всі записи</button>
+                            <button class="navbtns" onclick="">Нові записи</button>
+                            <button class="navbtns" onclick="">Активні записи</button>
                         </div>
                         <div class="navBlocks" id="docPanel">
                             <h1 class="headerTxtOfNav">Лікарська панель</h1>
-                            <button class="navbtns">Мої лікарні</button>
-                            <button class="navbtns">Всі записи</button>
-                            <button class="navbtns">Нові записи</button>
-                            <button class="navbtns">Активні записи</button>
-                            <button class="navbtns">Закриті записи</button>
+                            <button class="navbtns" onclick="">Мої лікарні</button>
+                            <button class="navbtns" onclick="">Всі записи</button>
+                            <button class="navbtns" onclick="appointmentRequestDoctor()">Нові записи</button>
+                            <button class="navbtns" onclick="">Активні записи</button>
                         </div>
                         <div class="navBlocks" id="client">
                             <h1 class="headerTxtOfNav">Клієнтська панель</h1>
-                            <button class="navbtns">Мої записи</button>
-                            <button class="navbtns">Активні записи</button>
-                            <button class="navbtns">Закриті записи</button>
+                            <button class="navbtns" onclick="appointmentRequestClient()">Мої записи</button>
+                            <button class="navbtns" onclick="cases()">Активні записи</button>
                         </div>
 
                     </div>
@@ -116,196 +112,7 @@
             <img src="images/backround-dark.png" class="backroundImg">
         </div>
         <div class="datatable" id="datatable" data-simplebar>
-            <div class="table">
-                <div class="infoCase">
-                    <div class="infoTitle">
-                        <div class="leftInfoTitle">
-                            <p>00.00.0000</p>
-                        </div>
-                        <div class="centerInfoTitle">
-                            <p class="infoTitleText">Заявка</p>
-                            <p>Спеціальність:</p>
-                            <p>Статус:</p>
-                        </div>
-                        <div class="rightInfoTitle">
-                            <p>Розгорнути</p>
-                        </div>
-                    </div>
-                    <div class="infoSpoiler">
-                        <div class="infoSpoilerCase">
-                            <div class="leftSpoilerTitle">
-                                <p class="infoTitleText">Контактні дані</p>
-                                <p>+38 000 000 0000</p>
-                                <p>example@gmail.com</p>
-                            </div>
-                            <form class="centerSpoilerTitle">
-                                <button class="infoBtns">Завантажити файл</button>
-                                <select class="select2" id="searchCity">
-                                    <option value="Не вказано">Спеціальність</option>
-                                </select>
-                                <button type="submit" class="infoBtns">Прийняти заявку</button>
-                            </form>
-                            <form class="rightSpoilerTitle">
-                                <textarea placeholder="Причина відмови" class="message" maxlength="200"></textarea>
-                                <button type="submit" class="DiscBtns">Відмовити</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="infoCase">
-                    <div class="infoTitle">
-                        <div class="leftInfoTitle">
-                            <p>00.00.0000</p>
-                        </div>
-                        <div class="centerInfoTitle">
-                            <p class="infoTitleText">Заявка</p>
-                            <p>Спеціальність:</p>
-                            <p>Статус:</p>
-                        </div>
-                        <div class="rightInfoTitle">
-                            <p>Розгорнути</p>
-                        </div>
-                    </div>
-                    <div class="infoSpoiler">
-                        <div class="infoSpoilerCase">
-                            <div class="leftSpoilerTitle">
-                                <p class="infoTitleText">Контактні дані</p>
-                                <p>+38 000 000 0000</p>
-                                <p>example@gmail.com</p>
-                            </div>
-                            <form class="centerSpoilerTitle">
-                                <button class="infoBtns">Завантажити файл</button>
-                                <select class="select2" id="searchCity">
-                                    <option value="Не вказано">Спеціальність</option>
-                                </select>
-                                <button type="submit" class="infoBtns">Прийняти заявку</button>
-                            </form>
-                            <form class="rightSpoilerTitle">
-                                <textarea placeholder="Причина відмови" class="message" maxlength="200"></textarea>
-                                <button type="submit" class="DiscBtns">Відмовити</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="infoCase">
-                    <div class="infoTitle">
-                        <div class="leftInfoTitle">
-                            <p>00.00.0000</p>
-                        </div>
-                        <div class="centerInfoTitle">
-                            <p class="infoTitleText">Заявка</p>
-                            <p>Спеціальність:</p>
-                            <p>Статус:</p>
-                        </div>
-                        <div class="rightInfoTitle">
-                            <p>Розгорнути</p>
-                        </div>
-                    </div>
-                    <div class="infoSpoiler">
-                        <div class="infoSpoilerCase">
-                            <div class="leftSpoilerTitle">
-                                <p class="infoTitleText">Контактні дані</p>
-                                <p>+38 000 000 0000</p>
-                                <p>example@gmail.com</p>
-                            </div>
-                            <form class="centerSpoilerTitle">
-                                <button class="infoBtns">Завантажити файл</button>
-                                <select class="select2" id="searchCity">
-                                    <option value="Не вказано">Спеціальність</option>
-                                </select>
-                                <button type="submit" class="infoBtns">Прийняти заявку</button>
-                            </form>
-                            <form class="rightSpoilerTitle">
-                                <textarea placeholder="Причина відмови" class="message" maxlength="200"></textarea>
-                                <button type="submit" class="DiscBtns">Відмовити</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="infoCase">
-                    <div class="infoTitle">
-                        <div class="leftInfoTitle">
-                            <p>00.00.0000</p>
-                        </div>
-                        <div class="centerInfoTitle">
-                            <p class="infoTitleText">Заявка</p>
-                            <p>Спеціальність:</p>
-                            <p>Статус:</p>
-                        </div>
-                        <div class="rightInfoTitle">
-                            <p>Розгорнути</p>
-                        </div>
-                    </div>
-                    <div class="infoSpoiler">
-                        <div class="infoSpoilerCase">
-                            <div class="leftSpoilerTitle">
-                                <p class="infoTitleText">Контактні дані</p>
-                                <p>+38 000 000 0000</p>
-                                <p>example@gmail.com</p>
-                            </div>
-                            <form class="centerSpoilerTitle">
-                                <button class="infoBtns">Завантажити файл</button>
-                                <select class="select2" id="searchCity">
-                                    <option value="Не вказано">Спеціальність</option>
-                                </select>
-                                <button type="submit" class="infoBtns">Прийняти заявку</button>
-                            </form>
-                            <form class="rightSpoilerTitle">
-                                <textarea placeholder="Причина відмови" class="message" maxlength="200"></textarea>
-                                <button type="submit" class="DiscBtns">Відмовити</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="infoCase">
-                    <div class="infoTitle">
-                        <div class="leftInfoTitle">
-                            <p>00.00.0000</p>
-                        </div>
-                        <div class="centerInfoTitle">
-                            <p class="infoTitleText">Заявка</p>
-                            <p>Спеціальність:</p>
-                            <p>Статус:</p>
-                        </div>
-                        <div class="rightInfoTitle">
-                            <p>Розгорнути</p>
-                        </div>
-                    </div>
-                    <div class="infoSpoiler">
-                        <div class="infoSpoilerCase">
-                            <div class="leftSpoilerTitle">
-                                <div class="leftSpoilerTitle_LeftCase">
-                                    <p>ПІБ:</p>
-                                    <p>Стать:</p>
-                                    <p>Вік:</p>
-                                </div>
-                                <div>
-                                    <p class="infoTitleText">Контактні дані</p>
-                                    <p>+38 000 000 0000</p>
-                                    <p>example@gmail.com</p>
-                                </div>
-
-                            </div>
-                            <form class="centerSpoilerTitle">
-                                <button class="infoBtns">Завантажити файл</button>
-                                <select class="select2" id="searchCity">
-                                    <option value="Не вказано">Спеціальність</option>
-                                </select>
-                                <button type="submit" class="infoBtns">Прийняти заявку</button>
-                            </form>
-                            <form class="rightSpoilerTitle">
-                                <textarea placeholder="Причина відмови" class="message" maxlength="200"></textarea>
-                                <button type="submit" class="DiscBtns">Відмовити</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-
+            <div class="table" id="table">
             </div>
 
         </div>

@@ -7,8 +7,20 @@ const backroundImg = document.querySelector('.backroundImg');
 const btnCloser = document.getElementById('btnCloser');
 const btnOpener = document.getElementById('btnOpener');
 const datatable = document.getElementById('datatable');
-const blur = document.querySelector('.blur')
+const blur = document.querySelector('.blur');
+const dataTable = document.getElementById('table')
+localStorage.removeItem('appointmentData');
+let strStatus;
 
+let appointmentCaseData = {
+    gneralLeftCase: '',
+    generalCenterUpCase: '',
+    generalCenterDownCase: '',
+    spoilerLeftUpCase: '',
+    spoilerLeftDownCase: '',
+    spoilerCenterCase: '',
+    spoilerRightCase: ''
+}
 /** Зміна теми **/
 document.addEventListener('DOMContentLoaded', function() {
     const themedataString = localStorage.getItem('MyDoctorThemeData');
@@ -205,6 +217,7 @@ $.ajax({
     .then(function(data) {
         if (data) {
             status.textContent = "Статус: Лікар";
+            strStatus = 'Лікар';
             document.getElementById("docPanel").style.display = "flex";
         }
         console.log(data);
@@ -221,6 +234,7 @@ $.ajax({
     .then(function(data) {
         if (data) {
             status.textContent = "Статус: Головний лікар";
+            strStatus = 'Головний лікар';
             document.getElementById("headDocPanel").style.display = "flex";
         }
         console.log(data);
@@ -237,6 +251,7 @@ $.ajax({
     .then(function(data) {
         if (data) {
             status.textContent = "Статус: Зав.Відділення";
+            strStatus = 'Зав.Відділення';
             document.getElementById("headDocInDepPanel").style.display = "flex";
         }
         console.log(data);
@@ -253,10 +268,12 @@ $.ajax({
     .then(function(data) {
         if (data) {
             status.textContent = "Статус: Адміністратор";
+            strStatus = 'Адміністратор';
             document.getElementById("admPanel").style.display = "flex";
         }else {
             if (status.textContent === "Статус:"){
                 status.textContent = 'Статус: Клієнт';
+                strStatus = 'Клієнт';
             }
         }
         console.log(data);
@@ -269,13 +286,115 @@ $.ajax({
 
 
 
-
-
-
-
 /** LOGOUT **/
 const btnLogOut = document.getElementById('btnLogOut')
 btnLogOut.addEventListener('click', function logOut() {
     localStorage.removeItem('auth_token')
     window.location.href = "main.html"
 })
+
+
+
+function appointmentRequestClient() {
+    $.ajax({
+        url: host + '/Profile/appoiments/patient',
+        type: 'GET',
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+        },
+        success: function (data) {
+            console.log(data)
+            dataTable.innerHTML = '';
+            for (let lenghtOfCases = 0; lenghtOfCases < data.length; lenghtOfCases++){
+                const dateString = data[lenghtOfCases].date; // рядкове значення дати
+                const date = new Date(dateString); // створюємо об'єкт дати
+                const optionsDate = {day: '2-digit', month: '2-digit', year: 'numeric'}; // опції для форматування дати
+                const optionsTime = {hour: '2-digit', minute:'2-digit'}; // опції для форматування часу
+                const formattedDate = date.toLocaleDateString('en-US', optionsDate); // форматуємо дату
+                const formattedTime = date.toLocaleTimeString('en-US', optionsTime); // форматуємо час
+
+                var $infoCase = $('<div>').addClass('infoCase').attr('data-id', data[lenghtOfCases].id).attr('id', 'goToAppointment')
+                var $infoTitle = $('<div>').addClass('infoTitle');
+                var $leftInfoTitle = $('<div>').addClass('leftInfoTitle');
+                var $centerInfoTitle = $('<div>').addClass('centerInfoTitle');
+                var $rightInfoTitle = $('<div>').addClass('rightInfoTitle');
+                var $titleDate = $('<p>').text(formattedDate);
+                var $titleText = $('<p>').addClass('infoTitleText').text('Запис');
+                var $specialty = $('<p>').text(data[lenghtOfCases].hospitalName);
+                var $status = $('<p>').text('Офіс: ' + data[lenghtOfCases].officeName);
+                var $expand = $('<p>').text(formattedTime);
+
+                $leftInfoTitle.append($titleDate);
+                $centerInfoTitle.append($titleText, $specialty, $status);
+                $rightInfoTitle.append($expand);
+                $infoTitle.append($leftInfoTitle, $centerInfoTitle, $rightInfoTitle);
+                $infoCase.append($infoTitle);
+                $('.table').append($infoCase);
+            }
+            leftPanelActionClose();
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function appointmentRequestDoctor(){
+    $.ajax({
+        url: host + '/Profile/appoiments/doctor',
+        type: 'GET',
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+        },
+        success: function (data) {
+            console.log(data)
+            dataTable.innerHTML = '';
+            for (let lenghtOfCases = 0; lenghtOfCases < data.length; lenghtOfCases++){
+                const dateString = data[lenghtOfCases].date; // рядкове значення дати
+                const date = new Date(dateString); // створюємо об'єкт дати
+                const optionsDate = {day: '2-digit', month: '2-digit', year: 'numeric'}; // опції для форматування дати
+                const optionsTime = {hour: '2-digit', minute:'2-digit'}; // опції для форматування часу
+                const formattedDate = date.toLocaleDateString('en-US', optionsDate); // форматуємо дату
+                const formattedTime = date.toLocaleTimeString('en-US', optionsTime); // форматуємо час
+
+                var $infoCase = $('<div>').addClass('infoCase').attr('data-id', data[lenghtOfCases].id).attr('id', 'goToAppointment')
+                var $infoTitle = $('<div>').addClass('infoTitle');
+                var $leftInfoTitle = $('<div>').addClass('leftInfoTitle');
+                var $centerInfoTitle = $('<div>').addClass('centerInfoTitle');
+                var $rightInfoTitle = $('<div>').addClass('rightInfoTitle');
+                var $titleDate = $('<p>').text(formattedDate);
+                var $titleText = $('<p>').addClass('infoTitleText').text('Запис');
+                var $specialty = $('<p>').text(data[lenghtOfCases].hospitalName);
+                var $status = $('<p>').text('Офіс: ' + data[lenghtOfCases].officeName);
+                var $expand = $('<p>').text(formattedTime);
+
+                $leftInfoTitle.append($titleDate);
+                $centerInfoTitle.append($titleText, $specialty, $status);
+                $rightInfoTitle.append($expand);
+                $infoTitle.append($leftInfoTitle, $centerInfoTitle, $rightInfoTitle);
+                $infoCase.append($infoTitle);
+                $('.table').append($infoCase);
+            }
+            leftPanelActionClose();
+        },
+        error: function (error) {
+        }
+    });
+}
+
+
+
+
+$(document).on('click', '#goToAppointment', function() {
+    event.preventDefault();
+    console.log('2')
+    let appointmentData = {
+        id: $(this).data('id'),
+        patientStatus: strStatus,
+    };
+
+    localStorage.setItem('appointmentData', JSON.stringify(appointmentData));
+    window.location.href = "appointment.html";
+});
