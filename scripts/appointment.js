@@ -4,12 +4,16 @@ const themeEmb = document.getElementById('themeEmb');
 const profile = document.getElementById('profile');
 const closeBtn = document.getElementById('closeBtn')
 const secondGeneralBlock = document.getElementById('secondGeneralBlock')
-const createCase = document.getElementById('createCase')
+const createCaseFirst = document.getElementById('createCaseFirst')
+const createCaseSecond = document.getElementById('createCaseSecond')
 const selectedSymptoms = document.getElementById('selectedSymptoms')
+const caseRemoveFirst = document.getElementById('caseRemoveFirst')
+const caseRemoveSecond = document.getElementById('caseRemoveSecond')
 const diseasesSelect = document.getElementById('diseases')
 const dataInfo = document.getElementById('dataInfo')
 const errorText = document.getElementById('errorText')
 let createCaseData = {
+    appoimentId: 0,
     patientId: 0,
     doctorId: 0,
     diseaseId: 0,
@@ -107,17 +111,13 @@ fetch(host + '/Appoiment', {
         if (data.id === appointmentId.id) {
             if (appointmentId.patientStatus === "Клієнт"){
                 secondGeneralBlock.style.display = 'none';
+                createCaseFirst.style.display = 'none';
+                createCaseSecond.style.display = 'none';
             }
             createCaseData.doctorId = data.doctorId;
             createCaseData.officeId = data.officeId;
             createCaseData.patientId = data.patientId;
-            const dateString = data.date; // рядкове значення дати
-            const date = new Date(dateString); // створюємо об'єкт дати
-            const optionsDate = {day: '2-digit', month: '2-digit', year: 'numeric'}; // опції для форматування дати
-            const optionsTime = {hour: '2-digit', minute: '2-digit'}; // опції для форматування часу
-            const formattedDate = date.toLocaleDateString('en-US', optionsDate); // форматуємо дату
-            const formattedTime = date.toLocaleTimeString('en-US', optionsTime); // форматуємо час
-            dataInfo.textContent = formattedDate;
+            dataInfo.textContent = data.date;
             let patientBirthDate = new Date(data.patient.birthDate);
             let patientAgeDifMs = Date.now() - patientBirthDate.getTime();
             let patientAgeDate = new Date(patientAgeDifMs);
@@ -261,11 +261,14 @@ closeBtn.addEventListener("click", function logRegOrRecord(event) {
 
 
 
+createCaseSecond.addEventListener('click', caseCreatingFunc);
+createCaseFirst.addEventListener('click', caseCreatingFunc);
 const searchDiseaseQ = $('#diseases');
-createCase.addEventListener('click', function (){
+function caseCreatingFunc(){
     let selectedDiseases = $(searchDiseaseQ).find(':selected').val() || null;
     createCaseData.diseaseId = selectedDiseases;
-
+    createCaseData.appoimentId = appointmentId.id;
+    console.log(createCaseData)
     fetch(host + '/CreateCase', {
         method: 'POST',
         body: JSON.stringify(createCaseData),
@@ -305,7 +308,54 @@ createCase.addEventListener('click', function (){
 
 
         });
-})
+}
 
+
+
+
+caseRemoveFirst.addEventListener('click', caseRemovingFunc)
+caseRemoveSecond.addEventListener('click', caseRemovingFunc)
+function caseRemovingFunc(){
+    console.log(appointmentId.id)
+    fetch(host + '/DeleteAppoiment', {
+        method: 'POST',
+        body: JSON.stringify(appointmentId.id),
+        headers: {
+            'Authorization': 'Bearer ' + [token],
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                errorText.textContent = "Запис успішно видалено.";
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                    setTimeout(function() {
+                        window.location = "profile.html"
+                    });
+                }, 1000);
+
+                return response.text();
+            } else {
+                return response.text().then(text => {
+                    throw new Error(text);
+                });
+            }
+        })
+        .then(responseText => {
+            console.log("Відповідь сервера: " + responseText);
+        })
+        .catch(error => {
+            console.error(error);
+            errorText.textContent = "Виникла помилка, Спрбуйте пізніше.";
+            $("#errorWin").animate({top: '70'}, 400);
+            setTimeout(function() {
+                $("#errorWin").animate({top: '-100'}, 400);
+            }, 5000);
+
+
+        });
+}
 
 

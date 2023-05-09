@@ -660,6 +660,7 @@ function timeRequest(){
                             $(this).addClass("selected");
                             selectedTimeValue = $(this).data("value");
                             finalRequest.appoimentTimeId = data[selectedTimeValue].id;
+                            console.log(finalRequest.appoimentTimeId)
                         }
                     });
                 }
