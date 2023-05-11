@@ -113,6 +113,7 @@ fetch(host + '/Appoiment', {
                 secondGeneralBlock.style.display = 'none';
                 createCaseFirst.style.display = 'none';
                 createCaseSecond.style.display = 'none';
+                document.getElementById('caseWithFirstButtons').style.justifyContent = 'flex-end'
             }
             createCaseData.doctorId = data.doctorId;
             createCaseData.officeId = data.officeId;
@@ -138,7 +139,7 @@ fetch(host + '/Appoiment', {
                 "<p class=\"simpleInfoText\">" + data.patient.phoneNumber + "</p>" +
                 "<p class=\"simpleInfoText\"> " + data.patient.mail + " </p>"
             document.getElementById('doctorInfo').innerHTML =
-                "<p class=\"titleText1\">Пацієнт</p>" +
+                "<p class=\"titleText1\">Лікар</p>" +
                 "<p class=\"simpleInfoText\">ПІБ: "+ data.doctor.surname + " " + data.doctor.name + " " + data.doctor.middleName + "</p>" +
                 "<p class=\"simpleInfoText\">Вік: " + doctorAge + " Років</p>" +
                 "<p class=\"simpleInfoText\">Стать: " + data.doctor.gender + "</p>" +
@@ -279,24 +280,25 @@ function caseCreatingFunc(){
     })
         .then(response => {
             if (response.ok) {
-                errorText.textContent = "Дані успішно оновлено";
+                errorText.textContent = "Дані успішно збережено.";
                 $("#errorWin").animate({top: '70'}, 400);
                 setTimeout(function() {
                     $("#errorWin").animate({top: '-100'}, 400);
                     setTimeout(function() {
-                        window.location = "profile.html"
+                        window.location = "case.html"
                     });
                 }, 1000);
 
-                return response.text();
+                return response.json();
             } else {
                 return response.text().then(text => {
                     throw new Error(text);
                 });
             }
         })
-        .then(responseText => {
-            console.log("Відповідь сервера: " + responseText);
+        .then(data => {
+            localStorage.removeItem('appointmentData');
+            localStorage.setItem('caseId', data.id)
         })
         .catch(error => {
             console.error(error);

@@ -252,6 +252,7 @@ p, h1, h2, h3, h4, h5, h6{
         min-height: 90px;
         border-radius: 20px;
         cursor: pointer;
+        position: relative;
     }
     .infoSpoiler{
         display: none;
@@ -272,11 +273,16 @@ p, h1, h2, h3, h4, h5, h6{
         margin-bottom: 5px;
         margin-right: 5px;
     }
-    .centerInfoTitle{
+    .centerInfoTitle {
         display: flex;
         flex-direction: column;
         text-align: center;
         justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
     .rightInfoTitle{
         display: flex;
@@ -501,6 +507,7 @@ p, h1, h2, h3, h4, h5, h6{
         height: 90px;
         border-radius: 20px;
         cursor: pointer;
+        position: relative;
     }
     .infoSpoiler{
         display: none;
@@ -513,18 +520,26 @@ p, h1, h2, h3, h4, h5, h6{
         flex-direction: column;
         align-items: center;
     }
-    .leftInfoTitle{
+    .leftInfoTitle {
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
         min-width: 100px;
+        max-width: 200px;
+        text-align: left;
+        margin-left: 5px;
         margin-bottom: 5px;
     }
-    .centerInfoTitle{
+    .centerInfoTitle {
         display: flex;
         flex-direction: column;
         text-align: center;
         justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
     .rightInfoTitle{
         display: flex;
@@ -761,6 +776,7 @@ p, h1, h2, h3, h4, h5, h6{
         height: 90px;
         border-radius: 20px;
         cursor: pointer;
+        position: relative;
     }
     .infoSpoiler{
         display: none;
@@ -780,11 +796,16 @@ p, h1, h2, h3, h4, h5, h6{
         min-width: 100px;
         margin-bottom: 5px;
     }
-    .centerInfoTitle{
+    .centerInfoTitle {
         display: flex;
         flex-direction: column;
         text-align: center;
         justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
     .rightInfoTitle{
         display: flex;

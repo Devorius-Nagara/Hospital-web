@@ -600,7 +600,7 @@ label{
         align-items: center;
         flex-direction: column;
         margin-right: 10px;
-        width: 720px;
+        width: 800px;
     }
     .secondGeneralBlock{
         display: flex;
@@ -617,21 +617,21 @@ label{
         margin-bottom: 10px;
     }
     .firstInfoBlock, .secondInfoBlock{
-        width: 350px;
+        width: 415px;
         margin-bottom: 10px;
         border-radius: 15px;
     }
     .firstInfoBlock{
-
+        height: 200px;
     }
     .secondInfoBlock{
         height: 320px;
     }
     .firstBtns{
-        width: 350px;
+        width: 390px;
         margin-bottom: 10px;
         border-radius: 15px;
-        height: 25px;
+        height: 30px;
     }
     .firstInfoBlock:first-child, .secondInfoBlock:first-child, .firstBtns:first-child{
         margin-right: 20px;
@@ -644,7 +644,7 @@ label{
         border-radius: 15px;
     }
     .instruction{
-        height: 180px;
+        height: 200px;
     }
     .ills{
         height: 320px;
@@ -656,7 +656,7 @@ label{
         width: 350px;
         margin-bottom: 20px;
         border-radius: 15px;
-        height: 25px;
+        height: 30px;
     }
     .titleText1{
         font-size: 16pt;
@@ -665,7 +665,7 @@ label{
         font-size: 14pt;
     }
     .simpleInfoText, .textGuid{
-        font-size: 12pt;
+        font-size: 13pt;
     }
     .firstBtns, .secondBtns{
         font-size: 13pt;

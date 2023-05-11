@@ -1,0 +1,1270 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+*,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block}
+html,body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea,select,textarea,p,h1,h2,h3,h4,h5,h6 {font-family: Bahnschrift; margin: 0px;
+    color: #212529;}
+input::-ms-clear{display: none;}
+button {cursor: pointer;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img {vertical-align: top;}
+
+body {
+    background-color: #212121;
+    height: 100%;
+}
+header {
+    background-color: #2B2B2B;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.page {
+    min-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+.mainPage {
+    background-color: #2B2B2B;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+.emblem {
+    padding-left: 0px;
+    padding-top: 0px;
+}
+.tHead{
+    margin-bottom: 0px;
+    color: #C9CBC0;
+}
+.btnHead1 {
+    float: right;
+    display: block;
+    background-color: #1C1C1C;
+}
+.btnHead2 {
+    float: right;
+    display: block;
+    background-color: #1C1C1C;
+}
+.btnHead1:hover,.btnHead2:hover{
+    background-color: #161616;
+}
+p, h1, h2, h3, h4, h5, h6{
+    color: #C9CBC0;
+}
+label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+@media (max-width: 500px) {
+    header{
+        height: 50px;
+        border-radius: 0px 0px 30px 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding-bottom: 20px;
+    }
+    .emblem {
+        width: 50px;
+        height: 100%;
+    }
+    footer{
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 18pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 130%;
+    }
+    .btnHead1, .btnHead2{
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+    }
+    .btnHead1{
+        padding-left: 1px;
+        margin-right: 5px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 10px;
+        height: 12px;
+    }
+    .profile {
+        width: 10px;
+        height: 13px;
+    }
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+    .select2 {
+        width: 100% !important;
+    }
+    .diseases{
+        width: 300px !important;
+    }
+
+    .input__file-button, .input__file-icon-wrapper{
+        height: 30px;
+    }
+    .input__file-icon-wrapper{
+        width: 80px;
+    }
+    .input__file-button, .input__wrapper{
+        width: 300px;
+    }
+
+
+
+
+    .infoBlock{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navigationBlock {
+        width: 100%;
+        min-height: 200px;
+        height: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttonsBlock{
+        height: 35px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .saveChangesBlock{
+    }
+    .selectStatusBlock{
+    }
+
+
+    .generalInfo{
+        width: 400px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+    .scrollTab{
+        height: 370px;
+        padding: 20px;
+        width: 400px;
+        border-radius: 20px;
+    }
+    .submitSave{
+        height: 30px;
+        width: 200px;
+        border-radius: 15px;
+    }
+    .selectStatus{
+        height: 30px;
+        width: 150px;
+        border-radius: 15px;
+    }
+
+    .navigation {
+        width: 400px;
+        height: 100%;
+        border-radius: 20px;
+        padding: 20px;
+        flex: auto;
+        display: flex;
+    }
+    .submitSave, .selectStatus{
+        font-size: 14pt;
+    }
+    .data {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .navPoint{
+        width: 100%;
+        height: 30px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navText{
+        font-size: 12pt;
+    }
+    .titleText1{
+        font-size: 13pt;
+    }
+    .titleText2{
+        font-size: 12pt;
+    }
+    .simpleInfoText, .textGuid{
+        font-size: 10pt;
+    }
+
+
+
+
+
+
+
+    .navContent{
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+    .inDev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        width: 100%;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+    .inDevFull{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .leftHospitalPanel {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+    .hospitalInfoPanel{
+        display: flex;
+        justify-content: center;
+        min-height: 100px;
+        width: 100%;
+    }
+    .rightInfoCase{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        min-height: 100px;
+        width: 100%;
+    }
+    .leftInfoCase{
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 10px;
+        min-height: 250px;
+        width: 100%;
+    }
+    .centerDisease{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .diseaseDescText{
+        width: 100%;
+        text-align: center;
+        font-size: 15pt;
+        display: flex;
+        justify-content: center;
+    }
+    .diseaseDesc{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        border-radius: 20px;
+        width: 100%;
+        min-height: 100px;
+    }
+    .diseaseBlock{
+        display: flex;
+        width: 100%;
+        min-height: 100px;
+    }
+    .leftTextareaPanel{
+        display: flex;
+        justify-content: center;
+        min-height: 100px;
+        width: 100%;
+    }
+    .rightTextareaPanel{
+        display: flex;
+        justify-content: center;
+        min-height: 100px;
+        width: 100%;
+    }
+    .textareaClass {
+        width: 100%;
+        min-height: 100px;
+        margin-top: 20px;
+        border-radius: 20px;
+        padding: 15px;
+    }
+}
+@media (max-width: 400px) {
+    .generalInfo{
+        width: 300px;
+    }
+    .scrollTab{
+        width: 300px;
+    }
+    .submitSave{
+        width: 150px;
+    }
+    .selectStatus{
+        height: 30px;
+        width: 140px;
+    }
+
+    .navigation {
+        width: 300px;
+    }
+    .navText{
+        font-size: 10pt;
+    }
+    .titleText1{
+        font-size: 11pt;
+    }
+    .titleText2{
+        font-size: 11pt;
+    }
+    .simpleInfoText, .textGuid{
+        font-size: 8pt;
+    }
+    .submitSave, .selectStatus{
+        font-size: 10pt;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+@media (min-width: 501px) and (max-width: 1300px){
+    header{
+        height: 80px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+    .emblem {
+        width: 80px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 30pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 110%;
+    }
+    .btnHead1, .btnHead2{
+        width: 48px;
+        height: 48px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 17px;
+        height: 20px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+    .select2 {
+        width: 100% !important;
+    }
+    .diseases{
+        width: 300px !important;
+    }
+
+    .input__file-button, .input__file-icon-wrapper{
+        height: 30px;
+    }
+    .input__file-icon-wrapper{
+        width: 80px;
+    }
+    .input__file-button, .input__wrapper{
+        width: 300px;
+    }
+
+
+
+
+    .infoBlock{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navigationBlock {
+        width: 100%;
+        min-height: 200px;
+        height: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttonsBlock{
+        height: 35px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .saveChangesBlock{
+    }
+    .selectStatusBlock{
+    }
+
+
+    .generalInfo{
+        width: 500px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+    .scrollTab{
+        height: 370px;
+        padding: 20px;
+        width: 500px;
+        border-radius: 20px;
+    }
+    .submitSave{
+        height: 30px;
+        width: 200px;
+        border-radius: 15px;
+    }
+    .selectStatus{
+        height: 30px;
+        width: 150px;
+        border-radius: 15px;
+    }
+
+    .navigation {
+        width: 500px;
+        height: 100%;
+        border-radius: 20px;
+        padding: 20px;
+        flex: auto;
+        display: flex;
+    }
+    .submitSave, .selectStatus{
+        font-size: 14pt;
+    }
+    .data {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .navPoint{
+        width: 100%;
+        height: 30px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navText{
+        font-size: 14pt;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText, .textGuid{
+        font-size: 13pt;
+    }
+
+
+
+
+
+
+    .navContent{
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+    .inDev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        width: 100%;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+    .inDevFull{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .leftHospitalPanel {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+    .hospitalInfoPanel{
+        display: flex;
+        justify-content: center;
+        min-height: 100px;
+        width: 100%;
+    }
+    .rightInfoCase{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        min-height: 100px;
+        width: 100%;
+    }
+    .leftInfoCase{
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 10px;
+        min-height: 250px;
+        width: 100%;
+    }
+    .centerDisease{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .diseaseDescText{
+        width: 100%;
+        text-align: center;
+        font-size: 15pt;
+        display: flex;
+        justify-content: center;
+    }
+    .diseaseDesc{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        border-radius: 20px;
+        width: 100%;
+        min-height: 100px;
+    }
+    .diseaseBlock{
+        display: flex;
+        width: 100%;
+        min-height: 100px;
+    }
+    .leftTextareaPanel{
+        display: flex;
+        justify-content: center;
+        min-height: 100px;
+        width: 100%;
+    }
+    .rightTextareaPanel{
+        display: flex;
+        justify-content: center;
+        min-height: 100px;
+        width: 100%;
+    }
+    .textareaClass {
+        width: 100%;
+        min-height: 100px;
+        margin-top: 20px;
+        border-radius: 20px;
+        padding: 15px;
+    }
+}
+@media (min-width: 0px){
+    .rowing{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        flex: auto;
+    }
+}
+@media (min-width: 1301px){
+    .page {
+        width: 1280px;
+    }
+    header{
+        height: 60px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+
+    }
+    .emblem {
+        width: 55px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 28pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 145%;
+    }
+    .btnHead1, .btnHead2{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 7px;
+    }
+    .theme {
+        width: 17px;
+        height: 19px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+    .select2 {
+        width: 100% !important;
+    }
+    .diseases{
+        width: 300px !important;
+    }
+
+    .input__file-button, .input__file-icon-wrapper{
+        height: 30px;
+    }
+    .input__file-icon-wrapper{
+        width: 80px;
+    }
+    .input__file-button, .input__wrapper{
+        width: 300px;
+    }
+
+
+
+
+    .infoBlock{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 250px;
+    }
+    .navigationBlock {
+        width: 100%;
+        min-height: 350px;
+        height: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+    }
+    .buttonsBlock{
+        height: 30px;
+        position: relative;
+    }
+
+    .saveChangesBlock{
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .selectStatusBlock{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+    .generalInfo{
+        height: 100%;
+        width: 350px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+    .scrollTab{
+        height: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        border-radius: 20px;
+    }
+    .submitSave{
+        height: 30px;
+        width: 400px;
+        border-radius: 15px;
+    }
+    .selectStatus{
+        height: 30px;
+        width: 150px;
+        border-radius: 15px;
+    }
+
+    .navigation {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        padding: 20px;
+        flex: auto;
+        display: flex;
+    }
+    .submitSave, .selectStatus{
+        font-size: 12pt;
+    }
+    .data {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .navPoint{
+        width: 100%;
+        height: 25px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navText{
+        font-size: 12pt;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText, .textGuid{
+        font-size: 13pt;
+    }
+
+
+
+
+
+
+    .navContent{
+        display: none;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .inDev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .inDevFull{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .leftHospitalPanel {
+        display: flex;
+        width: 40%;
+        height: auto;
+        flex-direction: column;
+    }
+    .hospitalInfoPanel{
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 60%;
+    }
+    .rightInfoCase{
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        height: 100%;
+        width: 100%;
+    }
+    .leftInfoCase{
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 10px;
+        height: 100%;
+        width: 100%;
+    }
+    .centerDisease{
+        display: flex;
+        flex-direction: column;
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 40%;
+    }
+    .diseaseDescText{
+        width: 100%;
+        text-align: center;
+        font-size: 15pt;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .diseaseDesc{
+        display: flex;
+        justify-content: center;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+    }
+    .diseaseBlock{
+        display: flex;
+        width: 30%;
+        height: 100%;
+    }
+    .leftTextareaPanel{
+        display: flex;
+        justify-content: center;
+        padding-right: 10px;
+        height: 100%;
+        width: 50%;
+    }
+    .rightTextareaPanel{
+        display: flex;
+        justify-content: center;
+        padding-left: 10px;
+        height: 100%;
+        width: 50%;
+    }
+    .textareaClass {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        padding: 15px;
+    }
+}
+
+.generalInfo, .scrollTab, .navigation{
+    background-color: #1C1C1C;
+}
+.errorWin{
+    background-color: #4C4C4C;
+}
+.errorText{
+    color: #C9CBC0;
+    text-align: center;
+}
+.closeBtnCase{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.titleText1{
+    margin-bottom: 5px;
+    text-align: center;
+}
+.titleText2{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.simpleInfoText{
+    margin-bottom: 3px;
+}
+.textGuid{
+    text-align: center;
+}
+
+.closeBtn, .dataInfo{
+    background-color: #D8D8D8;
+}
+.dataInfoTxt{
+    color: #1C1C1C;
+    margin-top: 2px;
+}
+.navPoint{
+    background-color: #2B2B2B;
+}
+
+
+
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #c5c5c5;
+    border: 0;
+    border-radius: 6px;
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0 5px;
+    height: 18px;
+}
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    cursor: text;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__clear{
+    margin-left: 5px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+    border: 0;
+}
+.select2-dropdown{
+    border-radius: 15px;
+    overflow: hidden;
+}
+.select2-dropdown {
+    background-color: #ffffff;
+    border: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #252525;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #d5d5d5;
+    color: #313131; ;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #a9a9a9;
+    color: #4C4C4C;
+}
+.select2-selection__choice{
+    color: #4C4C4C;
+}
+.select2-container--default .select2-search--inline .select2-search__field {
+    font-size: 19px !important;
+    color: #4C4C4C;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    font-size: 16px;
+}
+
+
+
+
+
+
+.select2-container--default .select2-selection--single {
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #1C1C1C;
+    border-radius: 15px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: auto;
+}
+.select2-dropdown{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.select2-dropdown {
+    background-color: #ffffff;
+    border: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #b2b2b2;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #d7d7d7;
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-results {
+    color: #4C4C4C;
+    font-family: Bahnschrift;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 20px;
+}
+.simplebar-content-wrapper{
+    padding: 0 !important;
+}
+
+
+
+
+
+.data div.active {
+    background-color: #4C4C4C;
+}
+.inDev {
+    background-color: #2B2B2B;
+    min-height: 100px;
+}
+.inDevFull{
+    background-color: #2B2B2B;
+}
+.rightInfoCase{
+    background-color: #2B2B2B;
+}
+.leftInfoCase{
+    background-color: #2B2B2B;
+}
+.diseaseDesc{
+    background-color: #2B2B2B;
+}
