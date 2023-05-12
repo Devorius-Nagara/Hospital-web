@@ -5,11 +5,12 @@ const profile = document.getElementById('profile');
 const closeBtn = document.getElementById('closeBtn')
 const errorText = document.getElementById('errorText')
 const dataInfo = document.getElementById('dataInfo')
+const selectedSubstance = document.getElementById('selectedSubstance')
 let logged;
 let patientId;
 
 let token = localStorage.getItem('auth_token');
-let caseId = localStorage.getItem('caseId') //'83d8e883-6f2e-5831-a776-6efabe41f21b'
+let caseId = '83d8e883-6f2e-5831-a776-6efabe41f21b' //localStorage.getItem('caseId') //
 $.ajax({
     url: host + '/Profile',
     type: 'GET',
@@ -80,6 +81,7 @@ function changeTheme() {
 /** Селекти **/
 $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
+    $('.js-example-basic-single').select2();
 });
 
 /** Перехід на профіль **/
@@ -171,6 +173,14 @@ fetch(host + '/CaseManagment', {
             "<p class=\"simpleInfoText\">" + data.office.name + "</p>" +
             "<p class=\"simpleInfoText\">Опис: " + data.office.additionalInformation + " </p>"
 
+        for (let treatmentNum = 0; treatmentNum < data.treatment.length; treatmentNum++) {
+            let option = document.createElement("option");
+            option.value = data.treatment[treatmentNum].id;
+            option.text = data.treatment[treatmentNum].name;
+            option.selected = true;
+            selectedSubstance.add(option);
+        }
+
         return fetch(host + '/Indexes', {
             method: 'POST',
             body: JSON.stringify(caseId),
@@ -213,6 +223,19 @@ fetch(host + '/CaseManagment', {
     })
     .then(data => {
         console.log(data)
+        const selectStatus = document.getElementById('selectStatus')
+        for(var statusNum = 0; statusNum < data.length; statusNum++){
+            let optionStatus = document.createElement("option");
+            // Встановлюємо значення атрибута value
+            optionStatus.value = data[statusNum].statusName;
+            // Встановлюємо текст опції
+            optionStatus.text = data[statusNum].statusName;
+            // Додаємо опцію до вибору
+            selectStatus.add(optionStatus);
+            if (allData.caseStatus === data[statusNum].statusName){
+                optionStatus.selected = true;
+            }
+        }
         return fetch(host + '/Allergens', {
             method: 'POST',
             body: JSON.stringify(patientId),
@@ -253,6 +276,13 @@ fetch(host + '/CaseManagment', {
     })
     .then(data => {
         console.log(data)
+
+        for (let treatmentNum = 0; treatmentNum < data.length; treatmentNum++) {
+            let option = document.createElement("option");
+            option.value = data[treatmentNum].id;
+            option.text = data[treatmentNum].name;
+            selectedSubstance.add(option);
+        }
     })
     .catch(error => {
         console.error(error);
@@ -289,3 +319,56 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "flex";
     evt.currentTarget.className += " active";
 }
+
+
+document.getElementById('submitChanges').addEventListener('click', function (){
+    const selectStatus = document.getElementById('selectStatus')
+    let selectedOptions = selectedSubstance.selectedOptions;
+    let allSelectedSubstance = [];
+    for (var i = 0; i < selectedOptions.length; i++) {
+        var option = selectedOptions[i];
+        var substance = {
+            id: option.value,
+            substanceName: option.text,
+            substances: null
+        };
+        allSelectedSubstance.push(substance);
+    }
+    let formForSubmit = allData;
+    formForSubmit.caseStatus = selectStatus.value;
+    formForSubmit.anamnesis = document.getElementById('additionalAnamnesis').value || null;
+    formForSubmit.treatment = allSelectedSubstance || [];
+    formForSubmit.treatmentInformation = document.getElementById('additionalInfoArea').value || null;
+
+    console.log(formForSubmit)//formForSubmit
+
+    fetch(host + '/CaseManagment', {
+        method: 'PUT',
+        body: JSON.stringify(formForSubmit),
+        headers: {
+            'Authorization': 'Bearer ' + [token],
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                errorText.textContent = "Дані успішно збережено.";
+                $("#errorWin").animate({top: '70'}, 400);
+                setTimeout(function() {
+                    $("#errorWin").animate({top: '-100'}, 400);
+                }, 1000);
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            errorText.textContent = "Виникла помилка.";
+            $("#errorWin").animate({top: '70'}, 400);
+            setTimeout(function() {
+                $("#errorWin").animate({top: '-100'}, 400);
+            }, 5000);
+
+
+        });
+})
+
+

@@ -76,9 +76,9 @@
         <div class="navigation">
           <div class="navContent" id="healing">
             <div class="leftHospitalPanel">
-              <select class="js-example-basic-multiple"></select>
+              <select class="js-example-basic-multiple" name="states[]" multiple="multiple" id="selectedSubstance"></select>
               <div class="inDev">
-                <p class="titleText1">В розробці</p>
+                <p class="titleText1">Даний блок в розробці</p>
               </div>
             </div>
             <div class="hospitalInfoPanel">
@@ -154,7 +154,7 @@
               </div>
             </div>
             <div class="rightTextareaPanel">
-              <textarea class="textareaClass" placeholder="Додаткова інформація яку ви б хотіли зазначити" id="additionalInformation" ></textarea>
+              <textarea class="textareaClass" placeholder="Додаткова інформація яку ви б хотіли зазначити" id="additionalAnamnesis" ></textarea>
             </div>
           </div>
           <div class="navContent" id="moreInfo">
@@ -164,17 +164,20 @@
               </div>
             </div>
             <div class="rightTextareaPanel">
-              <textarea class="textareaClass" placeholder="Додаткова інформація яку ви б хотіли зазначити" id="additionalInformation" ></textarea>
+              <textarea class="textareaClass" placeholder="Додаткова інформація яку ви б хотіли зазначити" id="additionalInfoArea" ></textarea>
             </div>
           </div>
         </div>
       </div>
       <div class="buttonsBlock">
         <div class="saveChangesBlock">
-          <button class="submitSave">Зберегти зміни</button>
+          <button class="submitSave" id="submitChanges">Зберегти зміни</button>
         </div>
         <div class="selectStatusBlock">
-          <button class="selectStatus">Статус: (статус)</button>
+          <div class="selectStatus">
+            <select class="js-example-basic-single" name="status" id="selectStatus">
+            </select>
+          </div>
         </div>
       </div>
     </div>
