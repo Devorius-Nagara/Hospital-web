@@ -1264,6 +1264,8 @@ label{
 }
 .leftInfoCase{
     background-color: #E0DECD;
+    height: 100%;
+    max-height: 500px;
 }
 .diseaseDesc{
     background-color: #E0DECD;

@@ -10,7 +10,9 @@ let logged;
 let patientId;
 
 let token = localStorage.getItem('auth_token');
-let caseId = '83d8e883-6f2e-5831-a776-6efabe41f21b' //localStorage.getItem('caseId') //
+const shortCaseInfo = localStorage.getItem('caseId')
+const stringCaseInfo = JSON.parse(shortCaseInfo)
+let caseId = stringCaseInfo.id
 $.ajax({
     url: host + '/Profile',
     type: 'GET',
@@ -118,23 +120,19 @@ fetch(host + '/CaseManagment', {
     .then(data => {
         console.log(data)
         allData = data
-        const dateCreateString = data.createDate;
-        const date = new Date(dateCreateString);
-        const day = date.getDate().toString().padStart(2, '0'); // день з ведучим нулем
-        const month = (date.getMonth() + 1).toString().padStart(2, '0'); // місяць з ведучим нулем
-        const year = date.getFullYear().toString();
-        const formattedDate = `${day}/${month}/${year}`;
-        dataInfo.textContent = formattedDate;
 
+        function formattedDateF(dateF){
+            const dateCreateString = dateF;
+            const date = new Date(dateCreateString);
+            const day = date.getDate().toString().padStart(2, '0'); // день з ведучим нулем
+            const month = (date.getMonth() + 1).toString().padStart(2, '0'); // місяць з ведучим нулем
+            const year = date.getFullYear().toString();
+            const formattedDate = `${day}/${month}/${year}`;
+            return formattedDate;
+        }
 
-        let patientBirthDate = new Date(data.patientModel.birthDate);
-        let patientAgeDifMs = Date.now() - patientBirthDate.getTime();
-        let patientAgeDate = new Date(patientAgeDifMs);
-        let patientAge = Math.abs(patientAgeDate.getUTCFullYear() - 1970);
-        let doctorBirthDate = new Date(data.doctorModel.birthDate);
-        let doctorAgeDifMs = Date.now() - doctorBirthDate.getTime();
-        let doctorAgeDate = new Date(doctorAgeDifMs);
-        let doctorAge = Math.abs(doctorAgeDate.getUTCFullYear() - 1970);
+        dataInfo.textContent = formattedDateF(data.createDate);
+
 
         document.getElementById('anamnesisData').innerHTML =
             "<p class=\"simpleInfoText\">" + data.anamnesis + "</p>"
@@ -146,7 +144,7 @@ fetch(host + '/CaseManagment', {
         document.getElementById('patientInfo').innerHTML =
             "<p class=\"titleText1\">Пацієнт</p>" +
             "<p class=\"simpleInfoText\">ПІБ: "+ data.patientModel.surname + " " + data.patientModel.name + " " + data.patientModel.middleName + "</p>" +
-            "<p class=\"simpleInfoText\">Вік: " + patientAge + " Років</p>" +
+            "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.patientModel.birthDate) + "</p>" +
             "<p class=\"simpleInfoText\">Стать: " + data.patientModel.gender + "</p>" +
             "<p class=\"titleText2\">Контактні дані:</p>" +
             "<p class=\"simpleInfoText\">" + data.patientModel.phoneNumber + "</p>" +
@@ -154,7 +152,7 @@ fetch(host + '/CaseManagment', {
         document.getElementById('doctorInfo').innerHTML =
             "<p class=\"titleText1\">Лікар</p>" +
             "<p class=\"simpleInfoText\">ПІБ: "+ data.doctorModel.surname + " " + data.doctorModel.name + " " + data.doctorModel.middleName + "</p>" +
-            "<p class=\"simpleInfoText\">Вік: " + doctorAge + " Років</p>" +
+            "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.doctorModel.birthDate) + "</p>" +
             "<p class=\"simpleInfoText\">Стать: " + data.doctorModel.gender + "</p>" +
             "<p class=\"titleText2\">Контактні дані:</p>" +
             "<p class=\"simpleInfoText\">" + data.doctorModel.phoneNumber + "</p>" +
@@ -283,6 +281,14 @@ fetch(host + '/CaseManagment', {
             option.text = data[treatmentNum].name;
             selectedSubstance.add(option);
         }
+
+        if (stringCaseInfo.patientStatus === "Клієнт"){
+            selectedSubstance.disabled = true;
+            document.getElementById('additionalAnamnesis').disabled = true;
+            document.getElementById('additionalInfoArea').disabled = true;
+            document.getElementById('submitChanges').disabled = true;
+            document.getElementById('selectStatus').disabled = true;
+        }
     })
     .catch(error => {
         console.error(error);
@@ -357,6 +363,97 @@ document.getElementById('submitChanges').addEventListener('click', function (){
                 setTimeout(function() {
                     $("#errorWin").animate({top: '-100'}, 400);
                 }, 1000);
+            }
+            return  fetch(host + '/CaseManagment', {
+                method: 'POST',
+                body: JSON.stringify(caseId),
+                headers: {
+                    'Authorization': 'Bearer ' + [token],
+                    'Content-Type': 'application/json'
+                }
+            })
+
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(data => {
+            console.log(data)
+            allData = data
+
+            function formattedDateF(dateF){
+                const dateCreateString = dateF;
+                const date = new Date(dateCreateString);
+                const day = date.getDate().toString().padStart(2, '0'); // день з ведучим нулем
+                const month = (date.getMonth() + 1).toString().padStart(2, '0'); // місяць з ведучим нулем
+                const year = date.getFullYear().toString();
+                const formattedDate = `${day}/${month}/${year}`;
+                return formattedDate;
+            }
+
+            dataInfo.textContent = formattedDateF(data.createDate);
+
+            document.getElementById('anamnesisData').innerHTML =
+                "<p class=\"simpleInfoText\">" + data.anamnesis + "</p>"
+            document.getElementById('moreInfoData').innerHTML =
+                "<p class=\"simpleInfoText\">" + data.treatmentInformation + "</p>"
+            document.getElementById('diseaseName').innerHTML =
+                "<p class=\"titleText1\">" + data.diseaseName + "</p>"
+
+            document.getElementById('patientInfo').innerHTML =
+                "<p class=\"titleText1\">Пацієнт</p>" +
+                "<p class=\"simpleInfoText\">ПІБ: "+ data.patientModel.surname + " " + data.patientModel.name + " " + data.patientModel.middleName + "</p>" +
+                "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.patientModel.birthDate) + "</p>" +
+                "<p class=\"simpleInfoText\">Стать: " + data.patientModel.gender + "</p>" +
+                "<p class=\"titleText2\">Контактні дані:</p>" +
+                "<p class=\"simpleInfoText\">" + data.patientModel.phoneNumber + "</p>" +
+                "<p class=\"simpleInfoText\"> " + data.patientModel.mail + " </p>"
+            document.getElementById('doctorInfo').innerHTML =
+                "<p class=\"titleText1\">Лікар</p>" +
+                "<p class=\"simpleInfoText\">ПІБ: "+ data.doctorModel.surname + " " + data.doctorModel.name + " " + data.doctorModel.middleName + "</p>" +
+                "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.doctorModel.birthDate) + "</p>" +
+                "<p class=\"simpleInfoText\">Стать: " + data.doctorModel.gender + "</p>" +
+                "<p class=\"titleText2\">Контактні дані:</p>" +
+                "<p class=\"simpleInfoText\">" + data.doctorModel.phoneNumber + "</p>" +
+                "<p class=\"simpleInfoText\"> " + data.doctorModel.mail + " </p>"
+
+            document.getElementById('officeAndHospitalInformation').innerHTML =
+                "<p class=\"titleText1\">Лікарня</p>" +
+                "<p class=\"simpleInfoText\">Назва: " + data.hospital.name + "</p>" +
+                "<p class=\"simpleInfoText\">Область: " + data.hospital.regionDesc + "</p>" +
+                "<p class=\"simpleInfoText\">Нас.пункт: " + data.hospital.disctrictDesc + "</p>" +
+                "<p class=\"simpleInfoText\">Тип: " + data.hospital.typeDesc + "</p>" +
+                "<p class=\"titleText2\">Контактні дані:</p>" +
+                "<p class=\"simpleInfoText\">" + data.hospital.contactNumber + "</p>" +
+                "<p class=\"simpleInfoText\"> " + data.hospital.adressDesc + " </p>" +
+                "<p class=\"titleText2\">Палата</p>" +
+                "<p class=\"simpleInfoText\">" + data.office.name + "</p>" +
+                "<p class=\"simpleInfoText\">Опис: " + data.office.additionalInformation + " </p>"
+
+            var substanceRemove = $("#selectedSubstance option:selected");
+            substanceRemove.remove();
+            for (let treatmentNum = 0; treatmentNum < data.treatment.length; treatmentNum++) {
+                let option = document.createElement("option");
+                option.value = data.treatment[treatmentNum].id;
+                option.text = data.treatment[treatmentNum].name;
+                option.selected = true;
+                selectedSubstance.add(option);
+            }
+
+            return fetch(host + '/Indexes', {
+                method: 'POST',
+                body: JSON.stringify(caseId),
+                headers: {
+                    'Authorization': 'Bearer ' + [token],
+                    'Content-Type': 'application/json'
+                }
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
             }
         })
         .catch(error => {

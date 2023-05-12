@@ -298,7 +298,12 @@ function caseCreatingFunc(){
         })
         .then(data => {
             localStorage.removeItem('appointmentData');
-            localStorage.setItem('caseId', data.id)
+
+            let caseData = {
+                id:  data.id,
+                patientStatus: appointmentId.patientStatus,
+            };
+            localStorage.setItem('caseId', JSON.stringify(caseData));
         })
         .catch(error => {
             console.error(error);

@@ -309,34 +309,13 @@ function appointmentRequestClient() {
         success: function (data) {
             console.log(data)
             dataTable.innerHTML = '';
-            for (let lenghtOfCases = 0; lenghtOfCases < data.length; lenghtOfCases++){
-
-                var $infoCase = $('<div>').addClass('infoCase').attr('data-id', data[lenghtOfCases].id).attr('id', 'goToAppointment')
-                var $infoTitle = $('<div>').addClass('infoTitle');
-                var $leftInfoTitle = $('<div>').addClass('leftInfoTitle');
-                var $centerInfoTitle = $('<div>').addClass('centerInfoTitle');
-                var $rightInfoTitle = $('<div>').addClass('rightInfoTitle');
-                var $titleDate = $('<p>').text(data[lenghtOfCases].date);
-                var $titleText = $('<p>').addClass('infoTitleText').text('Запис');
-                var $specialty = $('<p>').text(data[lenghtOfCases].hospitalName);
-                var $status = $('<p>').text('Офіс: ' + data[lenghtOfCases].officeName);
-                var $expand = $('<p>').text(data[lenghtOfCases].time);
-
-                $leftInfoTitle.append($titleDate);
-                $centerInfoTitle.append($titleText, $specialty, $status);
-                $rightInfoTitle.append($expand);
-                $infoTitle.append($leftInfoTitle, $centerInfoTitle, $rightInfoTitle);
-                $infoCase.append($infoTitle);
-                $('.table').append($infoCase);
-            }
-            leftPanelActionClose();
+            return fillDataAppointment(data)
         },
         error: function (error) {
             console.log(error);
         }
     });
 }
-
 function appointmentRequestDoctor(){
     $.ajax({
         url: host + '/Profile/appoiments/doctor',
@@ -348,39 +327,106 @@ function appointmentRequestDoctor(){
         success: function (data) {
             console.log(data)
             dataTable.innerHTML = '';
-            for (let lenghtOfCases = 0; lenghtOfCases < data.length; lenghtOfCases++){
-
-                var $infoCase = $('<div>').addClass('infoCase').attr('data-id', data[lenghtOfCases].id).attr('id', 'goToAppointment')
-                var $infoTitle = $('<div>').addClass('infoTitle');
-                var $leftInfoTitle = $('<div>').addClass('leftInfoTitle');
-                var $centerInfoTitle = $('<div>').addClass('centerInfoTitle');
-                var $rightInfoTitle = $('<div>').addClass('rightInfoTitle');
-                var $titleDate = $('<p>').text(data[lenghtOfCases].date);
-                var $titleText = $('<p>').addClass('infoTitleText').text('Запис');
-                var $specialty = $('<p>').text(data[lenghtOfCases].hospitalName);
-                var $status = $('<p>').text('Офіс: ' + data[lenghtOfCases].officeName);
-                var $expand = $('<p>').text(data[lenghtOfCases].time);
-
-                $leftInfoTitle.append($titleDate);
-                $centerInfoTitle.append($titleText, $specialty, $status);
-                $rightInfoTitle.append($expand);
-                $infoTitle.append($leftInfoTitle, $centerInfoTitle, $rightInfoTitle);
-                $infoCase.append($infoTitle);
-                $('.table').append($infoCase);
-            }
-            leftPanelActionClose();
+            return fillDataAppointment(data)
         },
         error: function (error) {
         }
     });
 }
+function caseRequestDoctor(){
+    $.ajax({
+        url: host + '/Profile/cases/doctor',
+        type: 'GET',
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+        },
+        success: function (data) {
+            console.log(data)
+            dataTable.innerHTML = '';
+            return fillDataCase(data)
+        },
+        error: function (error) {
+        }
+    });
+}
+function caseRequestClient(){
+    $.ajax({
+        url: host + '/Profile/cases/patient',
+        type: 'GET',
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+        },
+        success: function (data) {
+            console.log(data)
+            dataTable.innerHTML = '';
+            return fillDataCase(data)
+        },
+        error: function (error) {
+        }
+    });
+}
+function fillDataCase(data){
+    for (let lenghtOfCases = 0; lenghtOfCases < data.length; lenghtOfCases++){
+
+        function formattedDateF(dateF){
+            const dateCreateString = dateF;
+            const date = new Date(dateCreateString);
+            const day = date.getDate().toString().padStart(2, '0'); // день з ведучим нулем
+            const month = (date.getMonth() + 1).toString().padStart(2, '0'); // місяць з ведучим нулем
+            const year = date.getFullYear().toString();
+            const formattedDate = `${day}/${month}/${year}`;
+            return formattedDate;
+        }
 
 
+        var $infoCase = $('<div>').addClass('infoCase').attr('data-id', data[lenghtOfCases].id).attr('id', 'goToCase')
+        var $infoTitle = $('<div>').addClass('infoTitle');
+        var $leftInfoTitle = $('<div>').addClass('leftInfoTitle');
+        var $centerInfoTitle = $('<div>').addClass('centerInfoTitle');
+        var $rightInfoTitle = $('<div>').addClass('rightInfoTitle');
+        var $titleDate = $('<p>').text(formattedDateF(data[lenghtOfCases].createDate));
+        var $titleText = $('<p>').addClass('infoTitleText').text('Активність');
+        var $specialty = $('<p>').text(data[lenghtOfCases].diseaseName);
+        var $status = $('<p>').text(data[lenghtOfCases].caseStatus);
+        var $expand = $('<p>').text(data[lenghtOfCases].doctorModel.middleName);
 
+        $leftInfoTitle.append($titleDate);
+        $centerInfoTitle.append($titleText, $specialty, $status);
+        $rightInfoTitle.append($expand);
+        $infoTitle.append($leftInfoTitle, $centerInfoTitle, $rightInfoTitle);
+        $infoCase.append($infoTitle);
+        $('.table').append($infoCase);
+    }
+    leftPanelActionClose();
+}
+function fillDataAppointment(data){
+    for (let lenghtOfCases = 0; lenghtOfCases < data.length; lenghtOfCases++){
+
+        var $infoCase = $('<div>').addClass('infoCase').attr('data-id', data[lenghtOfCases].id).attr('id', 'goToAppointment')
+        var $infoTitle = $('<div>').addClass('infoTitle');
+        var $leftInfoTitle = $('<div>').addClass('leftInfoTitle');
+        var $centerInfoTitle = $('<div>').addClass('centerInfoTitle');
+        var $rightInfoTitle = $('<div>').addClass('rightInfoTitle');
+        var $titleDate = $('<p>').text(data[lenghtOfCases].date);
+        var $titleText = $('<p>').addClass('infoTitleText').text('Запис');
+        var $specialty = $('<p>').text(data[lenghtOfCases].hospitalName);
+        var $status = $('<p>').text('Офіс: ' + data[lenghtOfCases].officeName);
+        var $expand = $('<p>').text(data[lenghtOfCases].time);
+
+        $leftInfoTitle.append($titleDate);
+        $centerInfoTitle.append($titleText, $specialty, $status);
+        $rightInfoTitle.append($expand);
+        $infoTitle.append($leftInfoTitle, $centerInfoTitle, $rightInfoTitle);
+        $infoCase.append($infoTitle);
+        $('.table').append($infoCase);
+    }
+    leftPanelActionClose();
+}
 
 $(document).on('click', '#goToAppointment', function() {
     event.preventDefault();
-    console.log('2')
     let appointmentData = {
         id: $(this).data('id'),
         patientStatus: strStatus,
@@ -388,4 +434,13 @@ $(document).on('click', '#goToAppointment', function() {
 
     localStorage.setItem('appointmentData', JSON.stringify(appointmentData));
     window.location.href = "appointment.html";
+});
+$(document).on('click', '#goToCase', function() {
+    event.preventDefault();
+    let caseData = {
+        id: $(this).data('id'),
+        patientStatus: strStatus,
+    };
+    localStorage.setItem('caseId', JSON.stringify(caseData));
+    window.location.href = "case.html";
 });
