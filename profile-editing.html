@@ -46,7 +46,8 @@
                         <img class="profileIco" id="profileIco" src="images/profile black.png">
                     </div>
                     <div class="discription">
-                        <button class="pfpBtn">Змінити світлину</button>
+                        <label for="photoInput"><p class="pfpBtn">Змінити світлину</p></label>
+                        <input type="file" id="photoInput" class="photoInput" accept="image/jpeg, image/png">
                         <button class="pfpBtn" id="btnLogOut">Вихід з обл.запису</button>
                     </div>
                 </div>
@@ -124,9 +125,10 @@
 
                     <form class="underBlocks" id="doctorRequest">
                     <p class="explainTxt">Подання заявки на роботу</p>
-                        <input type="text" class="inputText" placeholder="Ваша спеціальність" id="doctorName" required>
+                        <select class="selectSpecialities" id="selectSpecialities">
+                        </select>
                         <div class="input__wrapper">
-                            <input name="file" type="file" id="input__file" class="input input__file" required>
+                            <input name="file" type="file" id="input__file" class="input input__file" accept="image/jpeg, image/png" required>
                             <label for="input__file" class="input__file-button">
                                 <span class="input__file-button-text">Ваш диплом (PDF)</span>
                                 <span class="input__file-icon-wrapper">Вибрати</span>

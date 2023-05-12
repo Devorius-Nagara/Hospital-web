@@ -975,7 +975,7 @@ label{
     font-family: Bahnschrift;
 }
 .select2-container .select2-selection--single .select2-selection__rendered{
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 
@@ -989,6 +989,7 @@ label{
     position: relative;
     text-align: center;
     display: flex;
+    margin-top: 10px;
 }
 
 .input__file {
@@ -1021,7 +1022,15 @@ label{
     cursor: pointer;
     overflow: hidden;
 }
-
+.photoInput{
+    display: none;
+}
+.pfpBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4C4C4C;
+}
 
 .closeBtn:hover, .pfpBtn:hover, .sumbBtn:hover{
     background-color: #b9b9b9;

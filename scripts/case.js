@@ -329,7 +329,7 @@ document.getElementById('submitChanges').addEventListener('click', function (){
         var option = selectedOptions[i];
         var substance = {
             id: option.value,
-            substanceName: option.text,
+            name: option.text,
             substances: null
         };
         allSelectedSubstance.push(substance);

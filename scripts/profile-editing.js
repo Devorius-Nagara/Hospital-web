@@ -31,6 +31,7 @@ const bodyTemperature = document.getElementById('bodyTemperature');
 const additionalInformation = document.getElementById('additionalInformation');
 const selectedSubstance = document.getElementById("selectedPils");
 const searchCity = document.getElementById("searchCity");
+const selectSpecialities = document.getElementById('selectSpecialities');
 let logged;
 
 /** ЗАПИТ ДАННИХ **/
@@ -126,11 +127,32 @@ $.ajax({
     }
 });
 
+$.ajax({
+    url: host + '/Specialities',
+    type: 'GET',
+    dataType: 'json',
+    beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + [token]);
+    },
+    success: function (data) {
+        for (var specNum = 0; specNum < data.length; specNum++) {
+            var optionForSpec = document.createElement("option");
+            optionForSpec.value = data[specNum].id;
+            optionForSpec.text = data[specNum].name;
+            selectSpecialities.add(optionForSpec);
+        }
+    },
+    error: function (error) {
+        window.location = "main.html";
+    }
+});
+
 /** Селекти **/
 $(document).ready(function() {
     $('.js-example-basic-multiple').select2();
     $(".js-example-templating").select2();
     $('.selectCity').select2();
+    $('.selectSpecialities').select2();
 });
 
 /** Відображення файлу **/
@@ -548,35 +570,47 @@ document.getElementById("searchCityForm").addEventListener("submit", function(ev
 /** Запит на лікара **/
 document.getElementById("doctorRequest").addEventListener("submit", function(event) {
     event.preventDefault(); // Забороняємо перезавантаження сторінки
-    const specialityName = document.getElementById('doctorName').value;
-    let inputfile = document.getElementById('input__file');
-    let file = new FormData();
-    file.append('file', inputfile);
 
-    const data = {specialityName, file};
-    console.log(data)
+    const input = document.getElementById('input__file');
+    const file = input.files[0];
+    const reader = new FileReader();
 
-    fetch(host + '/sendRequest', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Authorization': 'Bearer ' + [token],
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => {
-            if (response.ok) {
-                errorText.textContent = 'Заявка успішно відправлена.';
-                $("#errorWin").animate({top: '70'}, 400);
-                setTimeout(function() {
-                    $("#errorWin").animate({top: '-100'}, 400);
-                }, 5000);
-            } else {
-                errorText.textContent = "Виникла помилка";
-                $("#errorWin").animate({top: '70'}, 400);
-                setTimeout(function() {
-                    $("#errorWin").animate({top: '-100'}, 400);
-                }, 5000);
+    let specialitiesData = {
+            id: $(".selectSpecialities").val(),
+            substanceName: $(".selectSpecialities").find(':selected').text(),
+        };
+
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        const base64 = reader.result.split(',')[1];
+        const data = {
+            photo: base64,
+            specialities: specialitiesData
+        };
+        console.log(data)
+
+        fetch(host + '/sendRequest', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
             }
         })
+            .then(response => {
+                if (response.ok) {
+                    errorText.textContent = 'Заявка успішно відправлена.';
+                    $("#errorWin").animate({top: '70'}, 400);
+                    setTimeout(function() {
+                        $("#errorWin").animate({top: '-100'}, 400);
+                    }, 5000);
+                } else {
+                    errorText.textContent = "Виникла помилка";
+                    $("#errorWin").animate({top: '70'}, 400);
+                    setTimeout(function() {
+                        $("#errorWin").animate({top: '-100'}, 400);
+                    }, 5000);
+                }
+            })
+    };
 });
