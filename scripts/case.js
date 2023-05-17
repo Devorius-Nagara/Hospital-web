@@ -469,3 +469,24 @@ document.getElementById('submitChanges').addEventListener('click', function (){
 })
 
 
+
+const modal1 = document.getElementById('modal1')
+const modal2 = document.getElementById('modal2')
+const page = document.getElementById('page')
+function openAnalyzesModal(){
+    modal1.style.display = "flex"
+    page.classList.add("blur");
+}
+function closeAnalyzesModal(){
+    modal1.style.display = "none"
+    page.classList.remove("blur");
+}
+function openAddNewAnalyzesModal(){
+    modal2.style.display = "flex"
+    page.classList.add("blur");
+}
+function closeNewAnalyzesModal(){
+    modal2.style.display = "none"
+    page.classList.remove("blur");
+}
+

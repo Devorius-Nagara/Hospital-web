@@ -1159,3 +1159,25 @@ a{
     text-align: left;
     margin-bottom: 10px;
 }
+
+.spoilerFilter{
+    display: none;
+}
+.spoilerFilterCase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.filterInput {
+    width: 200px;
+    height: 20px;
+    border-radius: 15px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.searchingButton{
+
+    width: 100px;
+    height: 20px;
+    border-radius: 15px;
+}

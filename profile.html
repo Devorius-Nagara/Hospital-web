@@ -74,20 +74,53 @@
                             <button class="navbtns" onclick="">Мої лікарні</button>
                             <button class="navbtns" onclick="">Мої працівники</button>
                             <button class="navbtns" onclick="appointmentRequestDoctor()">Нові записи</button>
-                            <button class="navbtns" onclick="caseRequestDoctor()">Активні записи</button>
+                            <button class="navbtns" onclick="caseRequestDoctor()">Особисті записи</button>
+                            <div>
+                                <button class="navbtns filterTitle">Всі записи</button>
+                                <form class="spoilerFilter">
+                                    <div class="spoilerFilterCase">
+                                        <input type="email" class="filterInput" placeholder="example@gmail.com">
+                                        <input type="text" class="filterInput" placeholder="+380 95 6555 617" id="phoneInput">
+                                        <button type="submit" class="searchingButton">Пошук</button>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
                         <div class="navBlocks" id="headDocInDepPanel">
                             <h1 class="headerTxtOfNav">Панель Зав.Відділення</h1>
                             <button class="navbtns" onclick="">Мої лікарні</button>
                             <button class="navbtns" onclick="">Мої працівники</button>
                             <button class="navbtns" onclick="appointmentRequestDoctor()">Нові записи</button>
-                            <button class="navbtns" onclick="caseRequestDoctor()">Активні записи</button>
+                            <button class="navbtns" onclick="caseRequestDoctor()">Особисті записи</button>
+                            <div>
+                                <button class="navbtns filterTitle">Всі записи</button>
+                                <form class="spoilerFilter">
+                                    <div class="spoilerFilterCase">
+                                        <input type="email" class="filterInput" placeholder="example@gmail.com">
+                                        <input type="text" class="filterInput" placeholder="+380 95 6555 617" id="phoneInput">
+                                        <button type="submit" class="searchingButton">Пошук</button>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
                         <div class="navBlocks" id="docPanel">
                             <h1 class="headerTxtOfNav">Лікарська панель</h1>
                             <button class="navbtns" onclick="">Мої лікарні</button>
                             <button class="navbtns" onclick="appointmentRequestDoctor()">Нові записи</button>
-                            <button class="navbtns" onclick="caseRequestDoctor()">Активні записи</button>
+                            <button class="navbtns" onclick="caseRequestDoctor()">Особисті записи</button>
+                            <div>
+                                <button class="navbtns filterTitle">Всі записи</button>
+                                <form class="spoilerFilter">
+                                    <div class="spoilerFilterCase">
+                                        <input type="email" class="filterInput" placeholder="example@gmail.com">
+                                        <input type="text" class="filterInput" placeholder="+380 95 6555 617" id="phoneInput">
+                                        <button type="submit" class="searchingButton">Пошук</button>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
                         <div class="navBlocks" id="client">
                             <h1 class="headerTxtOfNav">Клієнтська панель</h1>
@@ -108,6 +141,7 @@
         <div class="backgroundOfTable">
             <img src="images/backround-dark.png" class="backroundImg">
         </div>
+
         <div class="datatable" id="datatable" data-simplebar>
             <div class="table" id="table">
             </div>

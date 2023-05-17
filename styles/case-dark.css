@@ -319,10 +319,11 @@ label{
         border-radius: 20px;
         margin-top: 20px;
     }
-    .inDevFull{
+    .analyzesBlock{
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 10px;
         min-height: 100px;
         width: 100%;
         border-radius: 20px;
@@ -401,6 +402,122 @@ label{
         margin-top: 20px;
         border-radius: 20px;
         padding: 15px;
+    }
+
+
+
+    .modal1 {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        align-items: flex-start;
+    }
+    .modal2 {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        align-items: flex-start;
+    }
+
+    .infoBlockInModal {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .modal-analyzes {
+        display: flex;
+        position: absolute;
+        overflow: hidden;
+        border-radius: 30px;
+        width: 320px;
+        /* height: 100%; */
+        justify-content: space-between;
+        flex-direction: column;
+        overflow: scroll;
+        margin-top: 80px;
+    }
+    .modalCancel{
+        width: 150px;
+        height: 40px;
+        border-radius: 0px 0px 40px 0px;
+    }
+    .previousBtn{
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        margin-top: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .nextBtn{
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        margin-top: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .analyzesPhoto {
+        min-height: 400px;
+        /* width: 100%; */
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+    .analyzesInfo {
+        height: 100%;
+        /* width: 35%; */
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+    .add-analyzes {
+        display: flex;
+        position: absolute;
+        overflow: hidden;
+        border-radius: 30px;
+        width: 320px;
+        height: 650px;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+    .addAnalyzesInModal {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 10px;
+        justify-content: space-between;
+    }
+    .analyzesInputBtn{
+        width: 100%;
+        height: 25px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 @media (max-width: 400px) {
@@ -673,13 +790,15 @@ label{
         border-radius: 20px;
         margin-top: 20px;
     }
-    .inDevFull{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .analyzesBlock{
         min-height: 100px;
         width: 100%;
         border-radius: 20px;
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 10px;
     }
     .leftHospitalPanel {
         display: flex;
@@ -756,6 +875,128 @@ label{
         border-radius: 20px;
         padding: 15px;
     }
+
+
+
+
+
+
+
+
+    .modal1 {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        align-items: flex-start;
+    }
+    .modal2 {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        align-items: flex-start;
+    }
+
+    .infoBlockInModal {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .modal-analyzes {
+        display: flex;
+        position: absolute;
+        overflow: hidden;
+        border-radius: 30px;
+        width: 500px;
+        /* height: 100%; */
+        justify-content: space-between;
+        flex-direction: column;
+        overflow: scroll;
+        margin-top: 80px;
+    }
+    .modalCancel{
+        width: 150px;
+        height: 40px;
+        border-radius: 0px 0px 40px 0px;
+    }
+    .previousBtn{
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        margin-top: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .nextBtn{
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        margin-top: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .analyzesPhoto {
+        min-height: 400px;
+        /* width: 100%; */
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+    .analyzesInfo {
+        height: 100%;
+        /* width: 35%; */
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+    .add-analyzes {
+        display: flex;
+        position: absolute;
+        overflow: hidden;
+        border-radius: 30px;
+        width: 400px;
+        height: 650px;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 80px;
+    }
+
+    .addAnalyzesInModal {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 10px;
+        justify-content: space-between;
+    }
+    .analyzesInputBtn{
+        width: 100%;
+        height: 25px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 @media (min-width: 0px){
     .rowing{
@@ -1010,13 +1251,14 @@ label{
         width: 100%;
         border-radius: 20px;
     }
-    .inDevFull{
+    .analyzesBlock {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        border-radius: 20px;
+        flex-direction: column;
+        padding: 10px;
         height: 100%;
         width: 100%;
-        border-radius: 20px;
     }
     .leftHospitalPanel {
         display: flex;
@@ -1094,8 +1336,125 @@ label{
         border-radius: 20px;
         padding: 15px;
     }
-}
 
+
+
+
+
+
+
+
+
+
+    .modal1 {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    .modal2 {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        align-items: center;
+    }
+
+    .infoBlockInModal {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .modal-analyzes {
+        display: flex;
+        position: absolute;
+        overflow: hidden;
+        border-radius: 30px;
+        width: 1283px;
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .modalCancel{
+        width: 150px;
+        height: 40px;
+        border-radius: 0px 0px 40px 0px;
+    }
+    .previousBtn{
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        margin-top: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .nextBtn{
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        margin-top: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .analyzesPhoto {
+        background: #1C1C1C;
+        height: 100%;
+        width: 60%;
+        margin-left: 20px;
+    }
+    .analyzesInfo {
+        background: #1C1C1C;
+        height: 100%;
+        width: 35%;
+        margin-right: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .add-analyzes {
+        display: flex;
+        position: absolute;
+        overflow: hidden;
+        border-radius: 30px;
+        width: 400px;
+        height: 650px;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .addAnalyzesInModal {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 10px;
+        justify-content: space-between;
+    }
+    .analyzesInputBtn{
+        width: 100%;
+        height: 25px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        font-size: 13pt;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
 .generalInfo, .scrollTab, .navigation{
     background-color: #1C1C1C;
 }
@@ -1256,7 +1615,7 @@ label{
     background-color: #2B2B2B;
     min-height: 100px;
 }
-.inDevFull{
+.analyzesBlock{
     background-color: #2B2B2B;
 }
 .rightInfoCase{
@@ -1269,4 +1628,57 @@ label{
 }
 .diseaseDesc{
     background-color: #2B2B2B;
+}
+
+
+
+.analyzesBtnsCase {
+    display: flex;
+    flex-direction: column;
+}
+.analyzesBtns {
+    height: 25px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.addAnalyzesInput{
+    height: 25px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+.addAnalyzesTextarea{
+    height: 300px;
+    max-height: 300px;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.modal-content {
+    background-color: #2B2B2B;
+}
+.blur{
+    transition: all 0.1s ease;
+    filter: blur(4px);
+    pointer-events: none;
+}
+.modal-analyzes{
+    background-color: #2B2B2B;
+}
+input#photoInput {
+    display: none;
+}
+.add-analyzes {
+    background-color: #2B2B2B;
+}
+.analyzesInputBtn{
+    color: #1C1C1C;
+    background-color: white;
+}
+.analyzesPhoto, .analyzesInfo {
+    background: #1C1C1C;
 }

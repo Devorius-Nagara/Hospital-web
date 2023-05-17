@@ -175,6 +175,68 @@ function changeTheme() {
             });
         });
     });
+/** ФІЛЬТР ПАНЕЛЬ **/
+    $(document).ready(function (){
+        $('.filterTitle').click(function (event){
+            let isActive = $(this).hasClass('active');
+            $(this).toggleClass('active');
+            $(this).next().slideToggle(300, function() {
+                if (isActive) {
+                    $(this).prev('.filterTitle');
+                }
+            });
+        });
+    });
+
+
+/** ВАЛІДАЦІЯ НОМЕРУ **/
+
+const phoneInput = document.querySelectorAll('#phoneInput')
+phoneInput.forEach(function(phoneInput) {
+    phoneInput.addEventListener('input', function() {
+
+        const originalValue = this.value;
+        let numericValue = originalValue.replace(/\D/g, '');
+
+        if (event.inputType === 'deleteContentBackward') {
+            const lastChar = originalValue.charAt(originalValue.length - 1);
+            if (lastChar === ' ') {
+                numericValue = numericValue.slice(0, -1);
+            }
+            formattedValue = '';
+        }
+
+        if (numericValue.length > 10) {
+            numericValue = numericValue.slice(0, 12);
+        }
+
+        let formattedValue = '';
+
+        if (numericValue.length > 2) {
+            formattedValue += `+${numericValue.slice(0, 3)} `;
+            numericValue = numericValue.slice(3);
+        }
+
+        if (numericValue.length > 4) {
+            formattedValue += `${numericValue.slice(0, 2)} `;
+            numericValue = numericValue.slice(2);
+        }
+
+        if (numericValue.length > 0) {
+            formattedValue += `${numericValue.slice(0, 4)} `;
+            numericValue = numericValue.slice(4);
+        }
+
+        if (numericValue.length > 0) {
+            formattedValue += `${numericValue}`;
+        }
+
+        this.value = formattedValue;
+    });
+});
+
+
+
 $(document).ready(function() {
     $('.select2').select2();
 });

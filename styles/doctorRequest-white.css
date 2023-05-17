@@ -1,0 +1,551 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+*,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block}
+html,body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea,select,textarea,p,h1,h2,h3,h4,h5,h6 {font-family: Bahnschrift; margin: 0px;
+    color: #212529;}
+input::-ms-clear{display: none;}
+button {cursor: pointer;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img {vertical-align: top;}
+
+body {
+    background-color: white;
+    height: 100%;
+}
+header {
+    background-color: #E0DECD;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.page {
+    min-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+.mainPage {
+    background-color: #E0DECD;
+    overflow: hidden;
+    position: relative;
+}
+footer{
+    background-color: #E0DECD;
+    display: flex;
+    justify-content: space-evenly;
+}
+.emblem {
+    padding-left: 0px;
+    padding-top: 0px;
+}
+.tHead{
+    margin-bottom: 0px;
+    color: #4C4C4C;
+}
+.btnHead1 {
+    float: right;
+    display: block;
+    background-color: #B5B3A3;
+}
+.btnHead2 {
+    float: right;
+    display: block;
+    background-color: #B5B3A3;
+}
+.btnHead1:hover,.btnHead2:hover{
+    background-color: #999788;
+}
+
+p, h1, h2, h3, h4, h5, h6{
+    color: #2B2B2BFF;
+}
+label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    header{
+        height: 50px;
+        border-radius: 0px 0px 30px 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: flex-start;
+        padding-bottom: 20px;
+        flex-direction: column;
+    }
+    .emblem {
+        width: 50px;
+        height: 100%;
+    }
+    footer{
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 18pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 130%;
+    }
+    .btnHead1, .btnHead2{
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
+    }
+    .btnHead1{
+        padding-left: 1px;
+        margin-right: 5px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 15px;
+        height: 15px;
+    }
+    .profile {
+        width: 10px;
+        height: 13px;
+    }
+
+
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+}
+@media (min-width: 501px) and (max-width: 1300px){
+    header{
+        height: 80px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+    .emblem {
+        width: 80px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 30pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 110%;
+    }
+    .btnHead1, .btnHead2{
+        width: 48px;
+        height: 48px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 5px;
+    }
+    .theme {
+        width: 23px;
+        height: 23px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+
+
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+
+
+
+    .blockOfContents {
+        display: flex;
+        justify-content: center;
+        margin: 0px 20px 20px 20px;
+    }
+    .infoAndFormPanel {
+        width: 350px;
+        height: 650px;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .CancelOrAcceptBtn {
+        width: 100%;
+        height: 25px;
+        border-radius: 20px;
+        font-size: 12pt;
+        margin-bottom: 10px;
+    }
+    .btnsCase {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText{
+        font-size: 12pt;
+    }
+}
+@media (min-width: 0px) and (max-width: 1070px){
+    .blockOfContents {
+        display: flex;
+        justify-content: center;
+        margin: 0px 20px 20px 20px;
+        flex-direction: column;
+    }
+    .infoAndFormPanel {
+        width: 100%;
+        height: 350px;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .CancelOrAcceptBtn {
+        width: 100%;
+        height: 25px;
+        border-radius: 20px;
+        font-size: 12pt;
+        margin-bottom: 10px;
+    }
+    .btnsCase {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText{
+        font-size: 12pt;
+    }
+}
+@media (min-width: 1301px){
+    .page {
+        width: 1280px;
+    }
+    header{
+        height: 60px;
+        border-radius: 0px 0px 40px 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .mainPage{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 40px;
+        overflow: hidden;
+
+    }
+    .emblem {
+        width: 55px;
+        height: 100%;
+    }
+    footer{
+        justify-content: space-evenly;
+        padding: 20px;
+        border-radius: 40px 40px 0px 0px;
+    }
+    .embdiv{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tHead{
+        font-size: 28pt;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 145%;
+    }
+    .btnHead1, .btnHead2{
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+    }
+    .btnHead1{
+        margin-right: 10px;
+    }
+    .btnHead2{
+        margin-right: 7px;
+    }
+    .theme {
+        width: 20px;
+        height: 20px;
+    }
+    .profile {
+        width: 15px;
+        height: 18px;
+    }
+
+
+
+
+    .closeBtn{
+        border-bottom-right-radius: 30px;
+        border-top-left-radius: 30px;
+        margin-bottom: 10px;
+        width: 120px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .dataInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+        margin-bottom: 10px;
+        width: 190px;
+        height: 28px;
+        font-size: 13pt;
+    }
+    .closeBtnCase{
+        display: flex;
+        width: 100%;
+    }
+    .errorWin{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width:280px;
+        height: 100px;
+        border-radius: 25px;
+        left: 0;
+        right: 0;
+        top: -100px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1000;
+    }
+
+
+
+
+
+    .blockOfContents {
+        display: flex;
+        justify-content: center;
+        margin: 0px 20px 20px 20px;
+    }
+    .infoAndFormPanel {
+        width: 440px;
+        height: 650px;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .CancelOrAcceptBtn {
+        width: 190px;
+        height: 25px;
+        border-radius: 20px;
+        font-size: 12pt;
+    }
+    .btnsCase{
+        display: flex;
+        justify-content: space-between;
+    }
+    .titleText1{
+        font-size: 16pt;
+    }
+    .titleText2{
+        font-size: 14pt;
+    }
+    .simpleInfoText{
+        font-size: 12pt;
+    }
+}
+
+
+.errorWin{
+    background-color: #E0DECD;
+}
+.errorText{
+    color: #4C4C4C;
+    text-align: center;
+}
+.closeBtnCase{
+    position: absolute;
+}
+.closeBtnCase{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.titleText1{
+    margin-bottom: 5px;
+    text-align: center;
+}
+.titleText2{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.simpleInfoText{
+    margin-bottom: 3px;
+}
+.textGuid{
+    text-align: center;
+}
+.closeBtn, .dataInfo{
+    background-color: #B5B3A3;
+}
+.dataInfoTxt{
+    color: #1C1C1C;
+    margin-top: 2px;
+}
+
+.infoAndFormPanel {
+    background-color: #B5B3A3;
+}
+.CancelOrAcceptBtn {
+    background-color: #E0DECD;
+}

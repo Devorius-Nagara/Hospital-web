@@ -14,7 +14,7 @@
 <div class="errorWin" id="errorWin">
   <p class="errorText" id="errorText"></p>
 </div>
-<div class="page">
+<div class="page" id="page">
 
 
   <header>
@@ -34,7 +34,7 @@
        </div>
   </header>
 
-  <div class="mainPage">
+  <div class="mainPage" >
     <div class="closeBtnCase">
       <button class="closeBtn" id="closeBtn">Назад</button>
       <div class="dataInfo" ><p id="dataInfo" class="dataInfoTxt">00.00.0000</p></div>
@@ -126,8 +126,16 @@
               <div class="diseaseDesc"></div>
             </div>
             <div class="diseaseBlock">
-              <div class="inDevFull">
-                <p class="titleText1">В розробці</p>
+              <div class="analyzesBlock">
+                <div>
+                  <p class="titleText1">Аналізи</p>
+                  <p class="simpleInfoText">К-сть:</p>
+                  <p class="simpleInfoText">Останнє оновлення:</p>
+                </div>
+                <div class="analyzesBtnsCase">
+                  <button class="analyzesBtns" onclick="openAnalyzesModal()" id="analyzesModal">Переглянути Аналізи</button>
+                  <button class="analyzesBtns" onclick="openAddNewAnalyzesModal()" id="newAnalyzesModal">Додати Запис</button>
+                </div>
               </div>
             </div>
           </div>
@@ -184,6 +192,60 @@
 
   </div>
 
+</div>
+<div id="modal1" class="modal1">
+  <div class="modal-analyzes">
+
+    <div class="closeBtnCase">
+      <button class="closeBtn" onclick="closeAnalyzesModal()">Відмінити</button>
+      <div class="dataInfo" ><p class="dataInfoTxt">00.00.0000</p></div>
+    </div>
+    <div class="infoBlockInModal">
+      <div class="analyzesPhoto">
+
+      </div>
+      <div class="analyzesInfo">
+        <div>
+          <p class="titleText1">Аналіз</p>
+          <p class="simpleInfoText">Лікарня:</p>
+          <p class="simpleInfoText">Офіс:</p>
+          <p class="simpleInfoText">Опис:</p>
+        </div>
+        <div class="analyzesBtnsCase">
+          <button class="analyzesBtns">Редагувати</button>
+          <button class="analyzesBtns">Видалити</button>
+        </div>
+      </div>
+    </div>
+    <div class="closeBtnCase">
+      <button class="previousBtn">Назад</button>
+      <button class="nextBtn">Далі</button>
+    </div>
+
+  </div>
+</div>
+<div id="modal2" class="modal2">
+  <div class="add-analyzes">
+
+    <div class="closeBtnCase">
+      <button class="closeBtn" onclick="closeNewAnalyzesModal()">Відмінити</button>
+    </div>
+    <div class="addAnalyzesInModal">
+      <div>
+        <p class="titleText1">Форма додання аналізу</p>
+        <input type="text" class="addAnalyzesInput" placeholder="Лікарня">
+        <input type="text" class="addAnalyzesInput" placeholder="Офіс">
+        <textarea class="addAnalyzesTextarea" placeholder="Офіс"></textarea>
+        <label for="photoInput"><p class="analyzesInputBtn">Додати аналіз</p></label>
+        <input type="file" id="photoInput" class="photoInput" accept="image/jpeg, image/png">
+      </div>
+      <div>
+        <button class="analyzesBtns">Добавити</button>
+      </div>
+    </div>
+
+
+  </div>
 </div>
 
 <script src="scripts/config.js"></script>
