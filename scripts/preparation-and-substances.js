@@ -25,9 +25,19 @@ $.ajax({
 });
 
 $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-    $('.js-example-basic-single').select2();
+    $('.js-example-basic-multiple').select2({
+        placeholder: 'Виберіть один або кілька варіантів'
+    });
+
+    $('.js-example-basic-single').select2({});
+    $('.nameOfDr').select2({
+        placeholder: 'Виберіть препарат'
+    });
+    $('.nameOfSub').select2({
+        placeholder: 'Виберіть речовину'
+    });
 });
+
 
 /** Зміна теми **/
 document.addEventListener('DOMContentLoaded', function() {
