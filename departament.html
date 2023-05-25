@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/simplebar.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" id="cssTheme" href="styles/hidden.css">
+  <link href="styles/bahnschrift.ttf">
+</head>
+<body>
+
+<div class="errorWin" id="errorWin">
+  <p class="errorText"></p>
+</div>
+
+<div class="page">
+
+  <header>
+    <div class="embdiv">
+      <img class="emblem" id="emblem" src="images/emb-black.png">
+    </div>
+    <div>
+      <p class="tHead">МІЙ ЛІКАР</p>
+    </div>
+    <div>
+      <button class="btnHead2" id="profileCase">
+        <img class="profile" id="profile" src="images/Profile black.png">
+      </button>
+      <button onclick="changeTheme()" class="btnHead1">
+        <img class="theme" id="themeEmb" src="images/sun.png">
+      </button>
+    </div>
+  </header>
+
+  <div class="mainPage">
+    <div class="searchPanel">
+      <button class="btnCancel" id="closeBtn"><p class="cancelTxt">Відмінити</p></button>
+      <p class="explainTxt">Вкажіть назву відділу.</p>
+      <form class="docSearchForm" id="formSumbitDoc">
+        <div class="mainForm">
+          <select class="select2" id="searchRegion">
+            <option value="">Назва не вказана</option>
+          </select>
+        </div>
+        <div class="btnCase"><button class="btnSumbitDoc" type="submit"><p class="btnSumbitTxt">Пошук</p></button></div>
+      </form>
+    </div  >
+    <div class="dataCase">
+      <div class="datatable" data-simplebar>
+        <div class="table" id="table">
+        </div >
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="scripts/config.js"></script>
+<script type="text/javascript" src="scripts/departament.js"></script>
+<script src="scripts/simplebar.min.js"></script>
+<noscript><h1>You will turn on your JavaScript on browser!</h1></noscript>
+</body>
+</html>
