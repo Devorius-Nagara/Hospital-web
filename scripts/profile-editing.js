@@ -256,6 +256,22 @@ btnLogOut.addEventListener('click', function logOut() {
 
 /** ВАЛІДАЦІЯ **/
 /** НОМЕР **/
+
+
+function validateNumber(input) {
+    // Видаляємо всі символи, крім цифр та крапки
+    input.value = input.value.replace(/[^0-9.]/g, '');
+
+    // Перевіряємо, чи є декілька крапок в рядку
+    var dotCount = input.value.split('.').length - 1;
+    if (dotCount > 1) {
+        // Якщо є більше однієї крапки, видаляємо всі крапки, крім першої
+        input.value = input.value.replace(/(?!^)\./g, '');
+    }
+}
+
+
+
 function validatePhone() {
     let regex = /^\+380\s\d{2}\s\d{4}\s\d{3}$/;
 

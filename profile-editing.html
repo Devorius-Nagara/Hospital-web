@@ -91,12 +91,30 @@
                     <p class="explainTxt">Вкажіть ваші поточні показники
                     незалежно від того чи знаходитесь
                     ви в хворому, чи в здоровому стані</p>
-                    <input type="number" class="inputText" placeholder="Ріст (см)" id="height">
-                    <input type="number" class="inputText" placeholder="Вага (кг)" id="weight">
-                    <input type="text" class="inputText" placeholder="Тиск" id="bloodPressure">
-                    <input type="number" class="inputText" placeholder="Пульс (уд/хв)" id="pulse">
-                    <input type="number" class="inputText" placeholder="Глюкоза" id="bloodSugar">
-                    <input type="number" class="inputText" placeholder="Температура тіла" id="bodyTemperature">
+                    <label>
+                        <p class="textForInput">Ріст (см):</p>
+                        <input type="text" class="inputText" placeholder="Ріст (см)" id="height" oninput="validateNumber(this)">
+                    </label>
+                    <label>
+                        <p class="textForInput">Вага (кг):</p>
+                        <input type="text" class="inputText" placeholder="Вага (кг)" id="weight" oninput="validateNumber(this)">
+                    </label>
+                    <label>
+                        <p class="textForInput">Тиск:</p>
+                        <input type="text" class="inputText" placeholder="Тиск" id="bloodPressure">
+                    </label>
+                    <label>
+                        <p class="textForInput">Пульс (уд/хв):</p>
+                        <input type="text" class="inputText" placeholder="Пульс (уд/хв)" id="pulse" oninput="validateNumber(this)">
+                    </label>
+                    <label>
+                        <p class="textForInput">Глюкоза:</p>
+                        <input type="text" class="inputText" placeholder="Глюкоза" id="bloodSugar" oninput="validateNumber(this)">
+                    </label>
+                    <label>
+                        <p class="textForInput">Температура тіла:</p>
+                        <input type="text" class="inputText" placeholder="Температура тіла" id="bodyTemperature" oninput="validateNumber(this)">
+                    </label>
                     <textarea class="message" maxlength="1000" placeholder="Додаткова інформація яку ви б хотіли зазначити" id="additionalInformation" ></textarea>
                     <div class="txtConteiner">
                         <button class="sumbBtn" type="submit">Зберегти</button>

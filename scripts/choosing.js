@@ -565,7 +565,7 @@ document.getElementById('submitDocRequest').addEventListener('click', function(e
             })
                 .then(response => {
                     if (response.ok) {
-                        errorText.textContent = "Ви успішно записались до лікара";
+                        errorText.textContent = "Ви успішно записались до лікаря";
                         $("#errorWin").animate({top: '70'}, 400);
                         setTimeout(function() {
                             $("#errorWin").animate({top: '-100'}, 400);

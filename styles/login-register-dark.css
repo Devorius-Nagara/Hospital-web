@@ -568,6 +568,7 @@ header {
 label{
     display: flex;
     align-items: center;
+    width: 100%;
 }
 .cbBox{
     display: flex;
@@ -576,6 +577,7 @@ label{
 .rdTxt {
     color: #C9CBC0;
     margin-bottom: 0px;
+    text-align: end;
 }
 .inpHide{
     display: none;

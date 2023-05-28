@@ -79,7 +79,7 @@ $.ajax({
     },
     success: function (data) {
         logOnProf.classList.remove("hiding");
-        txtOfBtn.textContent = "Записатись до лікара";
+        txtOfBtn.textContent = "Записатись до лікаря";
         logged = true;
     },
     error: function (error) {

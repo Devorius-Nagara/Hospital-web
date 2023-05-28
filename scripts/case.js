@@ -122,12 +122,7 @@ fetch(host + '/CaseManagment', {
         allData = data
 
         function formattedDateF(dateF){
-            const dateCreateString = dateF;
-            const date = new Date(dateCreateString);
-            const day = date.getDate().toString().padStart(2, '0'); // день з ведучим нулем
-            const month = (date.getMonth() + 1).toString().padStart(2, '0'); // місяць з ведучим нулем
-            const year = date.getFullYear().toString();
-            const formattedDate = `${day}/${month}/${year}`;
+            let formattedDate = dateF.split(" ")[0];
             return formattedDate;
         }
 
@@ -144,7 +139,7 @@ fetch(host + '/CaseManagment', {
         document.getElementById('patientInfo').innerHTML =
             "<p class=\"titleText1\">Пацієнт</p>" +
             "<p class=\"simpleInfoText\">ПІБ: "+ data.patientModel.surname + " " + data.patientModel.name + " " + data.patientModel.middleName + "</p>" +
-            "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.patientModel.birthDate) + "</p>" +
+            "<p class=\"simpleInfoText\">Р.н: " + formattedDateF(data.patientModel.birthDate) + "</p>" +
             "<p class=\"simpleInfoText\">Стать: " + data.patientModel.gender + "</p>" +
             "<p class=\"titleText2\">Контактні дані:</p>" +
             "<p class=\"simpleInfoText\">" + data.patientModel.phoneNumber + "</p>" +
@@ -152,7 +147,7 @@ fetch(host + '/CaseManagment', {
         document.getElementById('doctorInfo').innerHTML =
             "<p class=\"titleText1\">Лікар</p>" +
             "<p class=\"simpleInfoText\">ПІБ: "+ data.doctorModel.surname + " " + data.doctorModel.name + " " + data.doctorModel.middleName + "</p>" +
-            "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.doctorModel.birthDate) + "</p>" +
+            "<p class=\"simpleInfoText\">Р.н: " + formattedDateF(data.doctorModel.birthDate) + "</p>" +
             "<p class=\"simpleInfoText\">Стать: " + data.doctorModel.gender + "</p>" +
             "<p class=\"titleText2\">Контактні дані:</p>" +
             "<p class=\"simpleInfoText\">" + data.doctorModel.phoneNumber + "</p>" +
@@ -384,12 +379,7 @@ document.getElementById('submitChanges').addEventListener('click', function (){
             allData = data
 
             function formattedDateF(dateF){
-                const dateCreateString = dateF;
-                const date = new Date(dateCreateString);
-                const day = date.getDate().toString().padStart(2, '0'); // день з ведучим нулем
-                const month = (date.getMonth() + 1).toString().padStart(2, '0'); // місяць з ведучим нулем
-                const year = date.getFullYear().toString();
-                const formattedDate = `${day}/${month}/${year}`;
+                let formattedDate = dateF.split(" ")[0];
                 return formattedDate;
             }
 
@@ -405,7 +395,7 @@ document.getElementById('submitChanges').addEventListener('click', function (){
             document.getElementById('patientInfo').innerHTML =
                 "<p class=\"titleText1\">Пацієнт</p>" +
                 "<p class=\"simpleInfoText\">ПІБ: "+ data.patientModel.surname + " " + data.patientModel.name + " " + data.patientModel.middleName + "</p>" +
-                "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.patientModel.birthDate) + "</p>" +
+                "<p class=\"simpleInfoText\">Р.н: " + formattedDateF(data.patientModel.birthDate) + "</p>" +
                 "<p class=\"simpleInfoText\">Стать: " + data.patientModel.gender + "</p>" +
                 "<p class=\"titleText2\">Контактні дані:</p>" +
                 "<p class=\"simpleInfoText\">" + data.patientModel.phoneNumber + "</p>" +
@@ -413,7 +403,7 @@ document.getElementById('submitChanges').addEventListener('click', function (){
             document.getElementById('doctorInfo').innerHTML =
                 "<p class=\"titleText1\">Лікар</p>" +
                 "<p class=\"simpleInfoText\">ПІБ: "+ data.doctorModel.surname + " " + data.doctorModel.name + " " + data.doctorModel.middleName + "</p>" +
-                "<p class=\"simpleInfoText\">Р\н: " + formattedDateF(data.doctorModel.birthDate) + "</p>" +
+                "<p class=\"simpleInfoText\">Р.н: " + formattedDateF(data.doctorModel.birthDate) + "</p>" +
                 "<p class=\"simpleInfoText\">Стать: " + data.doctorModel.gender + "</p>" +
                 "<p class=\"titleText2\">Контактні дані:</p>" +
                 "<p class=\"simpleInfoText\">" + data.doctorModel.phoneNumber + "</p>" +

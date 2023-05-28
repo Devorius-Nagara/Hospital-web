@@ -119,21 +119,14 @@ fetch(host + '/Appoiment', {
             createCaseData.officeId = data.officeId;
             createCaseData.patientId = data.patientId;
             dataInfo.textContent = data.date;
-            let patientBirthDate = new Date(data.patient.birthDate);
-            let patientAgeDifMs = Date.now() - patientBirthDate.getTime();
-            let patientAgeDate = new Date(patientAgeDifMs);
-            let patientAge = Math.abs(patientAgeDate.getUTCFullYear() - 1970);
-
-            let doctorBirthDate = new Date(data.doctor.birthDate);
-            let doctorAgeDifMs = Date.now() - doctorBirthDate.getTime();
-            let doctorAgeDate = new Date(doctorAgeDifMs);
-            let doctorAge = Math.abs(doctorAgeDate.getUTCFullYear() - 1970);
+            let patientAge = data.patient.birthDate.split(" ")[0];
+            let doctorAge = data.doctor.birthDate.split(" ")[0];
 
 
             document.getElementById('patientInfo').innerHTML =
                 "<p class=\"titleText1\">Пацієнт</p>" +
                 "<p class=\"simpleInfoText\">ПІБ: "+ data.patient.surname + " " + data.patient.name + " " + data.patient.middleName + "</p>" +
-                "<p class=\"simpleInfoText\">Вік: " + patientAge + " Років</p>" +
+                "<p class=\"simpleInfoText\">Р.н: " + patientAge + "</p>" +
                 "<p class=\"simpleInfoText\">Стать: " + data.patient.gender + "</p>" +
                 "<p class=\"titleText2\">Контактні дані:</p>" +
                 "<p class=\"simpleInfoText\">" + data.patient.phoneNumber + "</p>" +
@@ -141,7 +134,7 @@ fetch(host + '/Appoiment', {
             document.getElementById('doctorInfo').innerHTML =
                 "<p class=\"titleText1\">Лікар</p>" +
                 "<p class=\"simpleInfoText\">ПІБ: "+ data.doctor.surname + " " + data.doctor.name + " " + data.doctor.middleName + "</p>" +
-                "<p class=\"simpleInfoText\">Вік: " + doctorAge + " Років</p>" +
+                "<p class=\"simpleInfoText\">Р.н: " + doctorAge + "</p>" +
                 "<p class=\"simpleInfoText\">Стать: " + data.doctor.gender + "</p>" +
                 "<p class=\"titleText2\">Контактні дані:</p>" +
                 "<p class=\"simpleInfoText\">" + data.doctor.phoneNumber + "</p>" +
